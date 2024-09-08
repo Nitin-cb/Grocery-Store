@@ -1,0 +1,31 @@
+@keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px); /* Move up slightly */
+    }
+    100% {
+      transform: translateY(0); /* Return to original position */
+    }
+  }
+  
+  .floating-background {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .text-animation {
+    opacity: 0; /* Initially hidden */
+    animation: fadeInUp 1.5s ease-out forwards; /* Trigger fade-in and move-up */
+  }
