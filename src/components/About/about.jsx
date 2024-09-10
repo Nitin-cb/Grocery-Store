@@ -1,9 +1,10 @@
 import img2 from '../../assets/images/about.png';
+import Section from '../animated /section';
 import './about.css';
 
 export default function AboutPage() {
   return (
-    <section className="w-full bg-white py-16">
+    <Section className="w-full bg-white py-16">
       <div className="flex flex-col md:flex-row w-full min-h-[70vh]">
         {/* Left Text Section with animation */}
         <div className="flex flex-col justify-center items-start md:w-1/2 w-full text-left p-6 sm:p-8 md:p-16 space-y-4 text-animation">
@@ -33,6 +34,6 @@ export default function AboutPage() {
           }}
         ></div>
       </div>
-    </section>
+    </Section>
   );
 }

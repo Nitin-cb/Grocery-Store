@@ -1,5 +1,6 @@
 import AboutPage from "../components/About/about";
 import ContactUs from "../components/Contact-us/contactUs";
+import Features from "../components/Features/features";
 import HomePage from "../components/Home/home";
 import Layout from "../components/Layout";
 import StoreLocations from "../components/Our-stores/OurStores";
@@ -11,6 +12,7 @@ export function Home(){
 
             <HomePage/>
             <AboutPage/>
+            <Features/>
             <Promotions/>
             <StoreLocations/>
             <ContactUs/>
