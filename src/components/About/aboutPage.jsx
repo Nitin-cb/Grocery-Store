@@ -1,237 +1,357 @@
-import img2 from '../../assets/images/about.png';
+import img2 from '../../assets/images/OurVision.png';
+import img1 from '../../assets/images/bgaboutus.png';
 import './about.css';
+import { motion } from 'framer-motion';
 
 export default function AboutUsPage() {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative bg-green-600 text-white py-24 h-72 items-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://img.freepik.com/premium-vector/abstract-wave-turquoise-orange-gradient-wallpaper-background_172010-1175.jpg?w=996')",
-          }}
+      <motion.div
+        className="relative h-[500px] bg-cover bg-center flex items-center justify-center "
+        style={{
+          backgroundImage: `url(${img1})`, // Replace with your background image URL
+        }}
+        initial="hidden"
+        animate="visible"
+        variants={fadeInUp}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          className="bg-white bg-opacity-70 p-8 rounded-lg text-center shadow-lg "
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          transition={{ delay: 0.3, duration: 1 }}
         >
-          <div className="absolute inset-0 bg-green-600 bg-opacity-60"></div>
-        </div>
-        <div className="relative text-center max-w-3xl mx-auto px-6">
-          <h1 className="text-5xl font-bold underline">About Us</h1>
-        </div>
+          <h1 className="text-5xl font-bold text-gray-900">
+            Welcome to Al Madina
+          </h1>
+          <p className="mt-4 text-lg text-gray-700">
+            Your ultimate destination for quality products at affordable prices.
+          </p>
+        </motion.div>
+      </motion.div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+        {/* About Al Madina Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-slideUp"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <div className="order-last md:order-first">
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900 animate-fadeIn"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              About Al Madina
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600 animate-fadeIn"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              At Al Madina Retail, more than just a chain of stores; it stands
+              as a cornerstone of the communities we serve. Established in 1984,
+              Al Madina Retail has been committed to providing high-quality
+              products, exceptional service, and an unmatched shopping
+              experience to our valued customers in Fujairah.
+            </motion.p>
+          </div>
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md animate-fadeIn"
+            src="https://img.freepik.com/premium-photo/rack-shopping-mall-supermarket_601128-13212.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            alt="About Al Madina"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+        </motion.div>
+
+        {/* Our Story Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-photo/business-concept-with-team-close-up_23-2149151159.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            alt="Our Story"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <div>
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Our Story
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              The inception commenced 40 years ago with a vision to create a
+              shopping destination that caters to the diverse needs and
+              preferences of our Customer. What started as a small retail outlet
+              has grown into a trusted brand with multiple locations across
+              Fujairah
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Our Vision Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <div className="order-last md:order-first">
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Our Vision
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              "To become top choice for shopping and delivering outstanding
+              customer experiences, pioneering product selections, and impactful
+              community involvement."
+            </motion.p>
+          </div>
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-photo/business-strategy-success-target-goals_1421-33.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            alt="Our Vision"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+        </motion.div>
+
+        {/* Our Mission Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-vector/business-people-setting-company-target_1262-20615.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            alt="Our Mission"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <div>
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Our Mission
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              "To enrich the lives of our customers by providing a wide array of
+              high-quality products, personalized services, and memorable
+              shopping journeys. Our dedication lies in upholding integrity,
+              sustainability, and social responsibility while actively
+              contributing to the development and well-being of our
+              communities."
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Our Values Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <div className="order-last md:order-first">
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Our Values
+            </motion.h2>
+            <motion.ul
+              className="mt-4 text-lg text-gray-600 list-disc list-inside space-y-2"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              <li>
+                Integrity, quality, and customer satisfaction are at the heart
+                of everything we do.
+              </li>
+              <li>
+                Committed to upholding the highest standards of honesty,
+                transparency, and fairness in all interactions.
+              </li>
+              <li>
+                Dedication to quality extends to every product on shelves,
+                ensuring that customers receive nothing but the best.
+              </li>
+              <li>Teamwork: We work together to achieve our goals.</li>
+            </motion.ul>
+          </div>
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-photo/why-choose-us-question-with-paper-lightbulb_23-2148932316.jpg?ga=GA1.1.1031503010.1714190988" // Replace with your image URL
+            alt="Our Values"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+        </motion.div>
+
+        {/* Community Engagement Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-photo/closeup-group-people-holding-hands-psychotherapy-session_637285-10017.jpg?ga=GA1.1.1031503010.1714190988" // Replace with your image URL
+            alt="Community Engagement"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+          <div>
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Community Engagement
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              As a proud member of the community, we believe in giving back and
+              making a positive impact wherever we can. Through various
+              initiatives and partnerships, we support local businesses,
+              charities, and organizations, working together to build a brighter
+              future for all.
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Our promise Section */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          <div className="order-last md:order-first">
+            <motion.h2
+              className="text-4xl font-extrabold text-gray-900"
+              variants={fadeInUp}
+              transition={{ delay: 0.1, duration: 1 }}
+            >
+              Our Promise
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg text-gray-600"
+              variants={fadeInUp}
+              transition={{ delay: 0.3, duration: 1 }}
+            >
+              When you shop at Al Madina Retail, you can trust that you are
+              getting more than just groceries and household essentials; it's an
+              experience rooted in excellence, integrity, and care.
+            </motion.p>
+          </div>
+          <motion.img
+            className="w-full h-72 object-cover rounded-lg shadow-md"
+            src="https://img.freepik.com/free-photo/greeting_23-2148103954.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            alt="Our Vision"
+            variants={fadeInUp}
+            transition={{ delay: 0.3, duration: 1 }}
+          />
+        </motion.div>
       </div>
 
-      <section className="py-16 bg-white text-center items-center flex flex-col">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-gray-600">
-            We are passionate about creating seamless user experiences. Our
-            mission is to empower creators, designers, and developers to build
-            beautiful, intuitive interfaces that resonate with users.
-          </p>
-        </div>
-        <div className="m-6 p-10">
-          <img
-            src="https://img.freepik.com/free-vector/supermarket-aisle-perspective-view_107791-19303.jpg?t=st=1725811566~exp=1725815166~hmac=a0a645b2304f614022e31e9a2fb828063ac25bad5783f48880942fbaa8112536&w=1380"
-            alt=""
-          />
-        </div>
-      </section>
-
-      {/* our story */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 flex justify-center mb-10 lg:mb-0">
-            <img
-              src="https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // replace with the actual image URL
-              alt="About Us"
-              className="rounded-lg shadow-lg object-cover w-96 h-96"
-            />
+      {/* join us */}
+      <motion.div
+        className="relative bg-green-600 py-12 px-4 sm:px-6 lg:px-8 rounded-lg shadow-lg text-white mt-16"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeInUp}
+        transition={{ duration: 1 }}
+      >
+        <motion.div
+          className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0"
+          variants={fadeInUp}
+          transition={{ delay: 0.3, duration: 1 }}
+        >
+          <div className="text-center md:text-left">
+            <motion.h2
+              className="text-3xl font-extrabold text-white"
+              variants={fadeIn}
+              transition={{ duration: 1 }}
+            >
+              Join Us
+            </motion.h2>
+            <motion.p
+              className="mt-4 text-lg"
+              variants={fadeIn}
+              transition={{ delay: 0.2, duration: 1 }}
+            >
+              We invite you to explore our stores, discover the wide range of
+              products, and experience the difference of shopping with Al Madina
+              Retail. Whether stocking up on essentials or seeking something
+              special, we are here to serve you with a smile.
+            </motion.p>
           </div>
-          <div className="lg:w-1/2 lg:pl-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Driven by a passion for seamless user experiences, we've
-              meticulously curated pagedone to empower creators, designers, and
-              developers alike. Our mission is to provide a comprehensive
-              toolkit, enabling you to build intuitive, beautiful interfaces
-              that resonate with users on every interaction.
-            </p>
+          <div className="text-center md:text-right w-56">
+            <motion.a
+              href="#" // Link to a relevant page
+              className="h-16 bg-white items-center flex justify-center text-blue-600 font-bold p-2 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
+              variants={fadeInUp}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              Explore More
+            </motion.a>
           </div>
-        </div>
-      </section>
-      <section className="py-16 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center">
-          <div className="lg:w-1/2 lg:pl-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">About Us</h2>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Driven by a passion for seamless user experiences, we've
-              meticulously curated pagedone to empower creators, designers, and
-              developers alike. Our mission is to provide a comprehensive
-              toolkit, enabling you to build intuitive, beautiful interfaces
-              that resonate with users on every interaction.
-            </p>
-          </div>
-          <div className="lg:w-1/2 flex justify-center mb-10 lg:mb-0">
-            <img
-              src="https://images.unsplash.com/photo-1605371924599-2d0365da1ae0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" // replace with the actual image URL
-              alt="About Us"
-              className="rounded-lg shadow-lg object-cover w-96 h-96"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Our Values */}
-      <section className="py-16 bg-gray-50 text-center">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                Innovation
-              </h3>
-              <p className="text-gray-600">
-                We believe in pushing the boundaries of what’s possible and
-                constantly exploring new ideas.
-              </p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                Collaboration
-              </h3>
-              <p className="text-gray-600">
-                We thrive in teamwork, fostering an environment of shared growth
-                and mutual success.
-              </p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">
-                Excellence
-              </h3>
-              <p className="text-gray-600">
-                We are committed to delivering quality in every project and
-                ensuring customer satisfaction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Meet the Team */}
-      <section className="py-16 bg-white text-center">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12">
-            Meet the Team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Team Member */}
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <img
-                className="rounded-full w-32 h-32 mx-auto mb-4"
-                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // replace with team member's image
-                alt="Team Member"
-              />
-              <h3 className="text-2xl font-semibold text-gray-800">John Doe</h3>
-              <p className="text-gray-500">Founder & CEO</p>
-            </div>
-            {/* Repeat Team Members */}
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <img
-                className="rounded-full w-32 h-32 mx-auto mb-4"
-                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // replace with team member's image
-                alt="Team Member"
-              />
-              <h3 className="text-2xl font-semibold text-gray-800">
-                Jane Smith
-              </h3>
-              <p className="text-gray-500">CTO</p>
-            </div>
-            <div className="p-6 bg-white rounded-lg shadow-lg">
-              <img
-                className="rounded-full w-32 h-32 mx-auto mb-4"
-                src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=626&ext=jpg&ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // replace with team member's image
-                alt="Team Member"
-              />
-              <h3 className="text-2xl font-semibold text-gray-800">
-                Michael Lee
-              </h3>
-              <p className="text-gray-500">Lead Designer</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 lg:py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-8">
-            What our happy user says!
-          </h2>
-          <p className="text-lg text-gray-500 leading-8 mb-8 max-w-4xl mx-auto">
-            I have been using pagedone for several months now, and I must say
-            that it has made my life a lot easier. The platform's intuitive
-            interface and ease of use have allowed me to manage my finances more
-            effectively and make informed investment decisions. I particularly
-            like the product's auto-tracking feature, which has saved me a lot
-            of time and effort.
-          </p>
-          <div className="flex justify-center space-x-6">
-            <img
-              src="https://pagedone.io/asset/uploads/1704349534.png"
-              alt="Emily image"
-              className="w-16 h-16 rounded-full border-2 border-indigo-600"
-            />
-            <img
-              src="https://pagedone.io/asset/uploads/1704349572.png"
-              alt="Ethan image"
-              className="w-16 h-16 rounded-full border-2 border-indigo-600"
-            />
-            <img
-              src="https://pagedone.io/asset/uploads/1704349514.png"
-              alt="Olivia image"
-              className="w-16 h-16 rounded-full border-2 border-indigo-600"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 lg:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-12">
-            Our results in numbers
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white shadow-md rounded-lg p-8">
-              <p className="text-4xl font-bold text-purple-600 mb-2">240%</p>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Company growth
-              </h3>
-              <p className="text-gray-500">
-                Company's remarkable growth journey as we continually innovate
-                and drive towards new heights of success.
-              </p>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-8">
-              <p className="text-4xl font-bold text-purple-600 mb-2">175+</p>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Company growth
-              </h3>
-              <p className="text-gray-500">
-                Our very talented team members are the powerhouse of pagedone
-                and pillars of our success.
-              </p>
-            </div>
-            <div className="bg-white shadow-md rounded-lg p-8">
-              <p className="text-4xl font-bold text-purple-600 mb-2">625+</p>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Projects Completed
-              </h3>
-              <p className="text-gray-500">
-                We have accomplished more than 625 projects worldwide and we are
-                still counting many more.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
