@@ -54,7 +54,7 @@ export default function Promotions() {
           </p>
           <a
             href="/promotions"
-            className="inline-block mt-3 px-4 sm:px-6 py-1 sm:py-3 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
+            className="inline-block px-4 sm:px-6 py-1 sm:py-3 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
           >
             Know more
           </a>
