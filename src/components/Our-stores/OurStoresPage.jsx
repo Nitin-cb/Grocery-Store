@@ -1,8 +1,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules'; // Import Autoplay
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade'; // Optional effect
+import ProductScroll from './scroll';
 
 // Store data including images
 const storesData = [
@@ -32,7 +34,7 @@ const storesData = [
     address: '123 Rolla Street, Sharjah, UAE',
     phone: '+971 234 567 890',
     email: 'sharjah@almadina.com',
-    imageUrl: '/stores/Al Madina Hypermarket Br-2, Sharjah.jpg'
+    imageUrl: '/stores/AL MADINA SUPERMARKET FASEEL.jpg'
   },
   {
     branchName: 'Al Madina Supermarket - Ajman',
@@ -42,6 +44,8 @@ const storesData = [
     imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg'
   }
 ];
+
+
 
 const OurStores = () => {
   return (
@@ -53,11 +57,14 @@ const OurStores = () => {
 
         {/* Swiper for carousel */}
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}  // Add Autoplay module
           spaceBetween={20}
           slidesPerView={3} // Show 3 slides at a time
           navigation
+          autoplay={{ delay: 2000, disableOnInteraction: false }} // Autoplay with a 3-second delay
           loop
+          speed={800} // Smooth transition speed
+          effect="slide" // You can change to other effects like 'fade', 'coverflow', etc.
           breakpoints={{
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
@@ -94,6 +101,10 @@ const OurStores = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 my-12">
+          Our <span className="text-green-600">Products</span>
+        </h1>
+        <ProductScroll/>
 
         {/* Footer or Additional Info */}
         <div className="text-center mt-12">
