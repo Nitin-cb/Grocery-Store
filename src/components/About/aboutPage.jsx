@@ -1,5 +1,5 @@
-import img2 from '../../assets/images/OurVision.png';
-import img1 from '../../assets/images/bgaboutus.png';
+// import img2 from '../../assets/images/OurVision.png';
+import img1 from '/images/bgaboutus.png';
 import './about.css';
 import { motion } from 'framer-motion';
 

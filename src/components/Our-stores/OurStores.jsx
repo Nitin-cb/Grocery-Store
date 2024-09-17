@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import storeImage from '../../assets/images/World map.png';
+import storeImage from '/images/World map.png';
 
 export default function StoreLocations() {
   // Define the animation variants for the text coming from the right

@@ -1,6 +1,6 @@
-import img1 from '../../assets/images/homePage/promotions/Affordable Pricing.jpg';
-import img2 from '../../assets/images/homePage/promotions/Exclusive Offers.jpg';
-import img3 from '../../assets/images/homePage/promotions/Wide Product Range.jpg';
+import img1 from '/images/homePage/promotions/Affordable Pricing.jpg';
+import img2 from '/images/homePage/promotions/Exclusive Offers.jpg';
+import img3 from '/images/homePage/promotions/Wide Product Range.jpg';
 import AnimatedSection from '../animated /section';
 import Section from '../animated /section';
 

@@ -1,4 +1,4 @@
-import img1 from '../../assets/images/brooke-lark-08bOYnH_r_E-unsplash-removebg-preview.png';
+import img1 from '/images/brooke-lark-08bOYnH_r_E-unsplash-removebg-preview.png';
 import { useEffect, useState } from 'react';
 
 export default function HomePage() {
