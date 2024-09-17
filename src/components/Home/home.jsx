@@ -1,52 +1,89 @@
-import img1 from '/images/brooke-lark-08bOYnH_r_E-unsplash-removebg-preview.png';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-export default function HomePage() {
-  const [isLoaded, setIsLoaded] = useState(false);
+const carouselItems = [
+  { image: "/images/homePage/carousel/Header___A.jpg" },
+  { image: "/images/homePage/carousel/Header___B.jpg" },
+  { image: "/images/homePage/carousel/Header___D.jpg" },
+  { image: "/images/homePage/carousel/Header__C.jpg" }
+]
+
+export default function GroceryCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
 
   useEffect(() => {
-    setIsLoaded(true); 
-  }, []);
+    const timer = setInterval(() => {
+      setDirection(1)
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
+  const paginate = (newDirection) => {
+    setDirection(newDirection)
+    setCurrentIndex((prevIndex) => {
+      const newIndex = prevIndex + newDirection
+      if (newIndex < 0) return carouselItems.length - 1
+      if (newIndex >= carouselItems.length) return 0
+      return newIndex
+    })
+  }
 
   return (
-    <section className="w-full bg-gray-100 overflow-hidden">
-      <div className="flex flex-col md:flex-row w-full min-h-[70vh]">
-        <div
-          className={`flex flex-col justify-center items-start md:w-1/2 w-full text-left p-6 sm:p-8 md:p-16 space-y-4 
-            transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
-        >
-          <h1
-            className={`text-3xl sm:text-4xl md:text-6xl font-bold text-gray-800 leading-tight transform transition-all duration-1000 delay-300
-              ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-          >
-            Make a healthy life with <span className="text-green-600">Fresh</span> Grocery
-          </h1>
-          <p
-            className={`text-md sm:text-lg md:text-xl text-gray-600 transform transition-all mt-4 duration-1000 delay-500
-              ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0 '}`}
-          >
-            Fresh products, great deals, and convenient shopping right at your fingertips.
-          </p>
-          <a
-            href="/promotions"
-            className={`inline-block px-4 sm:px-6 py-2 sm:py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition
-              transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
-          >
-            Shop Now
-          </a>
-        </div>
-        <div
-          className={`md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center 
-            transition-transform duration-1000 ease-in-out transform ${isLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'}`}
-          style={{
-            backgroundImage: `url(${img1})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
+    <div className="relative w-full h-screen overflow-hidden">
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          variants={{
+            enter: (direction) => ({
+              x: direction > 0 ? '100%' : '-100%',
+              opacity: 0,
+            }),
+            center: {
+              zIndex: 1,
+              x: 0,
+              opacity: 1,
+            },
+            exit: (direction) => ({
+              zIndex: 0,
+              x: direction < 0 ? '100%' : '-100%',
+              opacity: 0,
+            }),
           }}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{
+            x: { type: "spring", stiffness: 300, damping: 30 },
+            opacity: { duration: 0.2 },
+          }}
+          className="absolute inset-0 w-full h-full"
         >
-        </div>
-      </div>
-    </section>
-  );
+          <div className="relative w-full h-full">
+            <img
+              src={carouselItems[currentIndex].image}
+              alt={`Image ${currentIndex + 1}`}
+              className="w-full h-full object-cover md:object-cover"
+            />
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      <button
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10 hover:bg-opacity-75 transition-all duration-300"
+        onClick={() => paginate(-1)}
+      >
+        <ChevronLeft className="w-6 h-6 text-gray-800" />
+      </button>
+      <button
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10 hover:bg-opacity-75 transition-all duration-300"
+        onClick={() => paginate(1)}
+      >
+        <ChevronRight className="w-6 h-6 text-gray-800" />
+      </button>
+    </div>
+  )
 }

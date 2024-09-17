@@ -2,7 +2,7 @@ import React from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import pdf from '/BACK TO SCHOOL __AL MADINA SUPERMARKET GURFA.pdf';
+import pdf from '/BACK TO SCHOOL __AL MADINA SUPERMARKET GURFA_compressed.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
