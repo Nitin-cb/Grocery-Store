@@ -1,11 +1,12 @@
 import { useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "../../lib/utils";
 import './parallax.css';
 
 function ParallaxScroll({ images, className }) {
   const gridRef = useRef(null);
+  const [visibleImages, setVisibleImages] = useState([]); // Track visible images for lazy loading
   const { scrollYProgress } = useScroll({
     container: gridRef,
     offset: ["start start", "end start"],
@@ -19,6 +20,31 @@ function ParallaxScroll({ images, className }) {
   const firstPart = images.slice(0, third);
   const secondPart = images.slice(third, 2 * third);
   const thirdPart = images.slice(2 * third);
+
+  // Lazy load images when they are in the viewport
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setVisibleImages((prev) => [...prev, entry.target.getAttribute('data-src')]);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    const imagesToObserve = document.querySelectorAll('img[data-src]');
+    imagesToObserve.forEach((img) => observer.observe(img));
+
+    return () => {
+      imagesToObserve.forEach((img) => observer.unobserve(img));
+    };
+  }, []);
 
   return (
     <div
@@ -36,8 +62,9 @@ function ParallaxScroll({ images, className }) {
               key={"grid-1" + idx}
             >
               <img
-                src={el}
-                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" // Enhanced styling
+                data-src={el} // Lazy loading attribute
+                src={visibleImages.includes(el) ? el : ""} // Load image only if visible
+                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 will-change-transform" // will-change hint for smoother transform
                 alt="thumbnail"
               />
             </motion.div>
@@ -47,8 +74,9 @@ function ParallaxScroll({ images, className }) {
           {secondPart.map((el, idx) => (
             <motion.div style={{ y: translateSecond }} key={"grid-2" + idx}>
               <img
-                src={el}
-                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" // Enhanced styling
+                data-src={el} // Lazy loading attribute
+                src={visibleImages.includes(el) ? el : ""} // Load image only if visible
+                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 will-change-transform"
                 alt="thumbnail"
               />
             </motion.div>
@@ -58,8 +86,9 @@ function ParallaxScroll({ images, className }) {
           {thirdPart.map((el, idx) => (
             <motion.div style={{ y: translateThird }} key={"grid-3" + idx}>
               <img
-                src={el}
-                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105" // Enhanced styling
+                data-src={el} // Lazy loading attribute
+                src={visibleImages.includes(el) ? el : ""} // Load image only if visible
+                className="h-96 w-full object-cover rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 will-change-transform"
                 alt="thumbnail"
               />
             </motion.div>
