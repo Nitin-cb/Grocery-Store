@@ -3,12 +3,12 @@ import { motion, useAnimation, useMotionValue } from 'framer-motion'
 
 // Sample product data (replace with your actual product data)
 const products = [
-  { id: 1, name: "Chana dal", image: "/src/assets/images/Our Stores/own products/chana dal.jpg" },
-  { id: 2, name: "Fresh Juice", image: "/src/assets/images/Our Stores/own products/Fresh Juice.jpg" },
-  { id: 3, name: "Masoor Dal", image: "/src/assets/images/Our Stores/own products/Masoor Dal.jpg" },
-  { id: 4, name: "Mokup", image: "/src/assets/images/Our Stores/own products/mokup.jpg"},
-  { id: 5, name: "Toor Dal", image: "/src/assets/images/Our Stores/own products/toor dal.jpg"},
-  { id: 6, name: "White Chickpeas", image: "/src/assets/images/Our Stores/own products/white chickpeas.jpg"},
+  { id: 1, name: "Chana dal", image: "/images/Our Stores/own products/chana dal.jpg" },
+  { id: 2, name: "Fresh Juice", image: "/images/Our Stores/own products/Fresh Juice.jpg" },
+  { id: 3, name: "Masoor Dal", image: "/public/images/Our Stores/own products/Masoor Dal.jpg" },
+  { id: 4, name: "Mokup", image: "/public/images/Our Stores/own products/mokup.jpg"},
+  { id: 5, name: "Toor Dal", image: "/public/images/Our Stores/own products/toor dal.jpg"},
+  { id: 6, name: "White Chickpeas", image: "/public/images/Our Stores/own products/white chickpeas.jpg"},
 ]
 
 export default function ProductScroll() {

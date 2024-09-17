@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import img1 from '../../assets/images/Contact.png';
+import img1 from '/images/Contact.png';
 import './contactUs.css';
 
 export default function ContactUs() {

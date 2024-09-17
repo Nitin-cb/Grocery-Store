@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import img1 from '../../assets/images/homePage/1.jpg';
-import img2 from '../../assets/images/homePage/2.jpeg';
-import img3 from '../../assets/images/homePage/3.jpeg';
+import img1 from '/images/homePage/1.jpg';
+import img2 from '/images/homePage/2.jpeg';
+import img3 from '/images/homePage/3.jpeg';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../animated /section';
 

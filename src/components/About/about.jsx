@@ -1,4 +1,4 @@
-import img2 from '../../assets/images/about.png';
+import img2 from '/images/about.png';
 import Section from '../animated /section';
 import './about.css';
 

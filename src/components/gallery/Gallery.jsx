@@ -3,18 +3,18 @@ import ParallaxScroll from "./ParallaxScroll";
 import Spinner from "../../lib/Spinner";
 
 const images = [
-  '/src/assets/images/Gallery/3Y1A4873.JPG',
-  '/src/assets/images/Gallery/3Y1A4877.JPG',
-  '/src/assets/images/Gallery/3Y1A4880.JPG',
-  '/src/assets/images/Gallery/3Y1A5011.JPG',
-  '/src/assets/images/Gallery/3Y1A5012.JPG',
-  '/src/assets/images/Gallery/3Y1A5023.JPG',
-  '/src/assets/images/Gallery/3Y1A5031.JPG',
-  '/src/assets/images/Gallery/3Y1A5037.JPG',
-  '/src/assets/images/Gallery/3Y1A5054.JPG',
-  '/src/assets/images/Gallery/3Y1A5059.JPG',
-  '/src/assets/images/Gallery/3Y1A5064.JPG',
-  '/src/assets/images/Gallery/3Y1A5072.JPG'
+  '/images/Gallery/3Y1A4873.JPG',
+  '/images/Gallery/3Y1A4877.JPG',
+  '/images/Gallery/3Y1A4880.JPG',
+  '/images/Gallery/3Y1A5011.JPG',
+  '/images/Gallery/3Y1A5012.JPG',
+  '/images/Gallery/3Y1A5023.JPG',
+  '/images/Gallery/3Y1A5031.JPG',
+  '/images/Gallery/3Y1A5037.JPG',
+  '/images/Gallery/3Y1A5054.JPG',
+  '/images/Gallery/3Y1A5059.JPG',
+  '/images/Gallery/3Y1A5064.JPG',
+  '/images/Gallery/3Y1A5072.JPG'
 ];
 
 export default function GalleryPage() {
