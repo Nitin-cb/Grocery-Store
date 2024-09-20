@@ -13,39 +13,37 @@ const storesData = [
     address: '123 Market Street, Gurfa, UAE',
     phone: '+971 123 456 789',
     email: 'gurfa@almadina.com',
-    imageUrl: '/stores/Al MADIAN SUPERMARKET GURFA.jpg'
+    imageUrl: '/stores/Al MADIAN SUPERMARKET GURFA.jpg',
   },
   {
     branchName: 'Al Madina Supermarket - Dubai',
     address: '456 Al Wasl Road, Dubai, UAE',
     phone: '+971 987 654 321',
     email: 'dubai@almadina.com',
-    imageUrl: '/stores/Al Madina Hypermarket Br-1, Bidya.jpg'
+    imageUrl: '/stores/Al Madina Hypermarket Br-1, Bidya.jpg',
   },
   {
     branchName: 'Al Madina Supermarket - Abu Dhabi',
     address: '789 Corniche Road, Abu Dhabi, UAE',
     phone: '+971 555 678 910',
     email: 'abudhabi@almadina.com',
-    imageUrl: '/stores/Al Madina Hypermarket, Dibba.jpg'
+    imageUrl: '/stores/Al Madina Hypermarket, Dibba.jpg',
   },
   {
     branchName: 'Al Madina Supermarket - Sharjah',
     address: '123 Rolla Street, Sharjah, UAE',
     phone: '+971 234 567 890',
     email: 'sharjah@almadina.com',
-    imageUrl: '/stores/AL MADINA SUPERMARKET FASEEL.jpg'
+    imageUrl: '/stores/AL MADINA SUPERMARKET FASEEL.jpg',
   },
   {
     branchName: 'Al Madina Supermarket - Ajman',
     address: '456 Ajman Street, Ajman, UAE',
     phone: '+971 876 543 210',
     email: 'ajman@almadina.com',
-    imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg'
-  }
+    imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg',
+  },
 ];
-
-
 
 const OurStores = () => {
   return (
@@ -57,7 +55,7 @@ const OurStores = () => {
 
         {/* Swiper for carousel */}
         <Swiper
-          modules={[Navigation, Autoplay]}  // Add Autoplay module
+          modules={[Navigation, Autoplay]} // Add Autoplay module
           spaceBetween={20}
           slidesPerView={3} // Show 3 slides at a time
           navigation
@@ -66,6 +64,7 @@ const OurStores = () => {
           speed={800} // Smooth transition speed
           effect="slide" // You can change to other effects like 'fade', 'coverflow', etc.
           breakpoints={{
+            270: { slidesPerView: 1 },
             640: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
@@ -94,7 +93,13 @@ const OurStores = () => {
                     <strong>Phone:</strong> {store.phone}
                   </p>
                   <p className="text-gray-600">
-                    <strong>Email:</strong> <a href={`mailto:${store.email}`} className="text-green-600">{store.email}</a>
+                    <strong>Email:</strong>{' '}
+                    <a
+                      href={`mailto:${store.email}`}
+                      className="text-green-600"
+                    >
+                      {store.email}
+                    </a>
                   </p>
                 </div>
               </div>
@@ -104,12 +109,13 @@ const OurStores = () => {
         <h1 className="text-4xl font-extrabold text-center text-gray-800 my-12">
           Our <span className="text-green-600">Products</span>
         </h1>
-        <ProductScroll/>
+        <ProductScroll />
 
         {/* Footer or Additional Info */}
         <div className="text-center mt-12">
           <p className="text-lg text-gray-600">
-            Find the store nearest to you and enjoy our wide range of products and services!
+            Find the store nearest to you and enjoy our wide range of products
+            and services!
           </p>
         </div>
       </div>

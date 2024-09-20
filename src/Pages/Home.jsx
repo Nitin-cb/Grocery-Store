@@ -1,22 +1,20 @@
-import AboutPage from "../components/About/about";
-import ContactUs from "../components/Contact-us/contactUs";
-import Features from "../components/Features/features";
-import HomePage from "../components/Home/home";
-import Layout from "../components/Layout";
-import StoreLocations from "../components/Our-stores/OurStores";
-import Promotions from "../components/promotions/promotion";
+import AboutPage from '../components/About/about';
+import ContactUs from '../components/Contact-us/contactUs';
+import Features from '../components/Features/features';
+import HomePage from '../components/Home/home';
+import Layout from '../components/Layout';
+import StoreLocations from '../components/Our-stores/OurStores';
+import Promotions from '../components/promotions/promotion';
 
-export function Home(){
-    return (
-        <div className='w-full'>
-
-            <HomePage/>
-            <AboutPage/>
-            <Features/>
-            <Promotions/>
-            <StoreLocations/>
-            <ContactUs/>
-          
-        </div>
-      )
+export function Home() {
+  return (
+    <div className="w-full">
+      <HomePage />
+      <AboutPage />
+      <Features />
+      <Promotions />
+      <StoreLocations />
+      <ContactUs />
+    </div>
+  );
 }
