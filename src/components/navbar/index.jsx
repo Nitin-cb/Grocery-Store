@@ -77,6 +77,7 @@ export default function Navbar() {
               <NavLink href="/promotions">Promotions</NavLink>
               <NavLink href="/stores">Our Stores</NavLink>
               <NavLink href="/gallery">Gallery</NavLink>
+              <NavLink href="/loyality">Loyality</NavLink>
               <NavLink href="/contact">Contact Us</NavLink>
 
               {/* Social Icons for Mobile */}
