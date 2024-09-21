@@ -1,35 +1,35 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const carouselItems = [
-  { image: "/images/homePage/carousel/Header___A.jpg" },
-  { image: "/images/homePage/carousel/Header___B.jpg" },
-  { image: "/images/homePage/carousel/Header___D.jpg" },
-  { image: "/images/homePage/carousel/Header__C.jpg" }
-]
+  { image: '/images/homePage/carousel/Header___A.jpg' },
+  { image: '/images/homePage/carousel/Header___B.jpg' },
+  { image: '/images/homePage/carousel/Header___D.jpg' },
+  { image: '/images/homePage/carousel/Header__C.jpg' },
+];
 
 export default function GroceryCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [direction, setDirection] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection(1)
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setDirection(1);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const paginate = (newDirection) => {
-    setDirection(newDirection)
+    setDirection(newDirection);
     setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + newDirection
-      if (newIndex < 0) return carouselItems.length - 1
-      if (newIndex >= carouselItems.length) return 0
-      return newIndex
-    })
-  }
+      const newIndex = prevIndex + newDirection;
+      if (newIndex < 0) return carouselItems.length - 1;
+      if (newIndex >= carouselItems.length) return 0;
+      return newIndex;
+    });
+  };
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
@@ -57,16 +57,16 @@ export default function GroceryCarousel() {
           animate="center"
           exit="exit"
           transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
+            x: { type: 'spring', stiffness: 300, damping: 30 },
             opacity: { duration: 0.2 },
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="relative w-full h-full">
+          <div className="relative w-full h-full ">
             <img
               src={carouselItems[currentIndex].image}
               alt={`Image ${currentIndex + 1}`}
-              className="w-full h-full object-cover md:object-cover"
+              className="w-full h-full object-cover md:object-cover shrink-0"
             />
           </div>
         </motion.div>
@@ -85,5 +85,5 @@ export default function GroceryCarousel() {
         <ChevronRight className="w-6 h-6 text-gray-800" />
       </button>
     </div>
-  )
+  );
 }

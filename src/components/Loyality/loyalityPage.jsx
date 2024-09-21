@@ -57,6 +57,7 @@ export default function Loyality() {
               className="w-full h-40 mx-auto rounded-lg"
             />
             <p className="mt-4 font-bold text-xl">BUY MORE</p>
+            <p className="mt-2">Exclusive offers and early access to sales</p>
           </div>
           <div className="text-center">
             <img
@@ -65,6 +66,7 @@ export default function Loyality() {
               className="w-full h-40 mx-auto rounded-lg"
             />
             <p className="mt-4 font-bold text-xl">EARN MORE</p>
+            <p className="mt-2">Earn points for every AED spent</p>
           </div>
           <div className="text-center">
             <img
@@ -73,6 +75,9 @@ export default function Loyality() {
               className="w-full h-40 mx-auto rounded-lg"
             />
             <p className="mt-4 font-bold text-xl">REDEEM</p>
+            <p className="mt-2">
+              Redeem points for discount, freebies and more
+            </p>
           </div>
         </div>
       </div>
