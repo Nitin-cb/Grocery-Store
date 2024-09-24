@@ -2,37 +2,72 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const carouselItems = [
-  { image: '/images/homePage/carousel/Header___A.jpg' },
-  { image: '/images/homePage/carousel/Header___B.jpg' },
-  { image: '/images/homePage/carousel/Header___D.jpg' },
-  { image: '/images/homePage/carousel/Header__C.jpg' },
-];
+const carouselItems = {
+  mobile: [
+    { image: '/images/homePage/carousel/Header___A_mobile.jpg' },
+    { image: '/images/homePage/carousel/Header___A_mobile.jpg' },
+    { image: '/images/homePage/carousel/Header___A_mobile.jpg' },
+    { image: '/images/homePage/carousel/Header___A_mobile.jpg' },
+  ],
+  tablet: [
+    { image: '/images/homePage/carousel/Header___A_tablet.jpg' },
+    { image: '/images/homePage/carousel/Header___A_tablet.jpg' },
+    { image: '/images/homePage/carousel/Header___A_tablet.jpg' },
+    { image: '/images/homePage/carousel/Header___A_tablet.jpg' },
+  ],
+  desktop: [
+    { image: '/images/homePage/carousel/Header___A.jpg' },
+    { image: '/images/homePage/carousel/Header___B.jpg' },
+    { image: '/images/homePage/carousel/Header___D.jpg' },
+    { image: '/images/homePage/carousel/Header__C.jpg' },
+  ],
+};
 
 export default function GroceryCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [screenSize, setScreenSize] = useState('desktop'); // Default to desktop
 
+  // Update screen size on mount and when window resizes
+  useEffect(() => {
+    const updateScreenSize = () => {
+      if (window.innerWidth <= 768) {
+        setScreenSize('mobile');
+      } else if (window.innerWidth <= 1024) {
+        setScreenSize('tablet');
+      } else {
+        setScreenSize('desktop');
+      }
+    };
+
+    updateScreenSize(); // Check on initial render
+    window.addEventListener('resize', updateScreenSize); // Update on resize
+    return () => window.removeEventListener('resize', updateScreenSize);
+  }, []);
+
+  // Auto-play carousel
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselItems.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % carouselItems[screenSize].length
+      );
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [screenSize]);
 
   const paginate = (newDirection) => {
     setDirection(newDirection);
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex + newDirection;
-      if (newIndex < 0) return carouselItems.length - 1;
-      if (newIndex >= carouselItems.length) return 0;
+      if (newIndex < 0) return carouselItems[screenSize].length - 1;
+      if (newIndex >= carouselItems[screenSize].length) return 0;
       return newIndex;
     });
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-[60vh] sm:h-[50vh] md:h-[60vh] lg:h-[100vh] overflow-hidden">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -62,11 +97,11 @@ export default function GroceryCarousel() {
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="relative w-full h-full ">
+          <div className="relative w-full h-full">
             <img
-              src={carouselItems[currentIndex].image}
+              src={carouselItems[screenSize][currentIndex].image}
               alt={`Image ${currentIndex + 1}`}
-              className="w-full h-full object-cover md:object-cover shrink-0"
+              className="w-full h-auto max-h-full object-cover"
             />
           </div>
         </motion.div>

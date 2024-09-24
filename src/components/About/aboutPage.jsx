@@ -1,5 +1,8 @@
 // import img2 from '../../assets/images/OurVision.png';
 import img1 from '/images/bgaboutus.png';
+import certi1 from '/images/certificate1.jpg';
+import certi2 from '/images/certificate2.jpg';
+
 import './about.css';
 import { motion } from 'framer-motion';
 
@@ -305,6 +308,71 @@ export default function AboutUsPage() {
             variants={fadeInUp}
             transition={{ delay: 0.3, duration: 1 }}
           />
+        </motion.div>
+
+        {/* certificate section*/}
+        <div className="text-center mb-6">
+          <motion.h1
+            className="text-4xl font-bold text-gray-900"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInUp}
+            transition={{ duration: 1 }}
+          >
+            HACCP Certification for Al Madina Supermarket L.L.C
+          </motion.h1>
+        </div>
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+          initial="hidden"
+          whileInView="visible"
+          variants={fadeInUp}
+          transition={{ duration: 1 }}
+        >
+          {/* First Certificate Image */}
+          <div className="text-center">
+            <motion.img
+              className="w-full  object-cover rounded-lg shadow-md"
+              src={certi2} // Replace with your first certificate image URL
+              alt="Certificate 1"
+              variants={fadeInUp}
+              transition={{ delay: 0.2, duration: 1 }}
+            />
+            <motion.p
+              className="mt-6 text-gray-600"
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInUp}
+              transition={{ duration: 1 }}
+            >
+              <b>Al Madina Supermarket L.L.C</b>
+              <br /> Gurfa Road, Near Fujairah fish market, Fujairah, United
+              Arab Emirates
+            </motion.p>
+          </div>
+
+          {/* Second Certificate Image */}
+          <div className="text-center">
+            <motion.img
+              className="w-full object-cover rounded-lg shadow-md"
+              src={certi1} // Replace with your first certificate image URL
+              alt="Certificate 2"
+              variants={fadeInUp}
+              transition={{ delay: 0.4, duration: 1 }}
+            />
+            <motion.p
+              className="mt-6 text-gray-600"
+              initial="hidden"
+              whileInView="visible"
+              variants={fadeInUp}
+              transition={{ duration: 1 }}
+            >
+              <b>Al Madina Supermarket L.L.C</b> <br />
+              Gurfa Road, Near Fujairah fish market, Fujairah, United Arab
+              Emirates
+            </motion.p>
+          </div>
         </motion.div>
       </div>
 

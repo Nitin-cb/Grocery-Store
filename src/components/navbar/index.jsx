@@ -21,7 +21,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-6">
             <NavLink href="/">Home</NavLink>
             <NavLink href="/about">About Us</NavLink>
             <NavLink href="/promotions">Promotions</NavLink>
@@ -32,7 +32,7 @@ export default function Navbar() {
           </div>
 
           {/* Social Icons for Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <SocialIcon
               href="https://www.instagram.com/your-instagram"
               aria-label="Instagram"
@@ -45,7 +45,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               className="text-gray-600 hover:text-gray-800 focus:outline-none"
               aria-label="Menu"
@@ -70,7 +70,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <div className="flex flex-col space-y-4 mt-4">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About Us</NavLink>
