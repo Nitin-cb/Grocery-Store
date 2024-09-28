@@ -6,7 +6,7 @@ export function NavLink({ href, children }) {
     >
       {children}
       {/* Underline animation */}
-      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
+      <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-green-500 scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
     </a>
   );
 }

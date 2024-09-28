@@ -31,9 +31,9 @@ export default function Features() {
   return (
     <AnimatedSection className="relative flex items-center justify-between w-full mx-auto h-[400px] overflow-hidden shadow-lg bg-[#ADBBDA] p-6">
   {/* Combined Title and Text Section */}
-  <div className="w-1/2 h-full flex flex-col justify-center items-center rounded-lg p-4">
+  <div className="w-3/4 h-full flex flex-col justify-center items-center rounded-lg p-4">
     {/* Constant Title */}
-    <h1 className="text-4xl  font-bold text-white mb-4">
+    <h1 className="text-4xl font-bold text-white mb-4">
       In Our Stores, We Offer
     </h1>
 
@@ -44,7 +44,7 @@ export default function Features() {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
       transition={{ duration: 0.5 }}
-      className="text-white  px-4"
+      className="text-white  "
     >
       <h2 className="text-4xl text-gray-700 capitalize font-semibold">
         {images[currentIndex].text}
@@ -56,7 +56,7 @@ export default function Features() {
       <div className="w-6"></div> {/* Adds a space between the two sections */}
 
       {/* Carousel section on the right */}
-      <div className="relative w-1/3 flex rounded-sm items-center justify-center h-full  overflow-hidden">
+      <div className="relative w-1/3 flex rounded-md items-center justify-center h-full  overflow-hidden">
         <AnimatePresence initial={false} custom={currentIndex}>
           <motion.div
             key={currentIndex}
