@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Element, scroller, scrollSpy } from 'react-scroll';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 import AboutPage from '../components/About/about';
 import ContactUs from '../components/Contact-us/contactUs';
 import Features from '../components/Features/features';
@@ -14,13 +14,15 @@ const sections = [
   { name: 'Features', component: <Features /> },
   { name: 'Promotions', component: <Promotions /> },
   { name: 'Stores', component: <StoreLocations /> },
-  { name: 'Contact', component: <ContactUs /> }
+  { name: 'Contact', component: <ContactUs /> },
 ];
 
 export function Home() {
   const [activeSection, setActiveSection] = useState(0);
-  const [hoveredSection, setHoveredSection] = useState(null); // New state for hovered section
+  const [hoveredSection, setHoveredSection] = useState(null);
+  const [scrollDirection, setScrollDirection] = useState('down'); // Track scroll direction
   const scrollContainerRef = useRef(null);
+  let lastScrollTop = 0; // Initialize the last scroll position
 
   useEffect(() => {
     scrollSpy.update();
@@ -31,6 +33,14 @@ export function Home() {
         const windowHeight = window.innerHeight;
         const index = Math.round(scrollPosition / windowHeight);
         setActiveSection(index);
+
+        // Detect scroll direction
+        if (scrollPosition > lastScrollTop) {
+          setScrollDirection('down'); // Scrolling down
+        } else {
+          setScrollDirection('up'); // Scrolling up
+        }
+        lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition; // For Mobile or negative scrolling
       }
     };
 
@@ -51,7 +61,7 @@ export function Home() {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      containerId: 'scrollContainer'
+      containerId: 'scrollContainer',
     });
   };
 
@@ -62,11 +72,10 @@ export function Home() {
         {sections.map((section, index) => (
           <div
             key={index}
-            className="relative flex items-center" // Wrapper for the dot and text
-            onMouseEnter={() => setHoveredSection(index)} // Set hovered section
-            onMouseLeave={() => setHoveredSection(null)}  // Clear hovered section
+            className="relative flex items-center"
+            onMouseEnter={() => setHoveredSection(index)}
+            onMouseLeave={() => setHoveredSection(null)}
           >
-            {/* Section Name Tooltip */}
             {hoveredSection === index && (
               <span className="absolute right-8 px-3 py-1 bg-gray-800 text-white text-sm rounded-md shadow-lg transition-all duration-300">
                 {section.name}
@@ -76,14 +85,12 @@ export function Home() {
             <button
               onClick={() => handleDotClick(index)}
               className={`w-4 h-4 rounded-full transition-all duration-300 transform focus:outline-none
-                ${activeSection === index 
-                  ? 'bg-blue-500 scale-125' 
-                  : 'bg-gray-300 hover:bg-gray-400'
+                ${
+                  activeSection === index
+                    ? 'bg-blue-500 scale-125'
+                    : 'bg-gray-300 hover:bg-gray-400'
                 }
-                ${hoveredSection === index 
-                  ? 'scale-150'  // Scale up on hover
-                  : 'scale-100'
-                }
+                ${hoveredSection === index ? 'scale-150' : 'scale-100'}
               `}
               aria-label={`Navigate to ${section.name}`}
             />
@@ -91,9 +98,9 @@ export function Home() {
         ))}
       </div>
 
-      {/* Sections with scroll snapping and reveal animation */}
-      <div 
-        className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth" 
+      {/* Sections with scroll snapping and slide-in/out transition effect */}
+      <div
+        className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
         id="scrollContainer"
         ref={scrollContainerRef}
       >
@@ -103,18 +110,30 @@ export function Home() {
             name={section.name}
             className="snap-start h-screen flex items-center justify-center"
           >
-            {/* Adding Framer Motion for reveal effect */}
+            {/* Adding Framer Motion for bidirectional slide-in/out effect */}
             <motion.div
               className="w-full h-full flex items-center justify-center"
-              initial={{ opacity: 0, translateY: 50 }} 
-              animate={{ opacity: 1, translateY: 0 }}   
-              exit={{ opacity: 0, translateY: -50 }}     
-              transition={{
-                duration: 0.8,
-                ease: [0.43, 0.13, 0.23, 0.96]
+              initial={{
+                opacity: 0,
+                translateX: scrollDirection === 'down' ? -100 : 100, // Start from the left when scrolling down, right when scrolling up
               }}
-              whileInView={{ translateY: 0 }}           
-              viewport={{ once: true }}                 
+              whileInView={{
+                opacity: 1,
+                translateX: 0, // Slide to its position
+                transition: {
+                  duration: 1.8,
+                  ease: [0.43, 0.13, 0.23, 0.96],
+                },
+              }}
+              exit={{
+                opacity: 0,
+                translateX: scrollDirection === 'down' ? 100 : -100, // Exit to the right when scrolling down, left when scrolling up
+              }}
+              transition={{
+                duration: 1.8,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              viewport={{ once: false, amount: 0.2 }}
             >
               {section.component}
             </motion.div>
