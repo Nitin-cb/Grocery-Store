@@ -29,7 +29,7 @@ export default function Features() {
   }, []);
 
   return (
-    <AnimatedSection className="relative flex flex-col lg:flex-row items-center justify-between w-full mx-auto min-h-[400px] overflow-hidden shadow-lg bg-[#ADBBDA] p-4 sm:p-6">
+    <AnimatedSection className="relative flex flex-col lg:flex-row items-center justify-between w-full mx-auto  overflow-hidden shadow-lg bg-[#ADBBDA] p-4 sm:p-6">
       {/* Combined Title and Text Section */}
       <div className="w-full lg:w-2/3 flex flex-col justify-center items-center text-center lg:text-left lg:items-start rounded-lg p-4 mb-6 lg:mb-0">
         {/* Constant Title */}

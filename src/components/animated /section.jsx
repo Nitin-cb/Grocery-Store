@@ -2,8 +2,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-
-
 export default function AnimatedSection({
   children,
   className = '',
@@ -16,10 +14,10 @@ export default function AnimatedSection({
   })
 
   const directionOffset = {
-    up: { y: 50 },
-    down: { y: -50 },
-    left: { x: 50 },
-    right: { x: -50 },
+    up: { y: 20 },
+    down: { y: -20 },
+    left: { x: 20 },
+    right: { x: -20 },
   }
 
   const initialAnimation = {
@@ -33,11 +31,11 @@ export default function AnimatedSection({
       initial={initialAnimation}
       animate={inView ? { opacity: 1, x: 0, y: 0 } : initialAnimation}
       transition={{
-        duration: 0.8,
+        duration: 0.6,
         delay: delay,
         ease: [0.25, 0.1, 0.25, 1], // Improved easing curve for smoother animation
       }}
-      className={`overflow-hidden ${className}`}
+      className={`w-full h-full ${className}`}
     >
       {children}
     </motion.section>

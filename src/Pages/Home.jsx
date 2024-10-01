@@ -20,12 +20,17 @@ const sections = [
 export function Home() {
   const [activeSection, setActiveSection] = useState(0);
   const [hoveredSection, setHoveredSection] = useState(null);
-  const [scrollDirection, setScrollDirection] = useState('down'); // Track scroll direction
+  const [scrollDirection, setScrollDirection] = useState('down');
+  const [isMobile, setIsMobile] = useState(false);
   const scrollContainerRef = useRef(null);
-  let lastScrollTop = 0; // Initialize the last scroll position
+  let lastScrollTop = 0;
 
   useEffect(() => {
     scrollSpy.update();
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
     const handleScroll = () => {
       if (scrollContainerRef.current) {
@@ -34,13 +39,8 @@ export function Home() {
         const index = Math.round(scrollPosition / windowHeight);
         setActiveSection(index);
 
-        // Detect scroll direction
-        if (scrollPosition > lastScrollTop) {
-          setScrollDirection('down'); // Scrolling down
-        } else {
-          setScrollDirection('up'); // Scrolling up
-        }
-        lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition; // For Mobile or negative scrolling
+        setScrollDirection(scrollPosition > lastScrollTop ? 'down' : 'up');
+        lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
       }
     };
 
@@ -49,10 +49,14 @@ export function Home() {
       scrollContainer.addEventListener('scroll', handleScroll);
     }
 
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
     return () => {
       if (scrollContainer) {
         scrollContainer.removeEventListener('scroll', handleScroll);
       }
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -67,36 +71,38 @@ export function Home() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Dot indicator */}
-      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 z-50">
-        {sections.map((section, index) => (
-          <div
-            key={index}
-            className="relative flex items-center"
-            onMouseEnter={() => setHoveredSection(index)}
-            onMouseLeave={() => setHoveredSection(null)}
-          >
-            {hoveredSection === index && (
-              <span className="absolute right-8 px-3 py-1 bg-gray-800 text-white text-sm rounded-md shadow-lg transition-all duration-300">
-                {section.name}
-              </span>
-            )}
+      {/* Dot indicator - hidden on mobile */}
+      {!isMobile && (
+        <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 z-50">
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className="relative flex items-center"
+              onMouseEnter={() => setHoveredSection(index)}
+              onMouseLeave={() => setHoveredSection(null)}
+            >
+              {hoveredSection === index && (
+                <span className="absolute right-8 px-3 py-1 bg-gray-800 text-white text-xs sm:text-sm rounded-md shadow-lg transition-all duration-300">
+                  {section.name}
+                </span>
+              )}
 
-            <button
-              onClick={() => handleDotClick(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-300 transform focus:outline-none
-                ${
-                  activeSection === index
-                    ? 'bg-blue-500 scale-125'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }
-                ${hoveredSection === index ? 'scale-150' : 'scale-100'}
-              `}
-              aria-label={`Navigate to ${section.name}`}
-            />
-          </div>
-        ))}
-      </div>
+              <button
+                onClick={() => handleDotClick(index)}
+                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 transform focus:outline-none
+                  ${
+                    activeSection === index
+                      ? 'bg-blue-500 scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }
+                  ${hoveredSection === index ? 'scale-150' : 'scale-100'}
+                `}
+                aria-label={`Navigate to ${section.name}`}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* Sections with scroll snapping and slide-in/out transition effect */}
       <div
@@ -108,29 +114,28 @@ export function Home() {
           <Element
             key={index}
             name={section.name}
-            className="snap-start h-screen flex items-center justify-center"
+            className="snap-start min-h-screen sm:h-auto flex items-center justify-center"
           >
-            {/* Adding Framer Motion for bidirectional slide-in/out effect */}
             <motion.div
               className="w-full h-full flex items-center justify-center"
               initial={{
                 opacity: 0,
-                translateX: scrollDirection === 'down' ? -100 : 100, // Start from the left when scrolling down, right when scrolling up
+                translateX: scrollDirection === 'down' ? -50 : 50,
               }}
               whileInView={{
                 opacity: 1,
-                translateX: 0, // Slide to its position
+                translateX: 0,
                 transition: {
-                  duration: 1.8,
+                  duration: 1.2,
                   ease: [0.43, 0.13, 0.23, 0.96],
                 },
               }}
               exit={{
                 opacity: 0,
-                translateX: scrollDirection === 'down' ? 100 : -100, // Exit to the right when scrolling down, left when scrolling up
+                translateX: scrollDirection === 'down' ? 50 : -50,
               }}
               transition={{
-                duration: 1.8,
+                duration: 1.2,
                 ease: [0.43, 0.13, 0.23, 0.96],
               }}
               viewport={{ once: false, amount: 0.2 }}

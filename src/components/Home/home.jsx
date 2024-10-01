@@ -67,7 +67,7 @@ export default function GroceryCarousel() {
   };
 
   return (
-    <div className="relative w-full h-[60vh] sm:h-[50vh] md:h-[60vh] lg:h-[100vh] overflow-hidden">
+    <div className="relative w-full h-[100vh] overflow-hidden">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
