@@ -1,5 +1,5 @@
 import React from 'react';
-import {   Linkedin,    Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -37,15 +37,15 @@ const Footer = () => {
           {/* Location Map */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Our Location</h3>
-            <div className="w-full h-48 bg-gray-300">
-              <img src="/api/placeholder/300/200" alt="Location Map" className="w-full h-full object-cover" />
+            <div className="w-full h-48 bg-gray-300 rounded-lg overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin" width="800" height="600"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>
 
         {/* Social Media Icons */}
         <div className="mt-8 flex justify-center space-x-4">
-          {[  Linkedin,    Mail].map((Icon, index) => (
+          {[Linkedin, Mail].map((Icon, index) => (
             <a key={index} href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
               <Icon size={24} />
             </a>

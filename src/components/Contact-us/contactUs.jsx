@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import img1 from '/images/Contact.png';
 import './contactUs.css';
+import AnimatedSection from '../animated /section';
 
 export default function ContactUs() {
   // Define the animation variants
@@ -10,7 +11,7 @@ export default function ContactUs() {
   };
 
   return (
-    <section className="w-full bg-white py-16">
+    <AnimatedSection className="w-full bg-white py-16">
       <div className="flex flex-col md:flex-row w-full min-h-[70vh]">
         
         {/* Left Text Section with animation */}
@@ -47,6 +48,6 @@ export default function ContactUs() {
         >
         </div>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
