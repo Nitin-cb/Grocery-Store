@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import cardimg1 from '/images/loyalityCard/For Ahlan Paged Header.jpg';
 import cardimg2 from '/images/loyalityCard/Ahlan Loyalty Card.png';
 import cardimg3 from '/images/loyalityCard/BUY MORE.jpg';
@@ -7,103 +8,122 @@ import b1 from '/images/loyalityCard/b1.png';
 import b2 from '/images/loyalityCard/b2.png';
 import b3 from '/images/loyalityCard/b3.png';
 import b4 from '/images/loyalityCard/b4.png';
+
 export default function Loyality() {
   return (
     <div className="bg-gray-50">
       {/* Top section with Image */}
       <div
-        className="relative h-[700px] bg-cover bg-center flex items-center justify-center "
+        className="relative h-[700px] bg-cover bg-center flex items-center justify-center"
         style={{
-          backgroundImage: `url(${cardimg1})`, // Replace with your background image URL
+          backgroundImage: `url(${cardimg1})`,
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
+        <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-white text-4xl font-semibold">
-              Buy More... Earn More...
+          <motion.div
+            className="text-center max-w-3xl px-6"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-white text-5xl font-semibold leading-tight">
+              <span className="text-yellow-400">Buy More...</span> <br />
+              <span className="text-orange-500">Earn More...</span>
             </h1>
-            <p className="text-white mt-4">
-              {/* Earn points and redeem them on your next shopping spree. */}
-              “Ahlan Madina” is a Loyalty Mobile Application program, points
-              will be added to your Account at the time of purchase. <br />
-              This app used for viewing total Points, Nearest Outlasts with
-              Location and Contact details and Promotional Flyers
+            <p className="text-white mt-4 text-lg">
+              “<span className="font-bold text-yellow-400">Ahlan Madina</span>” is a Loyalty Mobile Application program. Points will be added to your account at the time of purchase. <br />
+              This app is used for viewing total Points, Nearest Outlets with Location and Contact details, and Promotional Flyers.
             </p>
-          </div>
+            <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+              Join the Loyalty Program
+            </button>
+          </motion.div>
         </div>
       </div>
 
       {/* Loyalty Card Section */}
-      <div className="text-center py-12 flex items-center flex-wrap justify-evenly">
+      <motion.div
+        className="text-center py-12 flex items-center flex-wrap justify-evenly"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         <p className="text-gray-700 text-xl">
-          This Loyalty Rewards program allows the Ahlan Card holders to earn
-          points
+          This Loyalty Rewards program allows Ahlan Card holders to earn points
           <br /> and redeem shopping vouchers and enjoy their rewards every day.
         </p>
-        <div className="flex justify-center ">
-          <img src={cardimg2} alt="Loyalty Card" className="w-full h-auto" />
+        <div className="flex justify-center">
+          <img src={cardimg2} alt="Loyalty Card" className="w-full h-auto max-w-sm" />
         </div>
-      </div>
+      </motion.div>
 
       {/* Customer Loyalty Programs */}
-      <div className="text-center py-12 bg-white">
-        <h2 className="text-3xl font-semibold">Customer Loyalty Programs</h2>
-        <div className="flex justify-center mt-8 space-x-8">
-          <div className="text-center">
-            <img
-              src={cardimg3}
-              alt="Buy More"
-              className="w-full h-40 mx-auto rounded-lg"
-            />
-            <p className="mt-4 font-bold text-xl">BUY MORE</p>
-            <p className="mt-2">Exclusive offers and early access to sales</p>
-          </div>
-          <div className="text-center">
-            <img
-              src={cardimg4}
-              alt="Earn More"
-              className="w-full h-40 mx-auto rounded-lg"
-            />
-            <p className="mt-4 font-bold text-xl">EARN MORE</p>
-            <p className="mt-2">Earn points for every AED spent</p>
-          </div>
-          <div className="text-center">
-            <img
-              src={cardimg5}
-              alt="Redeem"
-              className="w-full h-40 mx-auto rounded-lg"
-            />
-            <p className="mt-4 font-bold text-xl">REDEEM</p>
-            <p className="mt-2">
-              Redeem points for discount, freebies and more
-            </p>
-          </div>
-        </div>
+      <motion.div
+  className="text-center py-12 bg-white"
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+>
+  <h2 className="text-4xl font-semibold text-gray-800">Customer Loyalty Programs</h2>
+  <div className="flex flex-wrap justify-center mt-8 gap-6">
+    {/* Buy More Card */}
+    <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300">
+      <img src={cardimg3} alt="Buy More" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="font-bold text-xl text-gray-800">BUY MORE</h3>
+        <p className="mt-2 text-gray-600">Exclusive offers and early access to sales</p>
       </div>
+    </div>
+
+    {/* Earn More Card */}
+    <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300">
+      <img src={cardimg4} alt="Earn More" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="font-bold text-xl text-gray-800">EARN MORE</h3>
+        <p className="mt-2 text-gray-600">Earn points for every AED spent</p>
+      </div>
+    </div>
+
+    {/* Redeem Card */}
+    <div className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300">
+      <img src={cardimg5} alt="Redeem" className="w-full h-48 object-cover" />
+      <div className="p-6">
+        <h3 className="font-bold text-xl text-gray-800">REDEEM</h3>
+        <p className="mt-2 text-gray-600">Redeem points for discounts, freebies, and more</p>
+      </div>
+    </div>
+  </div>
+</motion.div>
+
 
       {/* Benefits Section */}
-      <div className="text-center py-12 bg-gray-50">
-        <h2 className="text-2xl font-semibold">Benefits</h2>
+      <motion.div
+        className="text-center py-12 bg-gray-50"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
+        <h2 className="text-3xl font-semibold text-gray-800">Benefits</h2>
         <div className="flex justify-center mt-8 space-x-8">
           <div className="text-center">
             <img src={b1} alt="Discounts" className="w-16 h-16 mx-auto" />
-            <p className="mt-4">Earn point on every purchase</p>
+            <p className="mt-4 text-gray-600">Earn points on every purchase</p>
           </div>
           <div className="text-center">
             <img src={b2} alt="Rewards" className="w-16 h-16 mx-auto" />
-            <p className="mt-4">Exclusive Offers</p>
+            <p className="mt-4 text-gray-600">Exclusive Offers</p>
           </div>
           <div className="text-center">
             <img src={b3} alt="Rewards" className="w-16 h-16 mx-auto" />
-            <p className="mt-4">Create an account & be logged in</p>
+            <p className="mt-4 text-gray-600">Create an account & stay logged in</p>
           </div>
           <div className="text-center">
             <img src={b4} alt="Rewards" className="w-16 h-16 mx-auto" />
-            <p className="mt-4">Earn point on every purchase</p>
+            <p className="mt-4 text-gray-600">More points, more rewards</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

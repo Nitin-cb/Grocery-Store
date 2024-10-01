@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Instagram, Phone } from 'lucide-react';
+import { Phone } from 'lucide-react';
+import { InstagramOutlined } from '@ant-design/icons';
 import { NavLink } from './NavLink';
 import { SocialIcon } from './SocialIcons';
 import logo from '../../assets/images/LOGO.png';
@@ -12,9 +13,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-gray-200">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-white border-gray-200 relative z-50 "> {/* Ensure z-index is set */}
+      <div className="container mx-auto px-4 ">
+        <div className="flex justify-between items-center h-20 ">
           {/* Logo */}
           <div className="flex items-center w-60">
             <img className="w-full h-auto" src={logo} alt="Logo" />
@@ -37,7 +38,7 @@ export default function Navbar() {
               href="https://www.instagram.com/your-instagram"
               aria-label="Instagram"
             >
-              <Instagram size={20} />
+              <InstagramOutlined width={20} height={20} />
             </SocialIcon>
             <SocialIcon href="tel:your-phone-number" aria-label="Phone">
               <Phone size={20} />
@@ -70,8 +71,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden">
-            <div className="flex flex-col space-y-4 mt-4">
+          <div className="lg:hidden absolute w-full top-14 left-0 py-3 bg-white shadow-lg z-40">
+            <div className="flex flex-col space-y-4 mt-4 px-6">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About Us</NavLink>
               <NavLink href="/promotions">Promotions</NavLink>
@@ -86,7 +87,7 @@ export default function Navbar() {
                   href="https://www.instagram.com/your-instagram"
                   aria-label="Instagram"
                 >
-                  <Instagram size={20} />
+                  <InstagramOutlined size={20} />
                 </SocialIcon>
                 <SocialIcon href="tel:your-phone-number" aria-label="Phone">
                   <Phone size={20} />

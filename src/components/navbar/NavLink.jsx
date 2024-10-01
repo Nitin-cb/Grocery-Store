@@ -2,7 +2,7 @@ export function NavLink({ href, children }) {
   return (
     <a
       href={href}
-      className="relative text-gray-600 hover:text-gray-900 font-medium transition duration-300 ease-in-out transform hover:scale-105 group"
+      className="relative text-gray-600 hover:text-gray-900 font-medium transition duration-300 ease-in-out transform  group"
     >
       {children}
       {/* Underline animation */}
