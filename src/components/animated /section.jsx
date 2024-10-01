@@ -5,7 +5,6 @@ import { useInView } from 'react-intersection-observer'
 export default function AnimatedSection({
   children,
   className = '',
-  animationDirection = 'up',
   delay = 0,
 }) {
   const [ref, inView] = useInView({
@@ -13,28 +12,29 @@ export default function AnimatedSection({
     threshold: 0.1, // Trigger when 10% of the component is visible
   })
 
-  const directionOffset = {
-    up: { y: 20 },
-    down: { y: -20 },
-    left: { x: 20 },
-    right: { x: -20 },
-  }
-
-  const initialAnimation = {
-    opacity: 0,
-    ...directionOffset[animationDirection],
+  const variants = {
+    hidden: { 
+      opacity: 0, 
+      y: -50, // Start slightly above the final position
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        type: "spring", // Use a spring animation for a natural, bouncy effect
+        stiffness: 100, // Adjust stiffness for desired bounciness
+        damping: 15, // Adjust damping for smoothness
+        delay: delay,
+      }
+    }
   }
 
   return (
     <motion.section
       ref={ref}
-      initial={initialAnimation}
-      animate={inView ? { opacity: 1, x: 0, y: 0 } : initialAnimation}
-      transition={{
-        duration: 0.6,
-        delay: delay,
-        ease: [0.25, 0.1, 0.25, 1], // Improved easing curve for smoother animation
-      }}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={variants}
       className={`w-full h-full ${className}`}
     >
       {children}
