@@ -67,7 +67,7 @@ export default function GroceryCarousel() {
   };
 
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden">
+    <div className="relative w-full h-[90vh] overflow-hidden">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
@@ -101,7 +101,7 @@ export default function GroceryCarousel() {
             <img
               src={carouselItems[screenSize][currentIndex].image}
               alt={`Image ${currentIndex + 1}`}
-              className="w-full h-auto max-h-full object-cover"
+              className="w-full h-full object-fit"
             />
           </div>
         </motion.div>
