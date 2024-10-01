@@ -5,7 +5,7 @@ import AnimatedSection from '../animated /section';
 
 export default function Promotions() {
   return (
-    <AnimatedSection className="bg-gray-200 w-full rounded-md py-8 sm:py-12 md:py-14">
+    <AnimatedSection className="bg-gray-200 w-full h-screen rounded-md  sm:py-12 md:py-14">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Images Column */}
         <div className="grid grid-cols-2 gap-4 justify-self-center self-center">

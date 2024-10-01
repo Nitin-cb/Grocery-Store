@@ -89,7 +89,7 @@ export function Home() {
 
               <button
                 onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 transform focus:outline-none
+                className={`w-[10px] h-[10px] rounded-full transition-all duration-300 transform focus:outline-none
                   ${
                     activeSection === index
                       ? 'bg-blue-500 scale-125'
