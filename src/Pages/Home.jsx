@@ -114,7 +114,7 @@ export function Home() {
           <Element
             key={index}
             name={section.name}
-            className="snap-start min-h-screen sm:h-auto flex items-center justify-center"
+            className="snap-start h-auto flex items-center justify-center"
           >
             <motion.div
               className="w-full h-full flex items-center justify-center"

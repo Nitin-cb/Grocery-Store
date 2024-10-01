@@ -11,8 +11,8 @@ export default function ContactUs() {
   };
 
   return (
-    <AnimatedSection className="w-full bg-white py-16">
-      <div className="flex flex-col md:flex-row w-full min-h-[70vh]">
+    <AnimatedSection className="w-full bg-white h-screen  ">
+      <div className="flex flex-col md:flex-row w-full min-h-[70vh] justify-evenly">
         
         {/* Left Text Section with animation */}
         <motion.div

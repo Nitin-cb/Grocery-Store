@@ -10,7 +10,7 @@ export default function StoreLocations() {
   };
 
   return (
-    <AnimatedSection className="w-full bg-gray-100 overflow-hidden py-12 sm:py-16 md:py-24">
+    <AnimatedSection className="w-full  bg-gray-100 h-screen flex justify-center items-center">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row">
         {/* Left Column (Background Image) */}
         <div className="lg:w-1/2 w-full h-64 sm:h-80 md:h-96 lg:h-auto relative">
