@@ -120,22 +120,22 @@ export function Home() {
               className="w-full h-full flex items-center justify-center"
               initial={{
                 opacity: 0,
-                translateX: scrollDirection === 'down' ? -50 : 50,
+                y: -100, // Start position above the viewport
               }}
               whileInView={{
                 opacity: 1,
-                translateX: 0,
+                y: 0, // Final position
                 transition: {
-                  duration: 1.2,
+                  duration: 1.5,
                   ease: [0.43, 0.13, 0.23, 0.96],
                 },
               }}
               exit={{
                 opacity: 0,
-                translateX: scrollDirection === 'down' ? 50 : -50,
+                y: -100, // Exit position above the viewport
               }}
               transition={{
-                duration: 1.2,
+                duration: 1.5,
                 ease: [0.43, 0.13, 0.23, 0.96],
               }}
               viewport={{ once: false, amount: 0.2 }}
