@@ -39,6 +39,7 @@ export function Home() {
         const index = Math.round(scrollPosition / windowHeight);
         setActiveSection(index);
 
+        // Detect scroll direction
         setScrollDirection(scrollPosition > lastScrollTop ? 'down' : 'up');
         lastScrollTop = scrollPosition <= 0 ? 0 : scrollPosition;
       }
@@ -71,7 +72,6 @@ export function Home() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Dot indicator - hidden on mobile */}
       {!isMobile && (
         <div className="fixed right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-2 z-50">
           {sections.map((section, index) => (
@@ -89,22 +89,27 @@ export function Home() {
 
               <button
                 onClick={() => handleDotClick(index)}
-                className={`w-[10px] h-[10px] rounded-full transition-all duration-300 transform focus:outline-none
+                className={`relative w-[13px] h-[13px] rounded-full transition-all duration-300 transform focus:outline-none
                   ${
                     activeSection === index
-                      ? 'bg-blue-500 scale-125'
+                      ? 'bg-gray-300 scale-125'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }
                   ${hoveredSection === index ? 'scale-150' : 'scale-100'}
                 `}
                 aria-label={`Navigate to ${section.name}`}
-              />
+              >
+                {activeSection === index && (
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="w-[6px] h-[6px] bg-blue-500 rounded-full"></span>
+                  </span>
+                )}
+              </button>
             </div>
           ))}
         </div>
       )}
 
-      {/* Sections with scroll snapping and slide-in/out transition effect */}
       <div
         className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth"
         id="scrollContainer"
@@ -120,25 +125,25 @@ export function Home() {
               className="w-full h-full flex items-center justify-center"
               initial={{
                 opacity: 0,
-                y: -100, // Start position above the viewport
+                y: scrollDirection === 'down' ? -100 : 100, // Start above if scrolling down, below if scrolling up
               }}
               whileInView={{
                 opacity: 1,
-                y: 0, // Final position
+                y: 0, // End at 0 when in view
                 transition: {
-                  duration: 1.5,
-                  ease: [0.43, 0.13, 0.23, 0.96],
+                  duration: 1.0,
+                  ease: [0.42, 0.0, 0.58, 1.0], // Smoother easing
                 },
               }}
               exit={{
                 opacity: 0,
-                y: -100, // Exit position above the viewport
+                y: scrollDirection === 'down' ? 100 : -100, // Pull up if scrolling down, pull down if scrolling up
+                transition: {
+                  duration: 0.8,
+                  ease: [0.42, 0.0, 0.58, 1.0], // Same easing
+                },
               }}
-              transition={{
-                duration: 1.5,
-                ease: [0.43, 0.13, 0.23, 0.96],
-              }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }} // Trigger when 20% of the element is visible
             >
               {section.component}
             </motion.div>
