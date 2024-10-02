@@ -1,5 +1,6 @@
 import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
+import { FacebookIcon, InstaIcon, LinkedinIcon, MailIcon, TikTokIcons, TwitterIcon, YoutubeIcon } from '../../utils/icons';
 
 const Footer = () => {
   return (
@@ -26,7 +27,7 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 flex flex-col justify-center ite">
               <h3 className="font-semibold text-lg">Need help?</h3>
               <p>📞 +971 224 2543</p>
               <p>✉️ info@almadinauae.ae</p>
@@ -38,18 +39,41 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Our Location</h3>
             <div className="w-full h-48 bg-gray-300 rounded-lg overflow-hidden">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin" width="800" height="600"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin" 
+                width="800" 
+                height="600"  
+                allowFullScreen="" 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade">
+              </iframe>
             </div>
           </div>
         </div>
 
         {/* Social Media Icons */}
-        <div className="mt-8 flex justify-center space-x-4">
-          {[Linkedin, Mail].map((Icon, index) => (
-            <a key={index} href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
-              <Icon size={24} />
-            </a>
-          ))}
+        <div className="mt-8 flex justify-center space-x-2">
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <FacebookIcon />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <InstaIcon />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <LinkedinIcon />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <TikTokIcons />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <YoutubeIcon />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <TwitterIcon />
+          </a>
+          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+            <MailIcon />
+          </a>
         </div>
       </div>
     </footer>
