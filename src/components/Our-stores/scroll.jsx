@@ -5,10 +5,10 @@ import { motion, useAnimation, useMotionValue } from 'framer-motion'
 const products = [
   { id: 1, name: "Chana dal", image: "/images/Our Stores/own products/chana dal.jpg" },
   { id: 2, name: "Fresh Juice", image: "/images/Our Stores/own products/Fresh Juice.jpg" },
-  { id: 3, name: "Masoor Dal", image: "/public/images/Our Stores/own products/Masoor Dal.jpg" },
-  { id: 4, name: "Mokup", image: "/public/images/Our Stores/own products/mokup.jpg"},
-  { id: 5, name: "Toor Dal", image: "/public/images/Our Stores/own products/toor dal.jpg"},
-  { id: 6, name: "White Chickpeas", image: "/public/images/Our Stores/own products/white chickpeas.jpg"},
+  { id: 3, name: "Masoor Dal", image: "/images/Our Stores/own products/Masoor Dal.jpg" },
+  { id: 4, name: "Mokup", image: "/images/Our Stores/own products/mokup.jpg"},
+  { id: 5, name: "Toor Dal", image: "/images/Our Stores/own products/toor dal.jpg"},
+  { id: 6, name: "White Chickpeas", image: "/images/Our Stores/own products/white chickpeas.jpg"},
 ]
 
 export default function ProductScroll() {
