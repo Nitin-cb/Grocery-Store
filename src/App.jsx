@@ -9,6 +9,7 @@ import Promotion from './Pages/Promotion.jsx';
 import GalleryPage from './Pages/Gallery.jsx';
 import { ContactUs } from './Pages/ContactUs.jsx';
 import { LoyalityOffer } from './Pages/LoyalityCard.jsx';
+import { Careers } from './Pages/Careers.jsx';
 
 function App() {
   return (
@@ -16,13 +17,14 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/stores" element={<OurStores />} />
             <Route path="/promotions" element={<Promotion />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/loyality" element={<LoyalityOffer />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </Layout>
       </Router>

@@ -13,7 +13,9 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-gray-200 relative z-50 "> {/* Ensure z-index is set */}
+    <nav className="bg-white border-gray-200 relative z-50 ">
+      {' '}
+      {/* Ensure z-index is set */}
       <div className="container mx-auto px-4 ">
         <div className="flex justify-between items-center h-20 ">
           {/* Logo */}
@@ -29,6 +31,7 @@ export default function Navbar() {
             <NavLink href="/stores">Our Stores</NavLink>
             <NavLink href="/gallery">Gallery</NavLink>
             <NavLink href="/loyality">Loyality</NavLink>
+            <NavLink href="/careers">Careers</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </div>
 
@@ -79,6 +82,7 @@ export default function Navbar() {
               <NavLink href="/stores">Our Stores</NavLink>
               <NavLink href="/gallery">Gallery</NavLink>
               <NavLink href="/loyality">Loyality</NavLink>
+              <NavLink href="/careers">Careers</NavLink>
               <NavLink href="/contact">Contact Us</NavLink>
 
               {/* Social Icons for Mobile */}
