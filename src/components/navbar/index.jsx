@@ -13,13 +13,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-gray-200 relative z-50 ">
-      {' '}
-      {/* Ensure z-index is set */}
-      <div className="container mx-auto px-4 ">
-        <div className="flex justify-between items-center h-20 ">
+    <nav className="bg-white border-b border-gray-200 shadow-md relative z-50">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center h-20 px-4">
           {/* Logo */}
-          <div className="flex items-center w-60">
+          <div className="flex-shrink-0 w-24 md:w-32">
             <img className="w-full h-auto" src={logo} alt="Logo" />
           </div>
 
@@ -30,7 +28,7 @@ export default function Navbar() {
             <NavLink href="/promotions">Promotions</NavLink>
             <NavLink href="/stores">Our Stores</NavLink>
             <NavLink href="/gallery">Gallery</NavLink>
-            <NavLink href="/loyality">Loyality</NavLink>
+            <NavLink href="/loyality">Loyalty</NavLink>
             <NavLink href="/careers">Careers</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </div>
@@ -74,14 +72,14 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute w-full top-14 left-0 py-3 bg-white shadow-lg z-40">
+          <div className="lg:hidden absolute w-full top-16 left-0 py-3 bg-white shadow-lg z-40">
             <div className="flex flex-col space-y-4 mt-4 px-6">
               <NavLink href="/">Home</NavLink>
               <NavLink href="/about">About Us</NavLink>
               <NavLink href="/promotions">Promotions</NavLink>
               <NavLink href="/stores">Our Stores</NavLink>
               <NavLink href="/gallery">Gallery</NavLink>
-              <NavLink href="/loyality">Loyality</NavLink>
+              <NavLink href="/loyality">Loyalty</NavLink>
               <NavLink href="/careers">Careers</NavLink>
               <NavLink href="/contact">Contact Us</NavLink>
 
