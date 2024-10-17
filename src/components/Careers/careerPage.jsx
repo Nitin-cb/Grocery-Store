@@ -2,9 +2,8 @@ import React, { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../firebaseConfig';
-import storeimg from '/images/careers/store.jpg';
-import cimg from '/images/careers/c.png';
-import { motion } from 'framer-motion';
+import storeimg from '/images/careers/Banner for Careers pages.jpg';
+import joinimg from '/images/careers/Why Join Us.jpg';
 
 export default function CareersPage() {
   const form = useRef();
@@ -37,8 +36,8 @@ export default function CareersPage() {
         const emailParams = {
           name: e.target.name.value,
           email: e.target.email.value,
-          jobTitle: e.target.jobTitle.value,
-          description: e.target.description.value,
+          position: e.target.position.value,
+          Phone: e.target.phone.value,
           resumeLink: resumeDownloadUrl, // Send link instead of file
         };
 
@@ -69,196 +68,110 @@ export default function CareersPage() {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <motion.div
-        className="relative h-[500px] sm:h-[600px] lg:h-[700px] bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${storeimg})` }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      >
-        <div className="absolute inset-0 bg-black opacity-70"></div>
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center px-4 sm:px-6"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-        >
-          <div className="text-center max-w-3xl px-4 sm:px-6 lg:px-8">
-            <h1 className="text-white text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight">
-              <span className="text-green-400">
-                Careers at Al Madina Hypermarket
-              </span>
-            </h1>
-            <p className="text-white mt-4 text-base sm:text-lg lg:text-xl">
-              Driven by our passion and guided by collaboration, we invite you
-              to join our team.
-            </p>
-            <motion.button
-              className="mt-6 bg-white hover:bg-green-600 text-black font-bold py-2 px-6 sm:px-8 rounded-full transition duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explore Current Openings
-            </motion.button>
-          </div>
-        </motion.div>
-      </motion.div>
+      <div className="relative mb-7">
+        <img src={storeimg} alt="Large Screen Image" className="block w-full" />
+      </div>
+      <div className="m-4 p-4">
+        <h1 className="text-4xl mb-4 font-bold">Careers</h1>
+        <p className="text-lg">
+          We are looking for like-minded talents to join our growing family. We
+          are in the process of expanding Al Madina Group across the UAE. Want
+          to join our team? Feel free to apply.
+        </p>
+      </div>
 
-      {/* Why Work With Us Section */}
-      <motion.div
-        className="bg-white py-10"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-5xl mx-auto p-4 sm:p-8 md:p-14">
-          <h1 className="text-3xl font-bold mb-4 text-center lg:text-left">
-            Join Our Dynamic Team!
-          </h1>
-          <p className="px-4 text-lg mb-6 leading-relaxed text-gray-700 text-center lg:text-left">
-            At Al Madina Hypermarket, we believe in nurturing talent and
-            creating a thriving work environment...
-          </p>
-          <hr />
-          <h2 className="mt-6 text-2xl font-bold mb-4 text-center lg:text-left">
-            Why Work with Us?
+      <div className="flex flex-col items-center justify-center px-8 py-16 md:flex-row md:px-20">
+        {/* Image Section */}
+        <div className="w-full md:w-1/2">
+          <img
+            src={joinimg}
+            alt="Office Environment"
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+
+        {/* Text Section */}
+        <div className="w-full mt-8 md:w-1/2 md:mt-0 md:ml-10 text-center">
+          <h2 className="text-3xl font-semibold italic text-gray-800">
+            Why Join Us?
           </h2>
-          <motion.div
-            className="px-4 space-y-4 text-gray-700"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-          >
-            <p className="text-lg">
-              <span className="font-semibold">Growth Opportunities:</span> We
-              prioritize promoting from within...
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Inclusive Environment:</span> Our
-              team is a blend of diverse backgrounds...
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Competitive Benefits:</span> We
-              offer competitive salaries...
-            </p>
-            <p className="text-lg">
-              <span className="font-semibold">Employee Well-being:</span> We are
-              dedicated to maintaining a healthy...
-            </p>
-          </motion.div>
-          <hr className="my-6" />
-          <h1 className="text-2xl font-semibold mt-6 mb-4 text-center lg:text-left">
-            How to Apply?
-          </h1>
-          <p className="px-4 text-lg mb-6 text-gray-700 text-center lg:text-left">
-            We are excited to receive your application! If you are interested in
-            any of our open positions, please complete the form below...
+          <p className="mt-4 text-lg italic text-gray-600 leading-relaxed">
+            We’re a team that feels like a growing family, sharing strong values
+            of teamwork, learning, and growth. We are in the process of
+            expanding Al Madina Group across the UAE. If you’d like to be part
+            of that, then please get in touch. We’re always open to meet new
+            people and have light-hearted conversations.
           </p>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Application Form Section */}
-      <motion.div
-        className="py-10 flex flex-col lg:flex-row justify-center lg:justify-around items-center gap-8 lg:gap-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        viewport={{ once: true }}
-      >
-        {/* Form Container */}
-        <motion.div
-          className="bg-white shadow-md rounded-md p-6 w-full max-w-lg"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
-        >
-          <h1 className="text-2xl font-semibold text-center mb-8">
-            Join our team and be part of an exciting work environment. Submit
-            your application below!
-          </h1>
+      {/* Form Section */}
+      <div className="bg-white py-12">
+        <div className="max-w-4xl mx-auto px-8">
+          <h3 className="text-2xl font-bold text-gray-800 mb-6">
+            Grow With Us:-
+          </h3>
+          <p className="text-gray-600 mb-8">
+            You’ll receive all the training, development, and support you need
+            to succeed in our dynamic environment – with great benefits and
+            opportunities to progress.
+          </p>
 
-          <form ref={form} onSubmit={sendEmail} className="space-y-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                required
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                required
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Job Title
-              </label>
-              <input
-                type="text"
-                name="jobTitle"
-                required
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Description
-              </label>
-              <textarea
-                name="description"
-                required
-                className="mt-1 p-2 block w-full border border-gray-300 rounded-md"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Resume (PDF)
+          {/* Form */}
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="E-mail"
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+            <input
+              type="text"
+              placeholder="Phone Number"
+              name="phone"
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+            <input
+              type="text"
+              name="position"
+              placeholder="Applying for Position"
+              className="w-full p-3 border border-gray-300 rounded-md"
+            />
+
+            <div className="md:col-span-2">
+              <label className="block text-gray-700 mb-2">
+                Attach Resume *
               </label>
               <input
                 type="file"
+                className="w-full p-3 border border-gray-300 rounded-md"
                 name="resume"
                 accept="application/pdf"
-                required
-                className="mt-1 block w-full text-gray-700"
               />
             </div>
-            <motion.button
-              type="submit"
-              className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={uploading}
-            >
-              {uploading ? 'Uploading...' : 'Submit Application'}
-            </motion.button>
-          </form>
-        </motion.div>
 
-        {/* Image Section */}
-        <motion.div
-          className="w-full lg:w-2/4 flex justify-center"
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          viewport={{ once: true }}
-        >
-          <img className="max-w-full h-auto" src={cimg} alt="Career" />
-        </motion.div>
-      </motion.div>
+            <div className="md:col-span-2 flex justify-center">
+              <button
+                type="submit"
+                disabled={uploading}
+                className="px-6 py-3 bg-red-500 text-white rounded-md shadow-md hover:bg-red-600"
+              >
+                {uploading ? 'Uploading...' : 'Submit Application'}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

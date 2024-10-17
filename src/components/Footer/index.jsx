@@ -1,6 +1,14 @@
 import React from 'react';
 import { Linkedin, Mail } from 'lucide-react';
-import { FacebookIcon, InstaIcon, LinkedinIcon, MailIcon, TikTokIcons, TwitterIcon, YoutubeIcon } from '../../utils/icons';
+import {
+  FacebookIcon,
+  InstaIcon,
+  LinkedinIcon,
+  MailIcon,
+  TikTokIcons,
+  TwitterIcon,
+  YoutubeIcon,
+} from '../../utils/icons';
 
 const Footer = () => {
   return (
@@ -9,9 +17,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <img src="/images/logo/Logo.png" alt="AL MADINA GROUP" className="h-32" />
+            <img
+              src="/images/logo/Logo.png"
+              alt="AL MADINA GROUP"
+              className="h-32"
+            />
             <p className="text-sm">
-              Al Madina group, more than just a chain of stores; it stands as a cornerstone of the communities we serve. Established in 1984, Al Madina Retail has been committed to providing high-quality products, exceptional service, and an unmatched shopping experience to our valued customers in Fujairah.
+              Al Madina group, more than just a chain of stores; it stands as a
+              cornerstone of the communities we serve. Established in 1984, Al
+              Madina Retail has been committed to providing high-quality
+              products, exceptional service, and an unmatched shopping
+              experience to our valued customers in Fujairah.
             </p>
           </div>
 
@@ -22,7 +38,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {['About', 'Contact Us', 'Stores', 'Careers'].map((item) => (
                   <li key={item} className="pb-2 border-b border-white">
-                    <a href="#" className="hover:text-gray-300 transition-colors duration-200">{item}</a>
+                    <a
+                      href="#"
+                      className="hover:text-gray-300 transition-colors duration-200"
+                    >
+                      {item}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -39,39 +60,74 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Our Location</h3>
             <div className="w-full h-48 bg-gray-300 rounded-lg overflow-hidden">
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin" 
-                width="800" 
-                height="600"  
-                allowFullScreen="" 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade">
-              </iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin"
+                width="800"
+                height="600"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
 
         {/* Social Media Icons */}
         <div className="mt-8 flex justify-center space-x-2">
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="https://www.facebook.com/profile.php?id=100076119871058&mibextid=JRoKGi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <FacebookIcon />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="https://www.instagram.com/almadina.ae?igsh=cTJ1ZDN0M3Y0YXFn"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <InstaIcon />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="https://www.linkedin.com/company/amg-al-madina-group/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <LinkedinIcon />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="https://www.tiktok.com/@almadina_group?_t=8kfaPeZMtxR&_r=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <TikTokIcons />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="https://www.youtube.com/channel/UCq5PCMjGbKhThIk8XXs-APA/community?pvf=CAI%253D"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <YoutubeIcon />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <TwitterIcon />
           </a>
-          <a href="#" className="text-white hover:text-gray-400 transition-colors duration-200">
+          <a
+            href="mailto:info@almadinauae.ae"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-gray-400 transition-colors duration-200"
+          >
             <MailIcon />
           </a>
         </div>

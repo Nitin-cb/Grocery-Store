@@ -5,7 +5,7 @@ function ContactUsPage() {
     name: '',
     email: '',
     store: '',
-    message: ''
+    message: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
@@ -13,7 +13,7 @@ function ContactUsPage() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -21,7 +21,8 @@ function ContactUsPage() {
     const newErrors = {};
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.email) newErrors.email = 'Email is required';
-    if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+    if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Email is invalid';
     if (!formData.message) newErrors.message = 'Message is required';
     return newErrors;
   };
@@ -39,7 +40,7 @@ function ContactUsPage() {
         name: '',
         email: '',
         store: '',
-        message: ''
+        message: '',
       });
       setErrors({});
     }
@@ -54,7 +55,10 @@ function ContactUsPage() {
         {!submitted ? (
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Name
               </label>
               <input
@@ -65,11 +69,16 @@ function ContactUsPage() {
                 onChange={handleChange}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
               />
-              {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
+              {errors.name && (
+                <p className="text-red-600 text-sm">{errors.name}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <input
@@ -80,11 +89,16 @@ function ContactUsPage() {
                 onChange={handleChange}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
               />
-              {errors.email && <p className="text-red-600 text-sm">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-600 text-sm">{errors.email}</p>
+              )}
             </div>
 
             <div>
-              <label htmlFor="store" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="store"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Store Name (Optional)
               </label>
               <input
@@ -98,7 +112,10 @@ function ContactUsPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Message
               </label>
               <textarea
@@ -109,7 +126,9 @@ function ContactUsPage() {
                 onChange={handleChange}
                 className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
               ></textarea>
-              {errors.message && <p className="text-red-600 text-sm">{errors.message}</p>}
+              {errors.message && (
+                <p className="text-red-600 text-sm">{errors.message}</p>
+              )}
             </div>
 
             <div>
@@ -124,7 +143,9 @@ function ContactUsPage() {
         ) : (
           <div className="text-center">
             <h3 className="text-2xl font-bold text-green-600">Thank you!</h3>
-            <p className="text-gray-600 mt-2">Your inquiry has been submitted. We will get back to you shortly.</p>
+            <p className="text-gray-600 mt-2">
+              Your inquiry has been submitted. We will get back to you shortly.
+            </p>
             <button
               onClick={() => setSubmitted(false)}
               className="mt-4 bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700"

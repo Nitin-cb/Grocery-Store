@@ -1,6 +1,6 @@
 import img1 from '/images/homePage/promotions/Affordable Pricing.jpg';
 import img2 from '/images/homePage/promotions/Exclusive Offers.jpg';
-import img3 from '/images/homePage/promotions/Wide Product Range.jpg';
+import img3 from '/images/homePage/promotions/Promotion 03.jpg';
 import AnimatedSection from '../animated /section';
 
 export default function Promotions() {
@@ -38,17 +38,19 @@ export default function Promotions() {
 
         {/* Text Column */}
         <div className=" px-4 sm:px-6 lg:px-8">
-          <div className='flex flex-col justify-center'>
-
-          <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
-            Promotions and Offers
-          </h1>
-          <p className="text-base sm:text-lg text-gray-700 mb-4">
-            Discover exclusive deals and promotions at our store. Whether you're searching for the best pricing or wide product variety, we've got you covered.
-          </p>
-          <p className="text-base sm:text-lg text-gray-700 mb-6">
-            Shop now and take advantage of our fantastic offers across various categories, tailored just for you.
-          </p>
+          <div className="flex flex-col justify-center">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
+              Promotions and Offers
+            </h1>
+            <p className="text-base sm:text-lg text-gray-700 mb-4">
+              Discover exclusive deals and promotions at our store. Whether
+              you're searching for the best pricing or wide product variety,
+              we've got you covered.
+            </p>
+            <p className="text-base sm:text-lg text-gray-700 mb-6">
+              Shop now and take advantage of our fantastic offers across various
+              categories, tailored just for you.
+            </p>
           </div>
           <a
             href="/promotions"

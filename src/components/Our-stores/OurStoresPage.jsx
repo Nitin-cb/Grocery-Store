@@ -9,39 +9,99 @@ import ProductScroll from './scroll';
 // Store data including images
 const storesData = [
   {
-    branchName: 'Al Madina Supermarket - Gurfa',
-    address: '123 Market Street, Gurfa, UAE',
-    phone: '+971 123 456 789',
-    email: 'gurfa@almadina.com',
-    imageUrl: '/stores/Al MADIAN SUPERMARKET GURFA.jpg',
+    branchName: 'Al Madina Hypermarket LLC Fuj Br-1',
+    address:
+      ' Twin Tower Building Hamad Bin Abdulla Road Merashid, Fujairah - United Arab Emirates',
+    phone: '+971 9 223 4998',
+    whatsApp: '+971 52 475 9646',
+    email: 'info@almadinauae.ae',
+    workingHours: '08:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/yRE3tzVjabY9Bbq77?g_st=iw',
+    imageUrl: '/stores/Al Madina Hypermarket Fuj Br-1, Merashid.jpg',
   },
   {
-    branchName: 'Al Madina Supermarket - Dubai',
-    address: '456 Al Wasl Road, Dubai, UAE',
-    phone: '+971 987 654 321',
-    email: 'dubai@almadina.com',
+    branchName: 'Al Madina Supermarket LLC Br-3',
+    address: 'Al Sharia, Faseel Fujairah - United Arab Emirates',
+    phone: '+971 9 234 8959',
+    whatsApp: '+971 55 436 6979',
+    email: 'info@almadinauae.ae',
+    workingHours: '08:30 am to 11:00 pm',
+    map: 'https://maps.app.goo.gl/KpUtPtG4MZj6vMVY8',
+    imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg',
+  },
+  {
+    branchName: 'Al Madina Supermarket LLC Br-2',
+    address:
+      'CBI Building, Near ADIB bank Safad, Hamad Bin Abdulla Road Fujairah - United Arab Emirates',
+    phone: '+971 9 222 2133',
+    whatsApp: '+971 58 609 5132',
+    email: 'info@almadinauae.ae',
+    workingHours: '08:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/vQ4ek1DhipWoZAJ8A',
+    imageUrl: '/stores/Al Madina Supermarket Br-2, Safad.jpg',
+  },
+  {
+    branchName: 'Express Al Madina Supermarket LLC',
+    address: 'Sakamkam Fujairah - United Arab Emirates',
+    phone: '+971 9 224 3660 , +971 9 224 3661',
+    whatsApp: '+971 52 508 2495',
+    email: 'info@almadinauae.ae',
+    workingHours: '07:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/HfZF6avzMzqZo16y7',
+    imageUrl: '/stores/EXPRESS AL MADINA SUPERMARKET.jpg',
+  },
+  {
+    branchName: 'Al Madina Hypermarket LLC Br-1',
+    address: 'Bidya, Near VIP Hangover Fujairah - United Arab Emirates',
+    phone: '+971 9 224 4456',
+    whatsApp: '+971 58 609 5135',
+    email: 'info@almadinauae.ae',
+    workingHours: '08:00 am to 12:30 am',
+    map: 'https://maps.app.goo.gl/uv1Ugnnamk1v4WdHA',
     imageUrl: '/stores/Al Madina Hypermarket Br-1, Bidya.jpg',
   },
   {
-    branchName: 'Al Madina Supermarket - Abu Dhabi',
-    address: '789 Corniche Road, Abu Dhabi, UAE',
-    phone: '+971 555 678 910',
-    email: 'abudhabi@almadina.com',
+    branchName: 'Al Madina Hypermarket LLC',
+    address:
+      'Salim Al Kahabi Building Near Emirates post, Dibba Fujairah - United Arab Emirates',
+    phone: '+971 9 244 4590',
+    whatsApp: '+971 52 508 2497',
+    email: 'info@almadinauae.ae',
+    workingHours: '07:00 am to 1:00 am',
+    map: 'https://maps.app.goo.gl/9o1EPXCaZHgH3fMi9',
     imageUrl: '/stores/Al Madina Hypermarket, Dibba.jpg',
   },
   {
-    branchName: 'Al Madina Supermarket - Sharjah',
-    address: '123 Rolla Street, Sharjah, UAE',
-    phone: '+971 234 567 890',
-    email: 'sharjah@almadina.com',
+    branchName: 'Zam Zam Supermarket LLC',
+    address:
+      'Gurfa, Near Fish & Vegetables Market Fujairah - United Arab Emirates',
+    phone: '+971 9 222 9032',
+    whatsApp: '+971 52 508 2491',
+    email: 'info@almadinauae.ae',
+    workingHours: '07:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/GA61egMXUSo8Qk4q8',
+    imageUrl: '/stores/ZAM ZAM SUPERMARKET GURFA.jpg',
+  },
+  {
+    branchName: 'Al Madina Supermarket LLC',
+    address: 'Faseel, Fujairah - United Arab Emirates',
+    phone: '+971 9 223 9003',
+    whatsApp: '+971 52 508 2494',
+    email: 'info@almadinauae.ae',
+    workingHours: '07:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/Z3xCZVsTDA58iNsX7',
     imageUrl: '/stores/AL MADINA SUPERMARKET FASEEL.jpg',
   },
   {
-    branchName: 'Al Madina Supermarket - Ajman',
-    address: '456 Ajman Street, Ajman, UAE',
-    phone: '+971 876 543 210',
-    email: 'ajman@almadina.com',
-    imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg',
+    branchName: 'Al Madina Supermarket LLC',
+    address:
+      'Gurfa, Near Fish & Vegetables MarketFujairah - United Arab Emirates',
+    phone: '+971 9 222 4757',
+    whatsApp: '+971 52 508 2487',
+    email: 'info@almadinauae.ae',
+    workingHours: '07:00 am to 12:00 am',
+    map: 'https://maps.app.goo.gl/1BD8F1qVjppvEMJQA',
+    imageUrl: '/stores/Al MADIAN SUPERMARKET GURFA.jpg',
   },
 ];
 
@@ -92,6 +152,9 @@ const OurStores = () => {
                   <p className="text-gray-600 mb-1">
                     <strong>Phone:</strong> {store.phone}
                   </p>
+                  <p className="text-gray-600 mb-1">
+                    <strong>WhatsApp:</strong> {store.whatsApp}
+                  </p>
                   <p className="text-gray-600">
                     <strong>Email:</strong>{' '}
                     <a
@@ -99,6 +162,20 @@ const OurStores = () => {
                       className="text-green-600"
                     >
                       {store.email}
+                    </a>
+                  </p>
+                  <p className="text-gray-600 mb-1">
+                    <strong>Working Hours:</strong> {store.workingHours}
+                  </p>
+                  <p className="text-gray-600">
+                    <strong>Map:</strong>{' '}
+                    <a
+                      href={store.map}
+                      className=""
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {store.map}
                     </a>
                   </p>
                 </div>

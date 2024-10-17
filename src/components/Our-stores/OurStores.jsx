@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import storeImage from '/images/World map.png';
+import storeImage from '/images/Choice 02.jpg';
 import AnimatedSection from '../animated /section';
 
 export default function StoreLocations() {
@@ -11,10 +11,14 @@ export default function StoreLocations() {
 
   return (
     <AnimatedSection className="w-full  bg-gray-100 h-screen flex justify-center items-center">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row">
+      <div className="max-w-6xl gap-11 mx-auto flex flex-col lg:flex-row">
         {/* Left Column (Background Image) */}
         <div className="lg:w-1/2 w-full h-64 sm:h-80 md:h-96 lg:h-auto relative">
-          <img src={storeImage} alt="Store locations world map" className="object-cover object-center w-full h-full" />
+          <img
+            src={storeImage}
+            alt="Store locations world map"
+            className="object-cover object-center w-full h-full rounded-lg"
+          />
         </div>
 
         {/* Right Column (Text Content with animation) */}
@@ -29,8 +33,8 @@ export default function StoreLocations() {
             Our <span className="text-green-600">Store</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600">
-            We are conveniently located across multiple locations to serve you better.
-            Find our stores in the following cities:
+            We are conveniently located across multiple locations to serve you
+            better. Find our stores in the following cities:
           </p>
           <div className="pt-4">
             <a
