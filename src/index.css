@@ -5,3 +5,21 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Add this CSS for a thin custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #fffdfd; /* Scrollbar track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbcbcb; /* Scrollbar color */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #afafaf; /* Darker color on hover */
+}
