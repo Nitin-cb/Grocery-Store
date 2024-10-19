@@ -5,14 +5,21 @@ import img3 from '/images/homePage/3.jpeg';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../animated /section';
 
-
 export default function Features() {
   const images = [
     { src: img1, alt: 'Image 1', text: 'Abundance Fresh Healthy Fruits' },
-    { src: img2, alt: 'Image 2', text: `A delicious blend of nature's goodness` },
-    { src: img3, alt: 'Image 3', text: 'an ancient tradition of the finest cheeses.' },
+    {
+      src: img2,
+      alt: 'Image 2',
+      text: `A delicious blend of nature's goodness`,
+    },
+    {
+      src: img3,
+      alt: 'Image 3',
+      text: 'an ancient tradition of the finest cheeses.',
+    },
   ];
-  
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = () => {
@@ -20,7 +27,9 @@ export default function Features() {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
   };
 
   useEffect(() => {
@@ -52,7 +61,7 @@ export default function Features() {
       </div>
 
       {/* Carousel section */}
-      <div className="relative w-full lg:w-1/3 aspect-video lg:aspect-square rounded-md overflow-hidden">
+      <div className="relative w-full lg:w-2/3 m-12 p-20 aspect-square rounded-xl overflow-hidden">
         <AnimatePresence initial={false} custom={currentIndex}>
           <motion.div
             key={currentIndex}
@@ -66,14 +75,12 @@ export default function Features() {
             <img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
-              className="w-full h-full object-cover rounded-sm"
+              className="w-full h-full object-cover rounded-sm p-10"
               loading="lazy"
             />
           </motion.div>
         </AnimatePresence>
       </div>
-
-      
     </AnimatedSection>
   );
 }
