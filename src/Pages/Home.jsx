@@ -7,12 +7,15 @@ import Features from '../components/Features/features';
 import HomePage from '../components/Home/home';
 import StoreLocations from '../components/Our-stores/OurStores';
 import Promotions from '../components/promotions/promotion';
-
+import Insight from '../components/Insight/Insight';
+import ExclusiveDeals from '../components/ExclusiveDeals/ExclusiveDeals';
 const sections = [
   { name: 'Home', component: <HomePage /> },
   { name: 'About', component: <AboutPage /> },
   { name: 'Features', component: <Features /> },
   { name: 'Promotions', component: <Promotions /> },
+  { name: 'Insight', component: <Insight /> },
+  { name: 'ExclusiveDeals', component: <ExclusiveDeals /> },
   { name: 'Stores', component: <StoreLocations /> },
   { name: 'Contact', component: <ContactUs /> },
 ];
