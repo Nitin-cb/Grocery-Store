@@ -1,48 +1,64 @@
-import { useRef, useEffect } from 'react'
-import { motion, useAnimation, useMotionValue } from 'framer-motion'
+import { useRef, useEffect } from 'react';
+import { motion, useAnimation, useMotionValue } from 'framer-motion';
 
 // Sample product data (replace with your actual product data)
 const products = [
-  { id: 1, name: "Chana dal", image: "/images/Our Stores/own products/chana dal.jpg" },
-  { id: 2, name: "Fresh Juice", image: "/images/Our Stores/own products/Fresh Juice.jpg" },
-  { id: 3, name: "Masoor Dal", image: "/images/Our Stores/own products/Masoor Dal.jpg" },
-  { id: 4, name: "Mokup", image: "/images/Our Stores/own products/mokup.jpg"},
-  { id: 5, name: "Toor Dal", image: "/images/Our Stores/own products/toor dal.jpg"},
-  { id: 6, name: "White Chickpeas", image: "/images/Our Stores/own products/white chickpeas.jpg"},
-]
+  {
+    id: 1,
+    name: 'Chana dal',
+    image: '/images/Our Stores/own products/chana dal.jpg',
+  },
+  // { id: 2, name: "Fresh Juice", image: "/images/Our Stores/own products/Fresh Juice.jpg" },
+  {
+    id: 3,
+    name: 'Masoor Dal',
+    image: '/images/Our Stores/own products/Masoor Dal.jpg',
+  },
+  { id: 4, name: 'Mokup', image: '/images/Our Stores/own products/mokup.jpg' },
+  {
+    id: 5,
+    name: 'Toor Dal',
+    image: '/images/Our Stores/own products/toor dal.jpg',
+  },
+  {
+    id: 6,
+    name: 'White Chickpeas',
+    image: '/images/Our Stores/own products/white chickpeas.jpg',
+  },
+];
 
 export default function ProductScroll() {
-  const scrollRef = useRef(null)
-  const controls = useAnimation()
-  const x = useMotionValue(0)
+  const scrollRef = useRef(null);
+  const controls = useAnimation();
+  const x = useMotionValue(0);
 
   useEffect(() => {
     const updateScrollAnimation = () => {
-      const scrollWidth = scrollRef.current?.scrollWidth ?? 0
-      const viewportWidth = scrollRef.current?.offsetWidth ?? 0
+      const scrollWidth = scrollRef.current?.scrollWidth ?? 0;
+      const viewportWidth = scrollRef.current?.offsetWidth ?? 0;
 
       controls.start({
         x: [-scrollWidth / 2, 0],
         transition: {
           x: {
             repeat: Infinity,
-            repeatType: "loop",
+            repeatType: 'loop',
             duration: 20,
-            ease: "linear",
+            ease: 'linear',
           },
         },
-      })
-    }
+      });
+    };
 
     // Start the initial animation
-    updateScrollAnimation()
+    updateScrollAnimation();
 
     // Add event listener for window resizing to adjust the animation
-    window.addEventListener('resize', updateScrollAnimation)
+    window.addEventListener('resize', updateScrollAnimation);
 
     // Cleanup the event listener on component unmount
-    return () => window.removeEventListener('resize', updateScrollAnimation)
-  }, [controls])
+    return () => window.removeEventListener('resize', updateScrollAnimation);
+  }, [controls]);
 
   return (
     <div className="w-full overflow-hidden bg-gray-100 py-12">
@@ -74,5 +90,5 @@ export default function ProductScroll() {
         ))}
       </motion.div>
     </div>
-  )
+  );
 }

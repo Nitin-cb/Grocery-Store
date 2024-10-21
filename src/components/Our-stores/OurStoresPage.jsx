@@ -19,16 +19,16 @@ const storesData = [
     map: 'https://maps.app.goo.gl/yRE3tzVjabY9Bbq77?g_st=iw',
     imageUrl: '/stores/Al Madina Hypermarket Fuj Br-1, Merashid.jpg',
   },
-  {
-    branchName: 'Al Madina Supermarket LLC Br-3',
-    address: 'Al Sharia, Faseel Fujairah - United Arab Emirates',
-    phone: '+971 9 234 8959',
-    whatsApp: '+971 55 436 6979',
-    email: 'info@almadinauae.ae',
-    workingHours: '08:30 am to 11:00 pm',
-    map: 'https://maps.app.goo.gl/KpUtPtG4MZj6vMVY8',
-    imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg',
-  },
+  // {
+  //   branchName: 'Al Madina Supermarket LLC Br-3',
+  //   address: 'Al Sharia, Faseel Fujairah - United Arab Emirates',
+  //   phone: '+971 9 234 8959',
+  //   whatsApp: '+971 55 436 6979',
+  //   email: 'info@almadinauae.ae',
+  //   workingHours: '08:30 am to 11:00 pm',
+  //   map: 'https://maps.app.goo.gl/KpUtPtG4MZj6vMVY8',
+  //   imageUrl: '/stores/Al Madina Supermarket Br-3, Al Sharia.jpg',
+  // },
   {
     branchName: 'Al Madina Supermarket LLC Br-2',
     address:
