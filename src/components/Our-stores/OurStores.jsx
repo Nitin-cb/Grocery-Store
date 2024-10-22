@@ -10,8 +10,8 @@ export default function StoreLocations() {
   };
 
   return (
-    <AnimatedSection className="w-full  bg-gray-100 h-screen flex justify-center items-center">
-      <div className="max-w-6xl gap-11 mx-auto flex flex-col lg:flex-row">
+    <AnimatedSection className="w-full bg-slate-100 flex justify-center items-center p-14 sm:p-12 my-4">
+      <div className="max-w-6xl gap-28 mx-auto flex flex-col lg:flex-row">
         {/* Left Column (Background Image) */}
         <div className="lg:w-1/2 w-full h-64 sm:h-80 md:h-96 lg:h-auto relative">
           <img
@@ -29,13 +29,25 @@ export default function StoreLocations() {
           transition={{ duration: 0.8, ease: 'easeInOut' }} // Smooth easing transition
           variants={textVariant}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">
+          <motion.h2
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800"
+            variants={textVariant}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.8, delay: 0.2 }} // Staggered entrance
+          >
             Our <span className="text-green-600">Store</span>
-          </h2>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600">
+          </motion.h2>
+          <motion.p
+            className="text-base sm:text-lg md:text-xl text-gray-600"
+            variants={textVariant}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.8, delay: 0.4 }} // Staggered entrance
+          >
             We are conveniently located across multiple locations to serve you
             better. Find our stores in the following cities:
-          </p>
+          </motion.p>
           <div className="pt-4">
             <a
               href="/promotions"

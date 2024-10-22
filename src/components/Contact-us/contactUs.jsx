@@ -11,8 +11,8 @@ export default function ContactUs() {
   };
 
   return (
-    <AnimatedSection className="w-full bg-white h-screen  ">
-      <div className="flex flex-col md:flex-row w-full min-h-[70vh] justify-evenly">
+    <AnimatedSection className="w-full bg-white sm:p-12 p-14 my-4">
+      <div className="flex flex-col md:flex-row w-full justify-evenly">
         {/* Left Text Section with animation */}
         <motion.div
           className="flex flex-col justify-center items-start md:w-1/2 w-full text-left p-6 sm:p-8 md:p-16 space-y-4"
@@ -31,7 +31,7 @@ export default function ContactUs() {
             have everything for your needs.
           </p>
           <a
-            href="/promotions"
+            href="/contact"
             className="inline-block px-2 sm:px-6 py-1 sm:py-2 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
           >
             Contact Us
@@ -40,14 +40,14 @@ export default function ContactUs() {
 
         {/* Right Image Section */}
         <div
-          className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center floating-background"
+          className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center"
           style={{
             backgroundImage: `url(${img1})`,
-            backgroundSize: 'contain',
+            backgroundSize: 'cover', // Ensure the image covers the area without distortion
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat', // Prevents background image from repeating
           }}
-        ></div>
+        />
       </div>
     </AnimatedSection>
   );

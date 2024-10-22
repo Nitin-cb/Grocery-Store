@@ -55,8 +55,7 @@ export default function DealsScroll() {
   }, [controls]);
 
   return (
-    <div className="w-full overflow-hidden bg-gray-100 py-12">
-      {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Our Products</h2> */}
+    <div className="w-full overflow-hidden bg-white py-12">
       <motion.div
         ref={scrollRef}
         className="flex"
@@ -64,15 +63,19 @@ export default function DealsScroll() {
         animate={controls}
       >
         {[...products, ...products].map((product, index) => (
-          <div
+          <motion.div
             key={`${product.id}-${index}`}
             className="flex-shrink-0 w-64 mx-4"
+            whileHover={{ scale: 1.05 }} // Scale effect on hover
+            whileTap={{ scale: 0.95 }} // Slight shrink effect on tap
           >
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img
+            <div className="bg-slate-50 rounded-lg shadow-md overflow-hidden">
+              <motion.img
                 src={product.image}
                 alt={product.name}
                 className="w-full h-48 object-cover"
+                whileHover={{ scale: 1.1 }} // Zoom effect on hover
+                transition={{ duration: 0.3 }} // Smooth transition
               />
               <div className="p-4">
                 <h3 className="text-lg text-center capitalize font-semibold text-gray-600 truncate">
@@ -80,7 +83,7 @@ export default function DealsScroll() {
                 </h3>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>

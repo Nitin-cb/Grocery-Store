@@ -16,7 +16,7 @@ export default function Features() {
     {
       src: img3,
       alt: 'Image 3',
-      text: 'an ancient tradition of the finest cheeses.',
+      text: 'An ancient tradition of the finest cheeses.',
     },
   ];
 
@@ -38,11 +38,11 @@ export default function Features() {
   }, []);
 
   return (
-    <AnimatedSection className="relative flex flex-col h-screen lg:flex-row items-center  w-full   overflow-hidden shadow-lg bg-[#ADBBDA] p-4 sm:p-6">
+    <AnimatedSection className="relative flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden p-14 sm:p-20">
       {/* Combined Title and Text Section */}
       <div className="w-full lg:w-2/3 flex flex-col justify-center items-center text-center lg:text-left lg:items-start rounded-lg p-4 mb-6 lg:mb-0">
         {/* Constant Title */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
           In Our Stores, We Offer
         </h1>
         {/* Dynamic Text */}
@@ -51,31 +51,30 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5 }}
-          className="text-white"
+          transition={{ duration: 0.5, ease: 'easeInOut' }}
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-700 capitalize font-semibold">
+          <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-500 capitalize font-semibold">
             {images[currentIndex].text}
           </h2>
         </motion.div>
       </div>
 
       {/* Carousel section */}
-      <div className="relative w-full lg:w-2/3 m-12 p-20 aspect-square rounded-xl overflow-hidden">
+      <div className="relative w-full lg:w-4/12 m-12 p-20 aspect-square overflow-hidden">
         <AnimatePresence initial={false} custom={currentIndex}>
           <motion.div
             key={currentIndex}
             custom={currentIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, scale: 0.8, x: 50 }} // Slide-in effect with scaling
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.8, x: -50 }} // Slide-out with scaling
+            transition={{ duration: 0.7, ease: 'easeInOut' }}
             className="absolute inset-0"
           >
             <img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
-              className="w-full h-full object-cover rounded-sm p-10"
+              className="w-full h-full object-cover rounded-3xl"
               loading="lazy"
             />
           </motion.div>

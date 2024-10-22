@@ -19,7 +19,7 @@ const Pages = React.forwardRef(({ file, number, onLoadSuccess }, ref) => {
       <Document file={file} onLoadSuccess={onLoadSuccess}>
         <Page
           pageNumber={number}
-          width={350}
+          width={400}
           renderAnnotationLayer={false}
           renderTextLayer={false}
         />
@@ -63,7 +63,7 @@ function PromotionPage() {
   const isMobile = windowWidth < 768;
 
   return (
-    <div className="h-screen flex flex-col items-center bg-gray-100">
+    <div className=" flex flex-col items-center bg-gray-100">
       {/* Banner Section */}
       <div className="text-center p-4">
         <p className="text-gray-500 text-sm">
@@ -72,17 +72,17 @@ function PromotionPage() {
       </div>
 
       {/* Horizontal Card Display */}
-      <div className="flex overflow-x-auto space-x-4 p-4 flex-wrap justify-center items-center">
+      <div className="flex overflow-x-auto w-8/12 gap-8 p-4 flex-wrap justify-center items-center">
         {pdfFiles.map((file, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-48 mt-3 cursor-pointer hover:scale-105 transition-transform bg-white rounded-lg shadow-md p-2"
+            className="flex-shrink-0 w-60 mt-3 cursor-pointer hover:scale-105 transition-transform bg-white rounded-lg shadow-md p-2"
             onClick={() => handlePdfSelect(file)}
           >
             <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
               <Page
                 pageNumber={1}
-                width={150}
+                width={225}
                 renderAnnotationLayer={false}
                 renderTextLayer={false}
               />
@@ -100,8 +100,8 @@ function PromotionPage() {
               &times; {/* Close button */}
             </button>
             <HTMLFlipBook
-              width={isMobile ? 300 : 400}
-              height={isMobile ? 450 : 550}
+              width={isMobile ? 450 : 420}
+              height={isMobile ? 580 : 580}
               className="shadow-xl rounded-md overflow-hidden"
             >
               {[...Array(numPages).keys()].map((pNum) => (
@@ -119,7 +119,7 @@ function PromotionPage() {
               <Document file={currentPdf} onLoadSuccess={onDocumentLoadSuccess}>
                 <Page
                   pageNumber={1}
-                  width={isMobile ? 300 : 400}
+                  width={isMobile ? 200 : 400}
                   renderAnnotationLayer={false}
                   renderTextLayer={false}
                 />

@@ -1,19 +1,40 @@
+import { motion } from 'framer-motion';
 import img2 from '/images/Welcom.jpg';
-import AnimatedSection from '../animated /section'; // Updated to use AnimatedSection
 import './about.css';
 import Rectangle from './rectangleComponent';
 import img1 from '/images/pattern-with-watercolor-flowers-vintage.jpg';
+
 export default function AboutPage() {
   return (
     <div
       style={{
-        backgroundImage: `url(${img1})`, // Replace with your background image URL
+        position: 'relative', // To position the pseudo-element correctly
       }}
-      className="w-full h-screen  bg-cover bg-center bg-white items-center flex flex-col md:justify-between"
+      className="w-full py-14 bg-cover bg-center bg-white items-center flex flex-col md:justify-between"
     >
-      <div className="flex flex-col gap-6 lg:flex-row w-full h-full max-w-6xl sm:items-center justify-center px-4 lg:px-0">
+      {/* Background image with reduced opacity */}
+      <div
+        style={{
+          backgroundImage: `url(${img1})`, // Replace with your background image URL
+          opacity: 0.5, // Adjust the opacity here
+        }}
+        className="absolute inset-0 bg-cover bg-center z-0"
+      ></div>
+
+      {/* Content section */}
+      <motion.div
+        className="relative z-10 flex flex-col gap-6 lg:flex-row w-full h-full max-w-6xl sm:items-center justify-center px-4 lg:px-0"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
+      >
         {/* Text Section */}
-        <div className="flex flex-col lg:w-1/2  lg:px-10 lg:mr-10">
+        <motion.div
+          className="flex flex-col lg:w-1/2 lg:px-10 lg:mr-10"
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
           <p className="text-sm text-center sm:text-base text-blue-700 font-semibold">
             About Us
           </p>
@@ -26,23 +47,28 @@ export default function AboutPage() {
             </span>
             t Al Madina Retail, more than just a chain of stores; it stands as a
             cornerstone of the communities we serve.
-            <span className=" block">
+            <span className="block">
               Established in 1984, Al Madina Retail has been committed to
               providing high-quality products, exceptional service, and an
               unmatched shopping experience to our valued customers in Fujairah.
             </span>
           </p>
-        </div>
+        </motion.div>
 
         {/* Image Section */}
-        <div className="w-full lg:w-1/2 flex justify-center items-center">
+        <motion.div
+          className="w-full lg:w-2/3 flex justify-center items-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+        >
           <img
             src={img2}
             alt="Al Madina Store"
-            className="rounded-lg w-full h-auto object-cover lg:max-w-4xl shadow-lg"
+            className="rounded-lg w-full h-auto object-cover lg:max-w-7xl shadow-lg"
           />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

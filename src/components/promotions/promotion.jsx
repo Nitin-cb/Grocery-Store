@@ -1,65 +1,94 @@
+import { motion } from 'framer-motion'; // Import motion
 import img1 from '/images/homePage/promotions/Affordable Pricing.jpg';
 import img2 from '/images/homePage/promotions/Exclusive Offers.jpg';
 import img3 from '/images/homePage/promotions/Promotion 03.jpg';
-import AnimatedSection from '../animated /section';
 
 export default function Promotions() {
-  return (
-    <AnimatedSection className="bg-gray-200 w-full h-screen rounded-md  sm:py-12 md:py-14">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Images Column */}
-        <div className="grid grid-cols-2 gap-4 justify-self-center self-center">
-          {/* Left stacked images */}
-          <div className="space-y-4">
-            <div>
-              <img
-                className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
-                src={img1}
-                alt="Affordable Pricing"
-              />
-            </div>
-            <div>
-              <img
-                className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
-                src={img3}
-                alt="Wide Product Range"
-              />
-            </div>
-          </div>
-          {/* Right large image */}
-          <div>
-            <img
-              className="object-cover object-center w-full h-full rounded-lg"
-              src={img2}
-              alt="Exclusive Offers"
-            />
-          </div>
-        </div>
+  // Variants for fade-in and upward motion
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: 'easeOut' },
+    },
+  };
 
-        {/* Text Column */}
-        <div className=" px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col justify-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6">
-              Promotions and Offers
-            </h1>
-            <p className="text-base sm:text-lg text-gray-700 mb-4">
-              Discover exclusive deals and promotions at our store. Whether
-              you're searching for the best pricing or wide product variety,
-              we've got you covered.
-            </p>
-            <p className="text-base sm:text-lg text-gray-700 mb-6">
-              Shop now and take advantage of our fantastic offers across various
-              categories, tailored just for you.
-            </p>
-          </div>
-          <a
-            href="/promotions"
-            className="inline-block px-6 py-3 bg-white text-green-600 border border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out text-center sm:text-left"
-          >
-            Know more
-          </a>
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-7xl mx-auto p-14 sm:p-12 ">
+      {/* Images Column */}
+      <motion.div
+        className="grid grid-cols-2 gap-4 justify-self-center self-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        {/* Left stacked images */}
+        <div className="space-y-4">
+          <motion.div variants={fadeUp}>
+            <img
+              className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
+              src={img1}
+              alt="Affordable Pricing"
+            />
+          </motion.div>
+          <motion.div variants={fadeUp}>
+            <img
+              className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
+              src={img3}
+              alt="Wide Product Range"
+            />
+          </motion.div>
         </div>
-      </div>
-    </AnimatedSection>
+        {/* Right large image */}
+        <motion.div variants={fadeUp}>
+          <img
+            className="object-cover object-center w-full h-full rounded-lg"
+            src={img2}
+            alt="Exclusive Offers"
+          />
+        </motion.div>
+      </motion.div>
+
+      {/* Text Column */}
+      <motion.div
+        className="px-4 sm:px-6 lg:px-8"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={fadeUp}
+      >
+        <div className="flex flex-col justify-center">
+          <motion.h1
+            className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mb-6"
+            variants={fadeUp}
+          >
+            Promotions and Offers
+          </motion.h1>
+          <motion.p
+            className="text-base sm:text-lg text-gray-700 mb-4"
+            variants={fadeUp}
+          >
+            Discover exclusive deals and promotions at our store. Whether you're
+            searching for the best pricing or wide product variety, we've got
+            you covered.
+          </motion.p>
+          <motion.p
+            className="text-base sm:text-lg text-gray-700 mb-6"
+            variants={fadeUp}
+          >
+            Shop now and take advantage of our fantastic offers across various
+            categories, tailored just for you.
+          </motion.p>
+        </div>
+        <motion.a
+          href="/promotions"
+          className="inline-block px-6 py-3 bg-white text-green-600 border border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out text-center sm:text-left"
+        >
+          Know more
+        </motion.a>
+      </motion.div>
+    </div>
   );
 }
