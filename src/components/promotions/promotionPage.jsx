@@ -100,8 +100,8 @@ function PromotionPage() {
               &times; {/* Close button */}
             </button>
             <HTMLFlipBook
-              width={isMobile ? 450 : 420}
-              height={isMobile ? 580 : 580}
+              width={isMobile ? 300 : 420}
+              height={isMobile ? 500 : 580}
               className="shadow-xl rounded-md overflow-hidden"
             >
               {[...Array(numPages).keys()].map((pNum) => (
