@@ -11,7 +11,7 @@ export default function StoreLocations() {
 
   return (
     <AnimatedSection className="w-full bg-slate-100 flex justify-center items-center p-14 sm:p-12 my-4">
-      <div className="max-w-6xl gap-28 mx-auto flex flex-col lg:flex-row">
+      <div className="max-w-6xl gap-18 md:gap-28 mx-auto flex flex-col lg:flex-row">
         {/* Left Column (Background Image) */}
         <div className="lg:w-1/2 w-full h-64 sm:h-80 md:h-96 lg:h-auto relative">
           <img

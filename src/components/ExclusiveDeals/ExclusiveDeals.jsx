@@ -23,7 +23,7 @@ const ExclusiveDeals = () => {
   };
 
   return (
-    <div className="bg-white w-full p-14 sm:p-12">
+    <div className="bg-white w-full p-18 sm:p-12">
       <div className="flex flex-col h-auto md:flex-row">
         {/* Text Section */}
         <motion.div
@@ -45,7 +45,7 @@ const ExclusiveDeals = () => {
 
         {/* Video Section */}
         <motion.div
-          className="w-full md:w-1/2 p-4"
+          className="w-full  p-4"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
