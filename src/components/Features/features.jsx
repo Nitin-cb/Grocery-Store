@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import img1 from '/images/homePage/1.jpg';
-import img2 from '/images/homePage/2.jpeg';
-import img3 from '/images/homePage/3.jpeg';
+import img2 from '/images/homePage/2.jpg';
+import img3 from '/images/homePage/3.jpg';
+import img4 from '/images/homePage/4.jpg';
+import img5 from '/images/homePage/5.jpg';
+import img6 from '/images/homePage/6.jpg';
+import img7 from '/images/homePage/7.jpg';
+import img8 from '/images/homePage/8.jpg';
+import img9 from '/images/homePage/9.jpg';
+import img10 from '/images/homePage/10.jpg';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../animated /section';
 
@@ -16,7 +23,42 @@ export default function Features() {
     {
       src: img3,
       alt: 'Image 3',
-      text: 'An ancient tradition of the finest cheeses.',
+      text: 'Bringing an ancient tradition of the finest cheeses.',
+    },
+    {
+      src: img4,
+      alt: 'Image 4',
+      text: 'Farm to Table Excellence (Freshness and Taste in Every Bite)',
+    },
+    {
+      src: img5,
+      alt: 'Image 5',
+      text: 'From Farm to Fork, Perfection at every step',
+    },
+    {
+      src: img6,
+      alt: 'Image 6',
+      text: 'Making pure magic out of solidified milk',
+    },
+    {
+      src: img7,
+      alt: 'Image 7',
+      text: 'Personal Hygiene',
+    },
+    {
+      src: img8,
+      alt: 'Image 8',
+      text: 'Reunite With Your Favorite Bites',
+    },
+    {
+      src: img9,
+      alt: 'Image 9',
+      text: 'Simple pleasures, a good coffee and some hearty pastries',
+    },
+    {
+      src: img10,
+      alt: 'Image 10',
+      text: 'The Natural Spice for the Traditional Food',
     },
   ];
 
@@ -33,7 +75,7 @@ export default function Features() {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 2000);
     return () => clearInterval(interval);
   }, []);
 
@@ -57,6 +99,12 @@ export default function Features() {
             {images[currentIndex].text}
           </h2>
         </motion.div>
+        <a
+          href="/stores"
+          className="inline-block px-6 py-3 mt-8 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out text-sm sm:text-base"
+        >
+          Know more
+        </a>
       </div>
 
       {/* Carousel section */}

@@ -10,7 +10,7 @@ export default function AboutPage() {
       style={{
         position: 'relative', // To position the pseudo-element correctly
       }}
-      className="w-full py-14 bg-cover bg-center bg-white items-center flex flex-col md:justify-between"
+      className="w-full py-14 bg-cover h-screen bg-center bg-white items-center flex flex-col md:justify-between"
     >
       {/* Background image with reduced opacity */}
       <div
@@ -53,6 +53,12 @@ export default function AboutPage() {
               unmatched shopping experience to our valued customers in Fujairah.
             </span>
           </p>
+          <motion.a
+            href="/about"
+            className="inline-block w-36 mt-4 px-6 py-3 bg-white text-green-600 border border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out text-center sm:text-left"
+          >
+            Know more
+          </motion.a>
         </motion.div>
 
         {/* Image Section */}

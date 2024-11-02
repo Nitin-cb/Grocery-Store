@@ -49,39 +49,19 @@ export function Home() {
         <Features />
       </motion.div>
 
-      <div
-      // initial="hidden"
-      // whileInView="visible"
-      // viewport={{ once: true, amount: 0.2 }}
-      // variants={fadeUp}
-      >
+      <div>
         <Promotions />
       </div>
 
-      <div
-      // initial="hidden"
-      // whileInView="visible"
-      // viewport={{ once: true, amount: 0.2 }}
-      // variants={fadeUp}
-      >
+      <div>
         <Insight />
       </div>
 
-      <div
-      // initial="hidden"
-      // whileInView="visible"
-      // viewport={{ once: true, amount: 0.2 }}
-      // variants={fadeUp}
-      >
+      <div>
         <ExclusiveDeals />
       </div>
 
-      <motion.div
-      // initial="hidden"
-      // whileInView="visible"
-      // viewport={{ once: true, amount: 0.2 }}
-      // variants={fadeUp}
-      >
+      <motion.div>
         <StoreLocations />
       </motion.div>
 
