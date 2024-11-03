@@ -13,21 +13,23 @@ import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const Pages = React.forwardRef(({ file, number, onLoadSuccess, pageWidth }, ref) => {
-  return (
-    <div ref={ref} className="relative bg-white shadow-lg rounded-md">
-      <Document file={file} onLoadSuccess={onLoadSuccess}>
-        <Page
-          pageNumber={number}
-          width={pageWidth}
-          renderAnnotationLayer={false}
-          renderTextLayer={false}
-        />
-      </Document>
-      <p className="text-sm text-gray-500 text-center mt-2">Page {number}</p>
-    </div>
-  );
-});
+const Pages = React.forwardRef(
+  ({ file, number, onLoadSuccess, pageWidth }, ref) => {
+    return (
+      <div ref={ref} className="relative bg-white shadow-lg rounded-md">
+        <Document file={file} onLoadSuccess={onLoadSuccess}>
+          <Page
+            pageNumber={number}
+            width={pageWidth}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </Document>
+        <p className="text-sm text-gray-500 text-center mt-2">Page {number}</p>
+      </div>
+    );
+  }
+);
 
 Pages.displayName = 'Pages';
 
@@ -39,13 +41,13 @@ function PromotionPage() {
   const [isMobile, setIsMobile] = useState(false);
 
   const pdfFiles = [
-    { name: "Back To School AL Madina Supermarket Gurfa", file: pdf1 },
-    { name: "Mega Sale AL Madina Twin Tower", file: pdf2 },
-    { name: "Express AL Madina Supermarket", file: pdf3 },
-    { name: "AL Madina Supermarket Gurfa", file: pdf4 },
-    { name: "AL Madina Branch", file: pdf5 },
-    { name: "AL Madina Bdiya", file: pdf6 },
-    { name: "AL Madina Dibba", file: pdf7 }
+    { name: 'Back To School AL Madina Supermarket Gurfa', file: pdf1 },
+    { name: 'Mega Sale AL Madina Twin Tower', file: pdf2 },
+    { name: 'Express AL Madina Supermarket', file: pdf3 },
+    { name: 'AL Madina Supermarket Gurfa', file: pdf4 },
+    { name: 'AL Madina Branch', file: pdf5 },
+    { name: 'AL Madina Bdiya', file: pdf6 },
+    { name: 'AL Madina Dibba', file: pdf7 },
   ];
 
   useEffect(() => {
@@ -53,11 +55,13 @@ function PromotionPage() {
       const width = window.innerWidth;
       const isMobileView = width < 768;
       setIsMobile(isMobileView);
-      
-      const modalWidth = width * 0.8;
+
+      const modalWidth = width * 0.9;
 
       // Set page width for different screen types
-      setPageWidth(isMobileView ? modalWidth * 0.9 : Math.min(modalWidth * 0.4, 400));
+      setPageWidth(
+        isMobileView ? modalWidth * 0.9 : Math.min(modalWidth * 0.4, 400)
+      );
     };
 
     handleResize();
@@ -89,7 +93,7 @@ function PromotionPage() {
         </p>
       </div>
 
-      <div className="flex overflow-x-auto w-full gap-8 p-4 flex-wrap justify-center items-center">
+      <div className="flex overflow-x-auto w-8/12 gap-8 p-4 flex-wrap justify-center items-center">
         {pdfFiles.map((file, index) => (
           <div
             key={index}
@@ -104,7 +108,9 @@ function PromotionPage() {
                 renderTextLayer={false}
               />
             </Document>
-            <p className="text-center text-sm mt-2 text-gray-600">{file.name}</p>
+            <p className="text-center text-sm mt-2 text-gray-600">
+              {file.name}
+            </p>
           </div>
         ))}
       </div>
@@ -117,16 +123,16 @@ function PromotionPage() {
         centered
       >
         <div
-          className="w-full h-full flex justify-center items-center"
+          className="w-full h-full mt-8 flex justify-center items-center"
           style={{
-            height: isMobile ? '95vh' : '85vh', // Modal height for better PDF fit
+            height: isMobile ? '55vh' : '85vh', // Modal height for better PDF fit
             padding: isMobile ? '5px' : '10px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#f3f4f6',
             overflow: 'hidden',
-            paddingTop: isMobile ? '15px' : '30px' // Adjust top padding to bring PDF down
+            paddingTop: isMobile ? '15px' : '30px', // Adjust top padding to bring PDF down
           }}
         >
           {numPages > 0 ? (
@@ -144,7 +150,7 @@ function PromotionPage() {
               style={{
                 display: 'flex',
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
             >
               {[...Array(numPages).keys()].map((pNum) => (
