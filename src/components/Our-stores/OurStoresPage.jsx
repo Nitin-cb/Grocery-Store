@@ -142,7 +142,7 @@ const OurStores = () => {
       </motion.div>
 
       {/* /////////////////// */}
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4 mb-10">
         {/* <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
           Our <span className="text-green-600">Stores</span>
         </h1> */}
@@ -163,11 +163,11 @@ const OurStores = () => {
             768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
-          className="carousel-container"
+          className="carousel-container h-[85vh]"
         >
           {storesData.map((store, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300">
+              <div className="bg-white h-[75vh] shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300">
                 {/* Store Image */}
                 <img
                   src={store.imageUrl}
@@ -223,7 +223,7 @@ const OurStores = () => {
         <ProductScroll />
 
         {/* Footer or Additional Info */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 mb-6">
           <p className="text-lg text-gray-600">
             Find the store nearest to you and enjoy our wide range of products
             and services!
