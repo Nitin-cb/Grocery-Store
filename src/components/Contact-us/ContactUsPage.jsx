@@ -56,19 +56,19 @@ function ContactUsPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full h-[50vh] md:h-screen bg-gray-900"
+        className="relative w-full   bg-gray-900"
       >
         <img
           src={bannerimg}
           alt="Background"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
-        <div className="absolute inset-0 flex flex-col items-start text-white px-4 md:px-14 top-16 md:top-28">
+        {/* <div className="absolute inset-0 flex flex-col items-start text-white px-4 md:px-14 top-12 md:top-14">
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="text-white text-3xl sm:text-4xl md:text-6xl font-bold"
+            className="text-white text-xl sm:text-2xl md:text-4xl font-bold"
           >
             Contact Us
           </motion.h1>
@@ -76,11 +76,11 @@ function ContactUsPage() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
-            className="mt-6 md:mt-14 text-lg sm:text-2xl md:text-3xl"
+            className="mt-6 md:mt-8 text-lg sm:text-2xl md:text-3xl"
           >
             We’re always ready for a coffee and a good chat!
           </motion.p>
-        </div>
+        </div> */}
       </motion.div>
 
       {/* Second Section: Small paragraph */}
