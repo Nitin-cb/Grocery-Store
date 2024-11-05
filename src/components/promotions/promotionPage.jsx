@@ -13,21 +13,23 @@ import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const Pages = React.forwardRef(({ file, number, onLoadSuccess, pageWidth }, ref) => {
-  return (
-    <div ref={ref} className="relative bg-white shadow-lg rounded-md">
-      <Document file={file} onLoadSuccess={onLoadSuccess}>
-        <Page
-          pageNumber={number}
-          width={pageWidth}
-          renderAnnotationLayer={false}
-          renderTextLayer={false}
-        />
-      </Document>
-      <p className="text-sm text-gray-500 text-center mt-2">Page {number}</p>
-    </div>
-  );
-});
+const Pages = React.forwardRef(
+  ({ file, number, onLoadSuccess, pageWidth }, ref) => {
+    return (
+      <div ref={ref} className="relative bg-white shadow-lg rounded-md">
+        <Document file={file} onLoadSuccess={onLoadSuccess}>
+          <Page
+            pageNumber={number}
+            width={pageWidth}
+            renderAnnotationLayer={false}
+            renderTextLayer={false}
+          />
+        </Document>
+        <p className="text-sm text-gray-500 text-center mt-2">Page {number}</p>
+      </div>
+    );
+  }
+);
 
 Pages.displayName = 'Pages';
 
@@ -55,7 +57,9 @@ function PromotionPage() {
       setIsMobile(isMobileView);
 
       const modalWidth = Math.min(width * 0.9, 800);
-      const calculatedPageWidth = isMobileView ? modalWidth * 0.9 : Math.min(modalWidth * 0.5, 400);
+      const calculatedPageWidth = isMobileView
+        ? modalWidth * 0.9
+        : Math.min(modalWidth * 0.5, 400);
 
       setPageWidth(calculatedPageWidth);
     };
@@ -121,14 +125,14 @@ function PromotionPage() {
         <div
           className="w-full h-full mt-8 flex justify-center items-center"
           style={{
-            height: isMobile ? '55vh' : '85vh',
+            height: isMobile ? '65vh' : '85vh',
             padding: isMobile ? '5px' : '10px',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             backgroundColor: '#f3f4f6',
             overflow: 'hidden',
-            paddingTop: isMobile ? '15px' : '30px',
+            paddingTop: isMobile ? '8px' : '30px',
           }}
         >
           {numPages > 0 ? (
