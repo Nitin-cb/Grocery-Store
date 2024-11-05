@@ -2,6 +2,7 @@
 import img1 from '/images/bgaboutus.png';
 import certi1 from '/images/certificate1.jpg';
 import certi2 from '/images/certificate2.jpg';
+import mission from '/images/mission.jpg';
 
 import './about.css';
 import { motion } from 'framer-motion';
@@ -165,7 +166,7 @@ export default function AboutUsPage() {
         >
           <motion.img
             className="w-full h-72 object-cover rounded-lg shadow-md"
-            src="https://img.freepik.com/free-vector/business-people-setting-company-target_1262-20615.jpg?ga=GA1.1.1031503010.1714190988&semt=ais_hybrid" // Replace with your image URL
+            src={mission} // Replace with your image URL
             alt="Our Mission"
             variants={fadeInUp}
             transition={{ delay: 0.3, duration: 1 }}
