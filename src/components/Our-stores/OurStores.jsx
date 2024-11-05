@@ -50,7 +50,7 @@ export default function StoreLocations() {
           </motion.p>
           <div className="pt-4">
             <a
-              href="/promotions"
+              href="/stores"
               className="inline-block px-6 py-3 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out text-sm sm:text-base"
             >
               Know more

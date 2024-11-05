@@ -24,7 +24,7 @@ const ExclusiveDeals = () => {
 
   return (
     <div className="bg-white w-full p-18 sm:p-12">
-      <div className="flex flex-col h-auto md:flex-row">
+      <div className="flex items-center flex-col h-auto md:flex-row">
         {/* Text Section */}
         <motion.div
           className="w-full md:w-1/2 pl-14 mt-16"
@@ -41,6 +41,12 @@ const ExclusiveDeals = () => {
             affordable prices. Best Quality, Healthy & Tasty, Fresh Products,
             Competitive Prices."
           </p>
+          <motion.a
+            href="/promotions"
+            className="inline-block w-36 mt-4 px-6 py-3 bg-white text-green-600 border border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 hover:text-white transition duration-300 ease-in-out text-center sm:text-left"
+          >
+            Know more
+          </motion.a>
         </motion.div>
 
         {/* Video Section */}

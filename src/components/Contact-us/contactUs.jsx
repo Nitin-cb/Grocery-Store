@@ -40,10 +40,10 @@ export default function ContactUs() {
 
         {/* Right Image Section */}
         <div
-          className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center"
+          className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center "
           style={{
             backgroundImage: `url(${img1})`,
-            backgroundSize: 'cover', // Ensure the image covers the area without distortion
+            backgroundSize: 'contain', // Ensure the image covers the area without distortion
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat', // Prevents background image from repeating
           }}

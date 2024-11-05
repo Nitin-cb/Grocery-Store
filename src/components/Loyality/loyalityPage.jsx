@@ -41,11 +41,16 @@ export default function Loyality() {
           <p className="text-black mt-4 text-lg">
             “<span className="font-bold ">Ahlan Madina</span>” is a Loyalty
             Mobile Application program. Points will be added to your account at
-            the time of purchase. This app is used for viewing total Points,
-            Nearest Outlets with Location and Contact details, and Promotional
-            Flyers.
+            the time of purchase.
           </p>
-          <button className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
+          <p className="text-black mt-9 text-lg">
+            This app is used for viewing total Points, Nearest Outlets with
+            Location and Contact details, and Promotional Flyers.
+          </p>
+          <p className="text-black mt-9 text-xl font-bold">
+            You can redeem your points at any our Outlets
+          </p>
+          <button className="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
             Join the Loyalty Program
           </button>
         </motion.div>

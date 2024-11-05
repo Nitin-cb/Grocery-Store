@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="container mx-auto">
         <div className="flex justify-between items-center h-20 px-4">
           {/* Logo */}
-          <div className="flex-shrink-0 w-24 md:w-32">
+          <div className="flex-shrink-0 w-48 md:w-52">
             <img className="w-full h-auto" src={logo} alt="Logo" />
           </div>
 
@@ -28,7 +28,7 @@ export default function Navbar() {
             <NavLink href="/promotions">Promotions</NavLink>
             <NavLink href="/stores">Our Stores</NavLink>
             <NavLink href="/gallery">Gallery</NavLink>
-            <NavLink href="/loyality">Loyalty</NavLink>
+            <NavLink href="/loyality">Ahlan</NavLink>
             <NavLink href="/careers">Careers</NavLink>
             <NavLink href="/contact">Contact Us</NavLink>
           </div>
@@ -79,7 +79,7 @@ export default function Navbar() {
               <NavLink href="/promotions">Promotions</NavLink>
               <NavLink href="/stores">Our Stores</NavLink>
               <NavLink href="/gallery">Gallery</NavLink>
-              <NavLink href="/loyality">Loyalty</NavLink>
+              <NavLink href="/loyality">Ahlan</NavLink>
               <NavLink href="/careers">Careers</NavLink>
               <NavLink href="/contact">Contact Us</NavLink>
 

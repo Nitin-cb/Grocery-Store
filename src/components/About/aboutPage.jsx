@@ -319,7 +319,7 @@ export default function AboutUsPage() {
             variants={fadeInUp}
             transition={{ duration: 1 }}
           >
-            HACCP Certification for Al Madina Supermarket L.L.C
+            HACCP Certification
           </motion.h1>
         </div>
 

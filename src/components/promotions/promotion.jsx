@@ -28,14 +28,14 @@ export default function Promotions() {
         <div className="space-y-4">
           <motion.div variants={fadeUp}>
             <img
-              className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
+              className="object-contain object-center w-full  rounded-lg"
               src={img1}
               alt="Affordable Pricing"
             />
           </motion.div>
           <motion.div variants={fadeUp}>
             <img
-              className="object-cover object-center w-full h-40 sm:h-48 md:h-56 lg:h-64 rounded-lg"
+              className="object-contain object-center w-full  rounded-lg"
               src={img3}
               alt="Wide Product Range"
             />

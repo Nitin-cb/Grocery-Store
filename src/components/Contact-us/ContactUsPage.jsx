@@ -99,7 +99,7 @@ function ContactUsPage() {
       </motion.div>
 
       {/* Third Section: Address and Image */}
-      <div className="flex flex-col md:flex-row justify-between items-start mx-4 md:mx-8 my-8 md:my-16">
+      <div className="flex flex-col md:flex-row justify-between items-center mx-4 md:mx-8 my-8 md:my-16">
         {/* Left side: Address */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -107,9 +107,9 @@ function ContactUsPage() {
           transition={{ duration: 1 }}
           className="w-full md:w-1/2 mb-8 md:mb-0"
         >
-          <h2 className="text-xl md:text-2xl font-semibold mb-4">
+          {/* <h2 className="text-xl md:text-2xl font-semibold mb-4">
             Our Address
-          </h2>
+          </h2> */}
           <div className="flex items-center mb-2">
             <MailIcon />
             <p className="mx-2 text-sm md:text-base">info@almadinauae.ae</p>
@@ -139,9 +139,9 @@ function ContactUsPage() {
           transition={{ duration: 1 }}
           className="w-full md:w-1/2"
         >
-          <h3 className="font-semibold text-lg md:text-xl mb-4">
+          {/* <h3 className="font-semibold text-lg md:text-xl mb-4">
             Our Location
-          </h3>
+          </h3> */}
           <div className="w-full h-48 md:h-64 bg-gray-300 rounded-lg overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.0541025123753!2d56.33486257537939!3d25.121437477759756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef4f965ca64b58b%3A0xd0770a1f918cc3d3!2sAl%20Madina%20Group!5e1!3m2!1sen!2sin!4v1729346169158!5m2!1sen!2sin"

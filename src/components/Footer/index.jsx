@@ -61,7 +61,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Our Location</h3>
             <div className="w-full h-48 bg-gray-300 rounded-lg overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d928647.3915625575!2d45.512063178125!3d24.605450400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f0f5c5aa61909%3A0xe96a32c9acd934e8!2sAl%20Madina%20Hypermarket!5e0!3m2!1sen!2sin!4v1727761666196!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.0541025123753!2d56.33486257537939!3d25.121437477759756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef4f965ca64b58b%3A0xd0770a1f918cc3d3!2sAl%20Madina%20Group!5e1!3m2!1sen!2sin!4v1729346169158!5m2!1sen!2sin"
                 width="800"
                 height="600"
                 allowFullScreen=""

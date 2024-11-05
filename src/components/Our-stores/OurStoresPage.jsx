@@ -5,6 +5,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade'; // Optional effect
 import ProductScroll from './scroll';
+import { motion } from 'framer-motion';
+import bannerimg from '/images/Our Stores/banner.jpg';
 
 // Store data including images
 const storesData = [
@@ -107,11 +109,43 @@ const storesData = [
 
 const OurStores = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className=" bg-gray-50">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] mb-12 bg-gray-900"
+      >
+        <img
+          src={bannerimg}
+          alt="Background"
+          className="w-full h-full object-cover object-center sm:object-top md:object-center lg:object-center"
+        />
+        <div className="absolute inset-0 flex flex-col items-start text-white px-4 sm:px-10 md:px-14 top-32  md:top-96 lg:top-80">
+          <motion.h1
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-black"
+          >
+            Locate <span className="text-green-600"> Our Store</span>
+          </motion.h1>
+          <motion.p
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 1 }}
+            className="mt-4 text-black sm:mt-6 md:mt-8 lg:mt-14 text-base sm:text-lg md:text-xl lg:text-3xl"
+          >
+            "The new way of shopping at your fingertips"
+          </motion.p>
+        </div>
+      </motion.div>
+
+      {/* /////////////////// */}
       <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
+        {/* <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
           Our <span className="text-green-600">Stores</span>
-        </h1>
+        </h1> */}
 
         {/* Swiper for carousel */}
         <Swiper
