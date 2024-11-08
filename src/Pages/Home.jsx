@@ -40,18 +40,20 @@ export function Home() {
         <AboutPage />
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeUp}
-      >
-        <Features />
-      </motion.div>
+      > */}
+      {/* <div className="bg-gradient-to-r from-blue-200 to-blue-50"> */}
+      <Features />
+      {/* </div> */}
+      {/* </motion.div> */}
 
-      <div>
-        <Promotions />
-      </div>
+      {/* <div className="bg-gradient-to-r from-blue-50 to-indigo-100"> */}
+      <Promotions />
+      {/* </div> */}
 
       <div>
         <Insight />
@@ -61,14 +63,19 @@ export function Home() {
         <ExclusiveDeals />
       </div>
 
-      <motion.div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }}
+        variants={fadeUp}
+      >
         <StoreLocations />
       </motion.div>
 
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.6 }}
         variants={fadeUp}
       >
         <ContactUs />

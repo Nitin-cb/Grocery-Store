@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { Phone } from 'lucide-react';
-import { InstagramOutlined } from '@ant-design/icons';
+import {
+  FacebookFilled,
+  FacebookOutlined,
+  InstagramOutlined,
+  LinkedinFilled,
+  LinkedinOutlined,
+} from '@ant-design/icons';
 import { NavLink } from './NavLink';
 import { SocialIcon } from './SocialIcons';
 import logo from '../../assets/images/LOGO.png';
@@ -38,16 +44,30 @@ export default function Navbar() {
           {/* Social Icons for Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             <SocialIcon
-              href="https://www.instagram.com/your-instagram"
+              href="https://www.instagram.com/almadina.ae?igsh=cTJ1ZDN0M3Y0YXFn"
               aria-label="Instagram"
             >
               <InstagramOutlined width={20} height={20} />
             </SocialIcon>
-            <SocialIcon href="tel:your-phone-number" aria-label="Phone">
+
+            <SocialIcon
+              href="https://www.linkedin.com/company/amg-al-madina-group/"
+              aria-label="Linkedin"
+            >
+              <LinkedinOutlined width={20} height={90} />
+            </SocialIcon>
+
+            <SocialIcon
+              href="https://www.facebook.com/profile.php?id=100076119871058&mibextid=JRoKGi"
+              aria-label="Facebook"
+            >
+              <FacebookOutlined width={20} height={90} />
+            </SocialIcon>
+
+            <SocialIcon href="tel:+9712242543" aria-label="Phone">
               <Phone size={20} />
             </SocialIcon>
           </div>
-
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
             <button
@@ -88,12 +108,27 @@ export default function Navbar() {
               {/* Social Icons for Mobile */}
               <div className="flex space-x-4 mt-4">
                 <SocialIcon
-                  href="https://www.instagram.com/your-instagram"
+                  href="https://www.instagram.com/almadina.ae?igsh=cTJ1ZDN0M3Y0YXFn"
                   aria-label="Instagram"
                 >
-                  <InstagramOutlined size={20} />
+                  <InstagramOutlined width={20} height={20} />
                 </SocialIcon>
-                <SocialIcon href="tel:your-phone-number" aria-label="Phone">
+
+                <SocialIcon
+                  href="https://www.linkedin.com/company/amg-al-madina-group/"
+                  aria-label="Linkedin"
+                >
+                  <LinkedinFilled width={20} height={90} />
+                </SocialIcon>
+
+                <SocialIcon
+                  href="https://www.facebook.com/profile.php?id=100076119871058&mibextid=JRoKGi"
+                  aria-label="Facebook"
+                >
+                  <FacebookFilled width={20} height={90} />
+                </SocialIcon>
+
+                <SocialIcon href="tel:+9712242543" aria-label="Phone">
                   <Phone size={20} />
                 </SocialIcon>
               </div>

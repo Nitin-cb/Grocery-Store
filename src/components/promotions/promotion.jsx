@@ -15,7 +15,7 @@ export default function Promotions() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 h-[90vh] gap-8 w-full max-w-7xl mx-auto p-14 sm:p-12 ">
+    <div className="grid grid-cols-1 items-center lg:grid-cols-2 h-[90vh] gap-8 w-full max-w-7xl mx-auto p-14 sm:p-12 ">
       {/* Images Column */}
       <motion.div
         className="grid grid-cols-2 gap-4 justify-self-center self-center"
