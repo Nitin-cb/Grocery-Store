@@ -22,60 +22,81 @@ export function Home() {
 
   return (
     <div>
+      {/* Home Page */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }} // Trigger when 30% of the element is in view
         variants={fadeUp}
       >
         <HomePage />
       </motion.div>
 
+      {/* About Page */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }} // Consistent viewport amount
         variants={fadeUp}
       >
         <AboutPage />
       </motion.div>
 
-      {/* <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeUp}
-      > */}
-      {/* <div className="bg-gradient-to-r from-blue-200 to-blue-50"> */}
-      <Features />
-      {/* </div> */}
-      {/* </motion.div> */}
-
-      {/* <div className="bg-gradient-to-r from-blue-50 to-indigo-100"> */}
-      <Promotions />
-      {/* </div> */}
-
-      <div>
-        <Insight />
-      </div>
-
-      <div>
-        <ExclusiveDeals />
-      </div>
-
+      {/* Features Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is in view
+        variants={fadeUp}
+      >
+        <Features />
+      </motion.div>
+
+      {/* Promotions Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is in view
+        variants={fadeUp}
+      >
+        <Promotions />
+      </motion.div>
+
+      {/* Insight Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }} // Trigger when 30% of the element is in view
+        variants={fadeUp}
+      >
+        <Insight />
+      </motion.div>
+
+      {/* Exclusive Deals Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }} // Trigger when 40% of the element is in view
+        variants={fadeUp}
+      >
+        <ExclusiveDeals />
+      </motion.div>
+
+      {/* Store Locations Section */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of the element is in view
         variants={fadeUp}
       >
         <StoreLocations />
       </motion.div>
 
+      {/* Contact Us Section */}
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.6 }} // Trigger when 60% of the element is in view
         variants={fadeUp}
       >
         <ContactUs />
