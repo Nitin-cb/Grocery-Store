@@ -1,4 +1,6 @@
+// Features/features.jsx
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import img1 from '/images/homePage/1.jpg';
 import img2 from '/images/homePage/2.jpg';
 import img3 from '/images/homePage/3.jpg';
@@ -9,8 +11,7 @@ import img7 from '/images/homePage/7.jpg';
 import img8 from '/images/homePage/8.jpg';
 import img9 from '/images/homePage/9.jpg';
 import img10 from '/images/homePage/10.jpg';
-import { motion, AnimatePresence } from 'framer-motion';
-import AnimatedSection from '../animated /section';
+// import AnimatedSection from '../animated /section';
 
 export default function Features() {
   const images = [
@@ -64,70 +65,126 @@ export default function Features() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        when: 'beforeChildren',
+        staggerChildren: 0.2,
+      },
+    },
   };
 
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, rotate: -5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      rotate: 5,
+      transition: {
+        duration: 0.4,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 2000);
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <AnimatedSection className="relative flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden p-14 sm:p-20">
-      {/* Combined Title and Text Section */}
-      <div className="w-full lg:w-2/3 flex flex-col justify-center items-center text-center lg:text-left lg:items-start rounded-lg p-4 mb-6 lg:mb-0">
-        {/* Constant Title */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4">
-          In Our Stores, We Offer
-        </h1>
-        {/* Dynamic Text */}
-        <motion.div
-          key={currentIndex}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: 'easeInOut' }}
+    <motion.section
+      className="relative flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden p-14 sm:p-20"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      {/* Text Section */}
+      <motion.div
+        className="w-full lg:w-2/3 flex flex-col justify-center items-center text-center lg:text-left lg:items-start"
+        variants={containerVariants}
+      >
+        <motion.h1
+          variants={textVariants}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-4"
         >
-          <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-500 capitalize font-semibold">
+          In Our Stores, We Offer
+        </motion.h1>
+
+        <AnimatePresence mode="wait">
+          <motion.h2
+            key={currentIndex}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="text-xl sm:text-2xl md:text-3xl text-gray-500 capitalize font-semibold"
+          >
             {images[currentIndex].text}
-          </h2>
-        </motion.div>
-        <a
+          </motion.h2>
+        </AnimatePresence>
+
+        <motion.a
           href="/stores"
-          className="inline-block px-6 py-3 mt-8 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300 ease-in-out text-sm sm:text-base"
+          className="inline-block px-6 py-3 mt-8 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300"
+          variants={textVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Know more
-        </a>
-      </div>
+        </motion.a>
+      </motion.div>
 
-      {/* Carousel section */}
+      {/* Image Carousel */}
       <div className="relative w-full lg:w-4/12 m-12 p-20 aspect-square overflow-hidden">
-        <AnimatePresence initial={false} custom={currentIndex}>
+        <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            custom={currentIndex}
-            initial={{ opacity: 0, scale: 0.8, x: 50 }} // Slide-in effect with scaling
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.8, x: -50 }} // Slide-out with scaling
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
+            variants={imageVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             className="absolute inset-0"
           >
-            <img
+            <motion.img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               className="w-full h-full object-cover rounded-3xl"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
               loading="lazy"
             />
           </motion.div>
         </AnimatePresence>
       </div>
-    </AnimatedSection>
+    </motion.section>
   );
 }

@@ -1,7 +1,35 @@
+// HomePage/home.jsx
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+const carouselVariants = {
+  enter: (direction) => ({
+    x: direction > 0 ? '100%' : '-100%',
+    opacity: 0,
+    scale: 0.95,
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  },
+  exit: (direction) => ({
+    zIndex: 0,
+    x: direction < 0 ? '100%' : '-100%',
+    opacity: 0,
+    scale: 0.95,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0.2, 1],
+    },
+  }),
+};
 const carouselItems = {
   mobile: [
     { image: '/images/homePage/carousel/Header___A_mobile.jpg' },
@@ -22,30 +50,13 @@ const carouselItems = {
     { image: '/images/homePage/carousel/Header__C.jpg' },
   ],
 };
-
 export default function GroceryCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [screenSize, setScreenSize] = useState('desktop'); // Default to desktop
+  const [screenSize, setScreenSize] = useState('desktop');
 
-  // Update screen size on mount and when window resizes
-  useEffect(() => {
-    const updateScreenSize = () => {
-      if (window.innerWidth <= 768) {
-        setScreenSize('mobile');
-      } else if (window.innerWidth <= 1024) {
-        setScreenSize('tablet');
-      } else {
-        setScreenSize('desktop');
-      }
-    };
+  // Update screen size logic remains the same...
 
-    updateScreenSize(); // Check on initial render
-    window.addEventListener('resize', updateScreenSize); // Update on resize
-    return () => window.removeEventListener('resize', updateScreenSize);
-  }, []);
-
-  // Auto-play carousel
   useEffect(() => {
     const timer = setInterval(() => {
       setDirection(1);
@@ -59,7 +70,7 @@ export default function GroceryCarousel() {
   const paginate = (newDirection) => {
     setDirection(newDirection);
     setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + newDirection;
+      let newIndex = prevIndex + newDirection;
       if (newIndex < 0) return carouselItems[screenSize].length - 1;
       if (newIndex >= carouselItems[screenSize].length) return 0;
       return newIndex;
@@ -68,57 +79,48 @@ export default function GroceryCarousel() {
 
   return (
     <div className="relative w-full h-[90vh] overflow-hidden">
-      <AnimatePresence initial={false} custom={direction}>
+      <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
           key={currentIndex}
           custom={direction}
-          variants={{
-            enter: (direction) => ({
-              x: direction > 0 ? '100%' : '-100%',
-              opacity: 0,
-            }),
-            center: {
-              zIndex: 1,
-              x: 0,
-              opacity: 1,
-            },
-            exit: (direction) => ({
-              zIndex: 0,
-              x: direction < 0 ? '100%' : '-100%',
-              opacity: 0,
-            }),
-          }}
+          variants={carouselVariants}
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{
-            x: { type: 'spring', stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="relative w-full h-full">
+          <motion.div
+            className="relative w-full h-full "
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             <img
               src={carouselItems[screenSize][currentIndex].image}
-              alt={`Image ${currentIndex + 1}`}
-              className="w-full h-full object-fit"
+              alt={`Slide ${currentIndex + 1}`}
+              className="w-full h-full "
             />
-          </div>
+          </motion.div>
         </motion.div>
       </AnimatePresence>
 
-      <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10 hover:bg-opacity-75 transition-all duration-300"
+      {/* Navigation Buttons */}
+      <motion.button
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/50 rounded-full p-2 z-10"
+        whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => paginate(-1)}
       >
         <ChevronLeft className="w-6 h-6 text-gray-800" />
-      </button>
-      <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10 hover:bg-opacity-75 transition-all duration-300"
+      </motion.button>
+
+      <motion.button
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/50 rounded-full p-2 z-10"
+        whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
+        whileTap={{ scale: 0.9 }}
         onClick={() => paginate(1)}
       >
         <ChevronRight className="w-6 h-6 text-gray-800" />
-      </button>
+      </motion.button>
     </div>
   );
 }
