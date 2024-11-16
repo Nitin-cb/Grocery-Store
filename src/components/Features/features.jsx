@@ -120,8 +120,8 @@ export default function Features() {
   }, []);
 
   return (
-    <motion.section
-      className="relative flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden p-14 sm:p-20"
+    <motion.div
+      className="relative flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden pl-14 sm:pl-20 pr-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -164,7 +164,7 @@ export default function Features() {
       </motion.div>
 
       {/* Image Carousel */}
-      <div className="relative w-full lg:w-4/12 m-12 p-20 aspect-square overflow-hidden">
+      <div className="relative w-full lg:w-4/12 m-6  aspect-square overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -185,6 +185,6 @@ export default function Features() {
           </motion.div>
         </AnimatePresence>
       </div>
-    </motion.section>
+    </motion.div>
   );
 }

@@ -88,7 +88,7 @@ function ContactUsPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 1 }}
-        className="m-8 text-center p-12"
+        className=" text-center mt-8 px-12"
       >
         <p className="text-lg text-gray-600 md:text-xl font-bold mx-4">
           “We invite you to explore our stores, discover the wide range of
@@ -99,7 +99,7 @@ function ContactUsPage() {
       </motion.div>
 
       {/* Third Section: Address and Image */}
-      <div className="flex flex-col md:flex-row justify-between items-center mx-4 md:mx-8 my-8 md:my-16">
+      <div className="flex flex-col md:flex-row justify-between items-center mx-4 md:my-0 my-6 md:mx-8 ">
         {/* Left side: Address */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -107,9 +107,6 @@ function ContactUsPage() {
           transition={{ duration: 1 }}
           className="w-full md:w-1/2 mb-8 md:mb-0"
         >
-          {/* <h2 className="text-xl md:text-2xl font-semibold mb-4">
-            Our Address
-          </h2> */}
           <div className="flex items-center mb-2">
             <MailIcon />
             <p className="mx-2 text-sm md:text-base">info@almadinauae.ae</p>
@@ -137,16 +134,12 @@ function ContactUsPage() {
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 1 }}
-          className="w-full md:w-1/2"
+          className="w-full md:w-1/2 "
         >
-          {/* <h3 className="font-semibold text-lg md:text-xl mb-4">
-            Our Location
-          </h3> */}
-          <div className="w-full h-48 md:h-64 bg-gray-300 rounded-lg overflow-hidden">
+          <div className=" w-full p-12 sm:p-14 md:p-24 rounded-lg overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.0541025123753!2d56.33486257537939!3d25.121437477759756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef4f965ca64b58b%3A0xd0770a1f918cc3d3!2sAl%20Madina%20Group!5e1!3m2!1sen!2sin!4v1729346169158!5m2!1sen!2sin"
-              width="800"
-              height="600"
+              className="w-full aspect-square  rounded-lg"
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

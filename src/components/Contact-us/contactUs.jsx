@@ -100,15 +100,10 @@ export default function ContactUs() {
           </motion.a>
         </motion.div>
 
-        <motion.div
+        <motion.img
           variants={imageVariants}
-          className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${img1})`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
+          className="md:w-1/2 w-full h-64 md:h-[400px] bg-black  rounded-lg overflow-hidden"
+          src={img1}
         />
       </motion.div>
     </AnimatedSection>

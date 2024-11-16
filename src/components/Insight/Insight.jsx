@@ -87,7 +87,7 @@ const Insight = () => {
             <motion.img
               src={item.img}
               alt={item.title}
-              className="w-full h-64 object-cover"
+              className="w-full  object-contain"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             />

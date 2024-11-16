@@ -9,7 +9,7 @@ import b1 from '/images/loyalityCard/b1.png';
 import b2 from '/images/loyalityCard/b2.png';
 import b3 from '/images/loyalityCard/b3.png';
 import b4 from '/images/loyalityCard/b4.png';
-import app from '/images/loyalityCard/App .jpg';
+// import app from '/images/loyalityCard/App .jpg';
 import banner from '/images/loyalityCard/AhlanBaner.jpg';
 import React from 'react';
 
@@ -95,7 +95,7 @@ export default function Loyality() {
             <span className="text-yellow-400">Buy More...</span>
             <span className="text-orange-500">Earn More...</span>
           </h1>
-          <p className="text-black mt-4 text-lg">
+          <p className="text-black mt-4 text-xl">
             "<span className="font-bold">Ahlan Madina</span>" is a Loyalty
             Mobile Application program. Points will be added to your account at
             the time of purchase.
@@ -103,7 +103,7 @@ export default function Loyality() {
         </motion.div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-between mt-12 text-white">
+      {/* <div className="flex flex-col md:flex-row items-center justify-between mt-12 text-white">
         <motion.img
           ref={imgRef}
           className="w-full md:w-1/2"
@@ -136,9 +136,10 @@ export default function Loyality() {
             Join the Loyalty Program
           </motion.button>
         </motion.div>
-      </div>
+      </div> */}
 
       <motion.div
+        className="mt-12"
         ref={bannerRef}
         variants={fadeInScale}
         initial="hidden"
@@ -191,7 +192,7 @@ export default function Loyality() {
               <img
                 src={img}
                 alt={['Buy More', 'Earn More', 'Redeem'][index]}
-                className="w-full h-48 object-cover"
+                className="w-full  object-contain"
               />
               <div className="p-6">
                 <h3 className="font-bold text-xl text-gray-800">

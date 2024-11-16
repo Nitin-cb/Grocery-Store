@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function AboutUsPage() {
   const fadeInUp = {
-    hidden: { opacity: 0, y: 100 },
+    hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -379,29 +379,30 @@ export default function AboutUsPage() {
 
       {/* join us */}
       <motion.div
-        className="relative bg-green-600 py-12 px-4 sm:px-6 lg:px-8 rounded-lg shadow-lg text-white mt-16"
+        className="relative bg-green-600 py-12 px-4 sm:px-6 lg:px-8  shadow-lg text-white mt-16"
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
         variants={fadeInUp}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <motion.div
           className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0"
           variants={fadeInUp}
-          transition={{ delay: 0.3, duration: 1 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
         >
           <div className="text-center md:text-left">
             <motion.h2
               className="text-3xl font-extrabold text-white"
               variants={fadeIn}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               Join Us
             </motion.h2>
             <motion.p
               className="mt-4 text-lg"
               variants={fadeIn}
-              transition={{ delay: 0.2, duration: 1 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
             >
               We invite you to explore our stores, discover the wide range of
               products, and experience the difference of shopping with Al Madina
@@ -409,16 +410,20 @@ export default function AboutUsPage() {
               special, we are here to serve you with a smile.
             </motion.p>
           </div>
-          <div className="text-center md:text-right w-56">
+          <motion.div
+            className="text-center md:text-right w-56"
+            variants={fadeInUp}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
+          >
             <motion.a
-              href="#" // Link to a relevant page
+              href="#"
               className="h-16 bg-white items-center flex justify-center text-blue-600 font-bold p-2 rounded-full shadow-lg hover:bg-gray-200 transition duration-300"
-              variants={fadeInUp}
-              transition={{ delay: 0.4, duration: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Explore More
             </motion.a>
-          </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>

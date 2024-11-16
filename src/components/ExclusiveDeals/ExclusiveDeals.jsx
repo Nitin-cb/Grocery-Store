@@ -32,7 +32,7 @@ const ExclusiveDeals = () => {
 
   return (
     <motion.div
-      className="bg-white w-full p-18 sm:p-12"
+      className="bg-slate-100 w-full p-18 sm:p-12"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-100px' }}

@@ -7,6 +7,7 @@ import 'swiper/css/effect-fade'; // Optional effect
 import ProductScroll from './scroll';
 import { motion } from 'framer-motion';
 import bannerimg from '/images/Our Stores/banner.jpg';
+import location from '/images/Our Stores/location.png';
 
 // Store data including images
 const storesData = [
@@ -202,14 +203,14 @@ const OurStores = () => {
                     <strong>Working Hours:</strong> {store.workingHours}
                   </p>
                   <p className="text-gray-600">
-                    <strong>Map:</strong>{' '}
                     <a
                       href={store.map}
-                      className=""
+                      className="flex gap-3"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {store.map}
+                      <strong>Open in Maps:</strong>
+                      <img src={location} alt="" className="w-6" />
                     </a>
                   </p>
                 </div>

@@ -8,7 +8,7 @@ import StoreLocations from '../components/Our-stores/OurStores';
 import Promotions from '../components/promotions/promotion';
 import Insight from '../components/Insight/Insight';
 import ExclusiveDeals from '../components/ExclusiveDeals/ExclusiveDeals';
-
+import LoyalitySection from '../components/Loyality/Loyality';
 // Shared animation variants
 export const sharedAnimationVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -97,6 +97,10 @@ export function Home() {
 
         <AnimatedSection delay={0.2}>
           <Insight />
+        </AnimatedSection>
+
+        <AnimatedSection delay={0.2}>
+          <LoyalitySection />
         </AnimatedSection>
 
         <AnimatedSection delay={0.1}>
