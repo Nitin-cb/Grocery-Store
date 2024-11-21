@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import cardimg1 from '/images/loyalityCard/For Ahlan Paged Header.jpg';
+import cardimg1 from '/images/loyalityCard/Ahlan.jpg';
 import cardimg from '/images/loyalityCard/With Qr code.jpg';
 import cardimg2 from '/images/loyalityCard/Ahlan Loyalty Card.png';
 import cardimg3 from '/images/loyalityCard/BUY MORE.jpg';
@@ -99,6 +99,13 @@ export default function Loyality() {
             "<span className="font-bold">Ahlan Madina</span>" is a Loyalty
             Mobile Application program. Points will be added to your account at
             the time of purchase.
+          </p>
+          <p className="text-black mt-4 text-xl">
+            "This app is used for viewing total Points, Nearest Outlets, with
+            Location and Contact details, and Promotional Flyers"
+          </p>
+          <p className="text-black mt-12 font-bold text-xl">
+            You can redeem your points at any of our Outlets
           </p>
         </motion.div>
       </div>

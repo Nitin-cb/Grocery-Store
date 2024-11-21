@@ -61,7 +61,7 @@ export default function ProductScroll() {
   }, [controls]);
 
   return (
-    <div className="w-full overflow-hidden bg-gray-100 py-12">
+    <div className="w-full overflow-hidden bg-green-50 py-12">
       {/* <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">Our Products</h2> */}
       <motion.div
         ref={scrollRef}

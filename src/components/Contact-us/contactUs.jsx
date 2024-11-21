@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import img1 from '/images/For Home Page section.jpeg';
 import './contactUs.css';
 import AnimatedSection from '../animated /section';
+import backgroundImage from '/images/backgroundImagecontactus2.jpg'; // Add your background image import
 
 export default function ContactUs() {
   const containerRef = useRef(null);
@@ -63,48 +64,60 @@ export default function ContactUs() {
   };
 
   return (
-    <AnimatedSection className="w-full bg-white sm:p-12 p-14 my-4">
+    <AnimatedSection className="w-full relative bg-white sm:p-12 p-14 ">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center opacity-20"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+        }}
+      />
       <motion.div
         ref={containerRef}
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        className="flex flex-col md:flex-row w-full justify-evenly"
+        className=" flex flex-col md:flex-row w-full justify-evenly"
       >
-        <motion.div className="flex flex-col justify-center items-start md:w-1/2 w-full text-left p-6 sm:p-8 md:p-16 space-y-4">
-          <motion.h2
-            variants={textVariants}
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-2"
-          >
-            <span className="text-green-600">Contact</span> Us
-          </motion.h2>
+        {/* Content Container */}
+        <div className="relative z-10 flex flex-col md:flex-row w-full justify-evenly">
+          <motion.div className="flex flex-col justify-center items-start md:w-1/2 w-full text-left p-6 sm:p-8 md:p-16 space-y-4">
+            <motion.h2
+              variants={textVariants}
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-2"
+            >
+              <span className="text-green-600">Contact</span> Us
+            </motion.h2>
 
-          <motion.p
-            variants={textVariants}
-            className="text-md sm:text-lg md:text-xl text-gray-600"
-          >
-            Our store offers a wide range of fresh products, organic options,
-            and unbeatable prices. We pride ourselves on quality and customer
-            service. Whether you need fresh produce or household essentials, we
-            have everything for your needs.
-          </motion.p>
+            <motion.p
+              variants={textVariants}
+              className="text-md sm:text-lg md:text-xl text-gray-600"
+            >
+              Our store offers a wide range of fresh products, organic options,
+              and unbeatable prices. We pride ourselves on quality and customer
+              service. Whether you need fresh produce or household essentials,
+              we have everything for your needs.
+            </motion.p>
 
-          <motion.a
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap={{ scale: 0.95 }}
-            href="/contact"
-            className="inline-block px-2 sm:px-6 py-1 sm:py-2 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
-          >
-            Contact Us
-          </motion.a>
-        </motion.div>
+            <motion.a
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap={{ scale: 0.95 }}
+              href="/contact"
+              className="inline-block px-2 sm:px-6 py-1 sm:py-2 bg-white text-green-600 border hover:text-white border-green-600 font-semibold rounded-lg shadow-md hover:bg-green-600 transition"
+            >
+              Contact Us
+            </motion.a>
+          </motion.div>
 
-        <motion.img
-          variants={imageVariants}
-          className="md:w-1/2 w-full h-64 md:h-[400px] bg-black  rounded-lg overflow-hidden"
-          src={img1}
-        />
+          <motion.img
+            variants={imageVariants}
+            className="md:w-1/2 w-full h-64 md:h-[400px] bg-black rounded-lg overflow-hidden"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            src={img1}
+          />
+        </div>
       </motion.div>
     </AnimatedSection>
   );

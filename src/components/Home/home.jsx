@@ -61,6 +61,10 @@ const carouselItems = {
       image: '/images/homePage/carousel/Header_B_tablet.jpg',
       alt: 'Tablet Slide B',
     },
+    {
+      image: '/images/homePage/carousel/Header_C_tablet.jpg',
+      alt: 'Tablet Slide C',
+    },
   ],
   desktop: [
     {

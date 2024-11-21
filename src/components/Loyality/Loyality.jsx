@@ -53,17 +53,20 @@ const LoyalitySection = () => {
 
       <motion.div
         ref={textRef}
-        className="w-full md:w-1/2 text-black flex flex-col items-center mt-11 p-6 md:p-10 md:mx-12 lg:mx-24"
+        className="w-full md:w-1/2 text-black flex flex-col items-center mt-2 p-6 md:p-6 md:mx-12 lg:mx-2"
         variants={fadeInUp}
         initial="hidden"
         animate={isTextInView ? 'visible' : 'hidden'}
       >
         <p className="text-center sm:text-lg text-xl">
-          "This app is used for viewing total Points, Nearest Outlets, with
-          Location and Contact details, and Promotional Flyers".
+          Explore a new way for shopping encouraging with{' '}
+          <b> Ahlan Medina...</b>
+          designed to bring all the personalized perks of our loyalty program
+          right at your fingertips…
         </p>
         <p className="text-center mt-6 sm:text-lg text-xl font-bold">
-          You can redeem your points at any of our Outlets
+          Join now for a shopping experience a new level of shopping
+          convenience!
         </p>
         <motion.a
           className="sm:mt-6 mt-3 bg-green-600 hover:bg-orange-600 text-white font-bold sm:py-3 py-1 px-4 sm:px-8 rounded-full transition duration-300"
