@@ -29,6 +29,12 @@ const carouselVariants = {
       ease: [0.4, 0, 0.2, 1],
     },
   }),
+  hover: {
+    scale: 1.02,
+    transition: {
+      duration: 0.3,
+    },
+  },
 };
 
 const carouselItems = {
@@ -111,6 +117,12 @@ export default function GroceryCarousel() {
     );
   };
 
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(() => handleNext(), 1500);
+    return () => clearInterval(timer);
+  }, [isHovered, currentIndex]);
+
   const getCurrentItems = () =>
     carouselItems[screenSize] || carouselItems.desktop;
 
@@ -131,6 +143,7 @@ export default function GroceryCarousel() {
             variants={carouselVariants}
             initial="enter"
             animate="center"
+            whileHover="hover"
             exit="exit"
             custom={direction}
             className="absolute w-full h-full object-cover"
