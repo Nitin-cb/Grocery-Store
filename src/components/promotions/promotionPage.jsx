@@ -10,6 +10,7 @@ import pdf4 from '/assets/AL MADINA SUPERMARKET GURFA.pdf';
 import pdf5 from '/assets/AL MADINA BRANCH.pdf';
 import pdf6 from '/assets/AL MADINA BDIYA.pdf';
 import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
+import { useNavigate } from 'react-router';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -35,10 +36,10 @@ Pages.displayName = 'Pages';
 
 function PromotionPage() {
   const [numPages, setNumPages] = useState(0);
-  const [currentPdf, setCurrentPdf] = useState(pdf1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [pageWidth, setPageWidth] = useState(400);
-  const [isMobile, setIsMobile] = useState(false);
+  // const [currentPdf, setCurrentPdf] = useState(pdf1);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [pageWidth, setPageWidth] = useState(400);
+  // const [isMobile, setIsMobile] = useState(false);
 
   const pdfFiles = [
     { name: 'Back To School AL Madina Supermarket Gurfa', file: pdf1 },
@@ -50,39 +51,13 @@ function PromotionPage() {
     { name: 'AL Madina Dibba', file: pdf7 },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const isMobileView = width < 768;
-      setIsMobile(isMobileView);
-
-      const modalWidth = Math.min(width * 0.9, 800);
-      const calculatedPageWidth = isMobileView
-        ? modalWidth * 0.9
-        : Math.min(modalWidth * 0.5, 400);
-
-      setPageWidth(calculatedPageWidth);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
+  const navigate = useNavigate();
 
-  const handlePdfSelect = (file) => {
-    setCurrentPdf(file);
-    setNumPages(0);
-    setIsModalOpen(true);
-  };
-
-  // Calculate FlipBook height based on width to maintain aspect ratio
-  const getFlipBookHeight = () => {
-    const height = pageWidth * 1.5;
-    return Math.min(height, window.innerHeight * 0.9);
+  const handlePdfSelect = (pdfKey) => {
+    navigate(`/pdf/${pdfKey}`);
   };
 
   return (
@@ -98,7 +73,7 @@ function PromotionPage() {
           <div
             key={index}
             className="flex-shrink-0 w-60 mt-3 cursor-pointer hover:scale-105 transition-transform bg-white rounded-lg shadow-md p-2"
-            onClick={() => handlePdfSelect(file.file)}
+            onClick={() => handlePdfSelect('back-to-school')} // Use corresponding key
           >
             <Document file={file.file} onLoadSuccess={onDocumentLoadSuccess}>
               <Page
@@ -114,69 +89,6 @@ function PromotionPage() {
           </div>
         ))}
       </div>
-
-      <Modal
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        footer={null}
-        width="90%"
-        centered
-      >
-        <div
-          className="w-full h-full mt-8 flex justify-center items-center"
-          style={{
-            height: isMobile ? '65vh' : '85vh',
-            padding: isMobile ? '5px' : '10px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: '#f3f4f6',
-            overflow: 'hidden',
-            paddingTop: isMobile ? '8px' : '30px',
-          }}
-        >
-          {numPages > 0 ? (
-            <HTMLFlipBook
-              width={pageWidth}
-              height={getFlipBookHeight()}
-              size="stretch"
-              minWidth={isMobile ? pageWidth : 300}
-              maxWidth={isMobile ? pageWidth : 400}
-              minHeight={400}
-              maxHeight={800}
-              showCover={true}
-              flippingTime={1000}
-              className="shadow-xl rounded-md"
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              {[...Array(numPages).keys()].map((pNum) => (
-                <Pages
-                  key={pNum}
-                  file={currentPdf}
-                  number={pNum + 1}
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  pageWidth={pageWidth}
-                />
-              ))}
-            </HTMLFlipBook>
-          ) : (
-            <div className="flex justify-center items-center w-full">
-              <Document file={currentPdf} onLoadSuccess={onDocumentLoadSuccess}>
-                <Page
-                  pageNumber={1}
-                  width={pageWidth}
-                  renderAnnotationLayer={false}
-                  renderTextLayer={false}
-                />
-              </Document>
-            </div>
-          )}
-        </div>
-      </Modal>
     </div>
   );
 }

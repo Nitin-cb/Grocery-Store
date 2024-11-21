@@ -10,23 +10,34 @@ import GalleryPage from './Pages/Gallery.jsx';
 import { ContactUs } from './Pages/ContactUs.jsx';
 import { LoyalityOffer } from './Pages/LoyalityCard.jsx';
 import { Careers } from './Pages/Careers.jsx';
+import FlipBook from './Pages/FlipBook.jsx';
 
 function App() {
   return (
     <div className="w-full">
       <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/stores" element={<OurStores />} />
-            <Route path="/promotions" element={<Promotion />} />
-            <Route path="/gallery" element={<GalleryPage />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/loyality" element={<LoyalityOffer />} />
-            <Route path="/careers" element={<Careers />} />
-          </Routes>
-        </Layout>
+        <Routes>
+          {/* Routes wrapped in Layout */}
+          <Route
+            path="*"
+            element={
+              <Layout>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/stores" element={<OurStores />} />
+                  <Route path="/promotions" element={<Promotion />} />
+                  <Route path="/gallery" element={<GalleryPage />} />
+                  <Route path="/contact" element={<ContactUs />} />
+                  <Route path="/loyality" element={<LoyalityOffer />} />
+                  <Route path="/careers" element={<Careers />} />
+                </Routes>
+              </Layout>
+            }
+          />
+          {/* FlipBook Route without Layout */}
+          <Route path="/pdf/:pdfId" element={<FlipBook />} />
+        </Routes>
       </Router>
     </div>
   );
