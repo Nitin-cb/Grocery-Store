@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import bannerimg from '/images/ContactUs/Banner for Contact Us Page.jpg';
 import middleimg from '/images/ContactUs/Middle section.jpg';
+import bgimg1 from '/images/ContactUs/bg1.jpg';
+import bgimg2 from '/images/ContactUs/bg2.jpg';
 import { MailIcon } from '../../utils/icons';
 import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -56,7 +58,7 @@ function ContactUsPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full  mb-12 bg-gray-900"
+        className="relative w-full   bg-gray-900"
       >
         <img
           src={bannerimg}
@@ -83,69 +85,88 @@ function ContactUsPage() {
         </div>
       </motion.div>
 
-      {/* Second Section: Small paragraph */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 1 }}
-        className=" text-center mt-8 px-12"
+      <div
+        className="relative bg-cover bg-center pt-7"
+        style={{
+          backgroundImage: `url(${bgimg1})`, // Replace bgimg1 with the actual image variable
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
       >
-        <p className="text-lg text-gray-600 md:text-xl font-bold mx-4">
-          “We invite you to explore our stores, discover the wide range of
-          products, and experience the difference of shopping with Al Madina
-          retail. Whether stocking up on essentials or seeking something
-          special, we are here to serve you with a smile.”
-        </p>
-      </motion.div>
+        {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black bg-opacity-0"></div>
 
-      {/* Third Section: Address and Image */}
-      <div className="flex flex-col justify-between items-center mx-4 md:mt-10  md:mx-8 ">
-        {/* Left side: Address */}
-        <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="w-full md:w-1/2  md:mb-0"
-        >
-          <div className="flex items-center mb-2">
-            <MailIcon />
-            <p className="mx-2 text-sm md:text-xl">info@almadinauae.ae</p>
-          </div>
-          <div className="flex items-center mb-2">
-            <Phone size={18} />
-            <p className="mx-2 text-sm md:text-xl">+971 9 22 42 543</p>
-          </div>
-          <div className="flex items-start mb-2">
-            <img
-              src="https://cdn-icons-png.flaticon.com/128/535/535239.png"
-              alt="Location Icon"
-              className="w-6 h-6 md:w-6 md:h-6"
-            />
-            <p className="mx-2 text-sm md:text-xl">
-              Al Madina Group, Emirates Islamic Bank Building, Office# 1508,
-              15th floor, Opp. Dubai Islamic Bank, Hamad Bin Abdulla Road,
-              Merashid – Fujairah
+        {/* Content */}
+        <div className="relative">
+          {/* Second Section: Small paragraph */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-center px-12"
+          >
+            <p className="text-lg text-black md:text-xl font-bold mx-4">
+              “We invite you to explore our stores, discover the wide range of
+              products, and experience the difference of shopping with Al Madina
+              retail. Whether stocking up on essentials or seeking something
+              special, we are here to serve you with a smile.”
             </p>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Location Map */}
-        <motion.div
-          initial={{ x: 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="w-full md:w-2/5 "
-        >
-          <div className=" w-full p-12 rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.0541025123753!2d56.33486257537939!3d25.121437477759756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef4f965ca64b58b%3A0xd0770a1f918cc3d3!2sAl%20Madina%20Group!5e1!3m2!1sen!2sin!4v1729346169158!5m2!1sen!2sin"
-              className="w-full aspect-square  rounded-lg"
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+          {/* Third Section: Address and Image */}
+          <div className="flex flex-col justify-between items-center mx-4 md:mt-10 md:mx-8">
+            {/* Left side: Address */}
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="w-full md:w-1/2 md:mb-0"
+            >
+              <div className="flex items-center mb-2">
+                <MailIcon />
+                <p className="mx-2 text-sm text-black md:text-xl">
+                  info@almadinauae.ae
+                </p>
+              </div>
+              <div className="flex items-center mb-2">
+                <Phone size={18} />
+                <p className="mx-2 text-sm text-black md:text-xl">
+                  +971 9 22 42 543
+                </p>
+              </div>
+              <div className="flex items-start mb-2">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/535/535239.png"
+                  alt="Location Icon"
+                  className="w-6 h-6 md:w-6 md:h-6"
+                />
+                <p className="mx-2 text-sm text-black md:text-xl">
+                  Al Madina Group, Emirates Islamic Bank Building, Office# 1508,
+                  15th floor, Opp. Dubai Islamic Bank, Hamad Bin Abdulla Road,
+                  Merashid – Fujairah
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Location Map */}
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="w-full md:w-2/5"
+            >
+              <div className="w-full p-12 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.0541025123753!2d56.33486257537939!3d25.121437477759756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef4f965ca64b58b%3A0xd0770a1f918cc3d3!2sAl%20Madina%20Group!5e1!3m2!1sen!2sin!4v1729346169158!5m2!1sen!2sin"
+                  className="w-full aspect-square rounded-lg"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Fourth Section: Full-screen Rectangle Image */}
@@ -155,7 +176,7 @@ function ContactUsPage() {
         transition={{ duration: 1 }}
         className="w-full p-6 flex flex-col items-center"
       >
-        <h1 className="text-gray-500 text-center mb-4 text-3xl font-bold p-6">
+        <h1 className="text-gray-500 text-center  text-3xl font-bold p-6">
           “We are committed to providing valuable consumable products at
           <br />
           affordable price: Best Quality, Healthy & Tasty, Fresh Products,
@@ -174,9 +195,16 @@ function ContactUsPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+        className="min-h-screen bg-gray-50 flex flex-col items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-cover bg-center relative"
+        style={{
+          backgroundImage: `url(${bgimg2})`, // Replace bgimg1 with the actual image variable
+        }}
       >
-        <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
+        {/* Optional Overlay for better text visibility */}
+        {/* <div className="absolute inset-0 bg-black bg-opacity-30"></div> */}
+
+        {/* Content */}
+        <div className="relative z-10 max-w-md w-full bg-opacity-40 bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-center text-3xl font-extrabold text-green-900 mb-6">
             Contact Us
           </h2>

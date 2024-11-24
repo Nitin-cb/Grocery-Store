@@ -4,6 +4,8 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../../../firebaseConfig';
 import storeimg from '/images/careers/Banner for Careers pages.jpg';
 import joinimg from '/images/careers/Why Join Us.jpg';
+import bgimg from '/images/careers/career1.jpeg';
+import bgimg2 from '/images/careers/career2.jpg';
 
 export default function CareersPage() {
   const form = useRef();
@@ -68,46 +70,68 @@ export default function CareersPage() {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <div className="relative mb-7">
+      <div className="relative ">
         <img src={storeimg} alt="Large Screen Image" className="block w-full" />
       </div>
-      <div className="m-4 p-4">
-        <h1 className="text-4xl mb-4 font-bold">Careers</h1>
-        <p className="text-lg">
-          We are looking for like-minded talents to join our growing family. We
-          are in the process of expanding Al Madina Group across the UAE. Want
-          to join our team? Feel free to apply.
-        </p>
-      </div>
 
-      <div className="flex flex-col items-center justify-center px-8 py-16 md:flex-row md:px-20">
-        {/* Image Section */}
-        <div className="w-full md:w-1/2">
-          <img
-            src={joinimg}
-            alt="Office Environment"
-            className="rounded-lg shadow-lg"
-          />
+      <div className="relative z-10">
+        {/* Background Image */}
+        <div
+          style={{ backgroundImage: `url(${bgimg})` }}
+          className="absolute inset-0 bg-cover bg-center z-0"
+        ></div>
+
+        {/* Content Section */}
+        <div className="relative  p-4   backdrop-blur-sm">
+          <h1 className="text-4xl mb-4 font-bold">Careers</h1>
+          <p className="text-lg">
+            We are looking for like-minded talents to join our growing family.
+            We are in the process of expanding Al Madina Group across the UAE.
+            Want to join our team? Feel free to apply.
+          </p>
         </div>
 
-        {/* Text Section */}
-        <div className="w-full mt-8 md:w-1/2 md:mt-0 md:ml-10 text-center">
-          <h2 className="text-3xl font-semibold italic text-gray-800">
-            Why Join Us?
-          </h2>
-          <p className="mt-4 text-lg italic text-gray-600 leading-relaxed">
-            We’re a team that feels like a growing family, sharing strong values
-            of teamwork, learning, and growth. We are in the process of
-            expanding Al Madina Group across the UAE. If you’d like to be part
-            of that, then please get in touch. We’re always open to meet new
-            people and have light-hearted conversations.
-          </p>
+        {/* Why Join Us Section */}
+        <div className="flex flex-col items-center justify-center px-8 py-16 md:flex-row md:px-20 relative">
+          {/* Image Section */}
+          <div className="w-full md:w-1/2">
+            <img
+              src={joinimg}
+              alt="Office Environment"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+
+          {/* Text Section */}
+          <div className="w-full mt-8 md:w-1/2 md:mt-0 md:ml-10 text-center">
+            <h2 className="text-3xl font-semibold italic text-gray-800">
+              Why Join Us?
+            </h2>
+            <p className="mt-4 text-lg italic text-gray-600 leading-relaxed">
+              We’re a team that feels like a growing family, sharing strong
+              values of teamwork, learning, and growth. We are in the process of
+              expanding Al Madina Group across the UAE. If you’d like to be part
+              of that, then please get in touch. We’re always open to meet new
+              people and have light-hearted conversations.
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Form Section */}
-      <div className="bg-white py-12">
-        <div className="max-w-4xl mx-auto px-8">
+      <div
+        className="relative bg-white py-12"
+        style={{
+          backgroundImage: `url(${bgimg2})`, // Replace bgimg2 with the image variable or URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-white bg-opacity-0"></div>
+
+        {/* Content */}
+        <div className="relative max-w-4xl mx-auto px-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-6">
             Grow With Us:-
           </h3>
