@@ -110,19 +110,19 @@ const storesData = [
 
 const OurStores = () => {
   return (
-    <section className=" bg-green-50   ">
+    <section className="bg-green-50">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="relative w-full  mb-12 bg-gray-900"
+        className="relative w-full mb-12 bg-gray-900"
       >
         <img
           src={bannerimg}
           alt="Background"
           className="w-full h-full object-contain object-center sm:object-top md:object-center lg:object-center"
         />
-        <div className="absolute inset-0 flex flex-col items-start text-white px-4 sm:px-10 md:px-14 top-4  md:top-40 lg:top-52">
+        <div className="absolute inset-0 flex flex-col items-start text-white px-4 sm:px-10 md:px-14 top-4 md:top-40 lg:top-52">
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -142,89 +142,108 @@ const OurStores = () => {
         </div>
       </motion.div>
 
-      {/* /////////////////// */}
-      <div className="max-w-7xl mx-auto px-4 bg-green-50  ">
-        {/* <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-12">
-          Our <span className="text-green-600">Stores</span>
-        </h1> */}
-
-        {/* Swiper for carousel */}
+      <div className="max-w-7xl mx-auto px-4 bg-green-50">
         <Swiper
-          modules={[Navigation, Autoplay]} // Add Autoplay module
-          spaceBetween={20}
-          slidesPerView={3} // Show 3 slides at a time
+          modules={[Navigation, Autoplay]}
+          spaceBetween={30}
           navigation
-          autoplay={{ delay: 2000, disableOnInteraction: false }} // Autoplay with a 3-second delay
-          loop
-          speed={800} // Smooth transition speed
-          effect="slide" // You can change to other effects like 'fade', 'coverflow', etc.
-          breakpoints={{
-            270: { slidesPerView: 1 },
-            640: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
           }}
-          className="carousel-container h-[80vh]"
+          loop={true}
+          speed={800}
+          centeredSlides={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+          }}
+          className="stores-carousel w-full h-auto py-10"
         >
           {storesData.map((store, index) => (
-            <SwiperSlide key={index}>
-              <div className="bg-white h-[70vh] shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300">
+            <SwiperSlide key={index} className="flex justify-center">
+              <div className="bg-white w-full max-w-sm h-full shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
                 {/* Store Image */}
-                <img
-                  src={store.imageUrl}
-                  alt={store.branchName}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="h-48 w-full overflow-hidden">
+                  <img
+                    src={store.imageUrl}
+                    alt={store.branchName}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
                 {/* Store Details */}
-                <div className="p-6">
-                  <h2 className="text-xl font-bold text-gray-800 mb-2">
+                <div className="p-6 h-80 flex-grow flex flex-col">
+                  <h2 className="text-lg font-bold text-gray-800 mb-4">
                     {store.branchName}
                   </h2>
-                  <p className="text-gray-600 mb-1">
-                    <strong>Address:</strong> {store.address}
-                  </p>
-                  <p className="text-gray-600 mb-1">
-                    <strong>Phone:</strong> {store.phone}
-                  </p>
-                  <p className="text-gray-600 mb-1">
-                    <strong>WhatsApp:</strong> {store.whatsApp}
-                  </p>
-                  <p className="text-gray-600">
-                    <strong>Email:</strong>{' '}
-                    <a
-                      href={`mailto:${store.email}`}
-                      className="text-green-600"
-                    >
-                      {store.email}
-                    </a>
-                  </p>
-                  <p className="text-gray-600 mb-1">
-                    <strong>Working Hours:</strong> {store.workingHours}
-                  </p>
-                  <p className="text-gray-600">
+                  <div className="flex-grow">
+                    <div className="space-y-2 h-full">
+                      <p className="text-gray-600 text-sm flex">
+                        <strong className="mr-2 min-w-[80px]">Address:</strong>
+                        <span>{store.address}</span>
+                      </p>
+                      <p className="text-gray-600 flex">
+                        <strong className="mr-2 min-w-[80px]">Phone:</strong>
+                        {store.phone}
+                      </p>
+                      <p className="text-gray-600 flex">
+                        <strong className="mr-2 min-w-[80px]">WhatsApp:</strong>
+                        {store.whatsApp}
+                      </p>
+                      <p className="text-gray-600 flex">
+                        <strong className="mr-2 min-w-[80px]">Email:</strong>
+                        <a
+                          href={`mailto:${store.email}`}
+                          className="text-green-600 truncate"
+                        >
+                          {store.email}
+                        </a>
+                      </p>
+                      <p className="text-gray-600 flex">
+                        <strong className="mr-2 min-w-[80px]">Hours:</strong>
+                        {store.workingHours}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-4">
                     <a
                       href={store.map}
-                      className="flex gap-3"
+                      className="flex items-center gap-3 text-green-600 hover:text-green-800 transition"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <strong>Open in Maps:</strong>
-                      <img src={location} alt="" className="w-6" />
+                      <strong>Open in Maps</strong>
+                      <img src={location} alt="Location" className="w-6" />
                     </a>
-                  </p>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
         <h1 className="text-4xl font-extrabold text-center text-gray-800 my-12">
           Our <span className="text-green-600">Products</span>
         </h1>
         <ProductScroll />
 
-        {/* Footer or Additional Info */}
-        <div className="text-center mt-12 py-4 ">
+        <div className="text-center mt-12 py-4">
           <p className="text-lg text-gray-600">
             Find the store nearest to you and enjoy our wide range of products
             and services!

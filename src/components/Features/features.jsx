@@ -162,7 +162,7 @@ export default function Features() {
 
   return (
     <motion.div
-      className="relative pt-7 flex bg-slate-100 flex-col lg:flex-row items-center w-full overflow-hidden pl-14 sm:pl-20 pr-12"
+      className="relative  flex bg-slate-100 h-[70vh] flex-col lg:flex-row items-center w-full overflow-hidden pl-14 sm:pl-20 pr-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -205,7 +205,7 @@ export default function Features() {
       </motion.div>
 
       {/* Image Carousel */}
-      <div className="relative w-full lg:w-4/12 m-6 aspect-square overflow-hidden">
+      <div className="relative w-full lg:w-4/12  aspect-[900/580] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -218,7 +218,7 @@ export default function Features() {
             <motion.img
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
-              className="w-full h-full object-cover rounded-3xl shadow-lg"
+              className="w-full h-full object-contain rounded-3xl shadow-lg"
               whileHover={{
                 scale: 1.05,
                 boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
