@@ -17,7 +17,7 @@ export default function Features() {
     {
       src: img2,
       alt: 'Image 2',
-      text: `A delicious blend of nature's goodness`,
+      text: "A delicious blend of nature's goodness",
     },
     {
       src: img3,
@@ -56,76 +56,34 @@ export default function Features() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // More diverse animation variants
-  const getRandomVariant = () => {
-    const variants = [
-      {
-        hidden: { opacity: 0, scale: 0.7, rotate: -15 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          rotate: 0,
-          transition: {
-            type: 'spring',
-            stiffness: 70,
-            damping: 10,
-            duration: 0.8,
-          },
-        },
-        exit: {
-          opacity: 0,
-          scale: 1.2,
-          x: 100,
-          transition: {
-            duration: 0.5,
-          },
-        },
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.7,
+      rotate: -15,
+      x: 100,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 70,
+        damping: 10,
+        duration: 0.8,
       },
-      {
-        hidden: { opacity: 0, x: -100, rotate: 10 },
-        visible: {
-          opacity: 1,
-          x: 0,
-          rotate: 0,
-          transition: {
-            type: 'tween',
-            duration: 0.7,
-            ease: 'easeOut',
-          },
-        },
-        exit: {
-          opacity: 0,
-          x: 100,
-          rotate: -10,
-          transition: {
-            duration: 0.5,
-          },
-        },
+    },
+    exit: {
+      opacity: 0,
+      scale: 1.2,
+      x: 100,
+      rotate: 15,
+      transition: {
+        duration: 0.5,
       },
-      {
-        hidden: { opacity: 0, y: 50, scale: 0.9 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          transition: {
-            type: 'spring',
-            stiffness: 60,
-            damping: 15,
-            duration: 1,
-          },
-        },
-        exit: {
-          opacity: 0,
-          y: -50,
-          scale: 0.8,
-          transition: {
-            duration: 0.5,
-          },
-        },
-      },
-    ];
-
-    return variants[Math.floor(Math.random() * variants.length)];
+    },
   };
 
   // Animation variants for container and text
@@ -162,7 +120,7 @@ export default function Features() {
 
   return (
     <motion.div
-      className="relative  flex bg-slate-100 h-[70vh] flex-col lg:flex-row items-center w-full overflow-hidden pl-14 sm:pl-20 pr-12"
+      className="relative flex bg-slate-100 h-[70vh] flex-col lg:flex-row items-center pt-6 w-full overflow-hidden pl-14 sm:pl-20 pr-12"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -204,31 +162,24 @@ export default function Features() {
         </motion.a>
       </motion.div>
 
-      {/* Image Carousel */}
-      <div className="relative w-full lg:w-4/12  aspect-[900/580] overflow-hidden">
+      {/* Image Section */}
+      <motion.div
+        className="w-full lg:w-1/2   flex justify-center items-center mt-8 lg:mt-0"
+        variants={containerVariants}
+      >
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.img
             key={currentIndex}
-            variants={getRandomVariant()}
+            src={images[currentIndex].src}
+            alt={images[currentIndex].alt}
+            variants={imageVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="absolute inset-0"
-          >
-            <motion.img
-              src={images[currentIndex].src}
-              alt={images[currentIndex].alt}
-              className="w-full h-full object-contain rounded-3xl shadow-lg"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-              }}
-              transition={{ duration: 0.3 }}
-              loading="lazy"
-            />
-          </motion.div>
+            className="w-96 md:w-[600px] h-[100%] rounded-xl shadow-lg object-cover"
+          />
         </AnimatePresence>
-      </div>
+      </motion.div>
     </motion.div>
   );
 }

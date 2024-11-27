@@ -78,7 +78,7 @@ export default function ProductScroll() {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-48 object-cover"
+                className="w-full h-60 object-cover"
               />
               <div className="p-4">
                 <h3 className="text-lg text-center capitalize font-semibold text-gray-600 truncate">

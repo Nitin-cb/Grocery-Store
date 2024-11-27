@@ -114,13 +114,13 @@ function ContactUsPage() {
           </motion.div>
 
           {/* Third Section: Address and Image */}
-          <div className="flex flex-col justify-between items-center mx-4 md:mt-10 md:mx-8">
+          <div className="flex md:flex-row  flex-col justify-between items-center mx-4  md:mx-8">
             {/* Left side: Address */}
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="w-full md:w-1/2 md:mb-0"
+              className="w-full pl-20 pt-5 md:w-1/2 md:mb-0"
             >
               <div className="flex items-center mb-2">
                 <MailIcon />

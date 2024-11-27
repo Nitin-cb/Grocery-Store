@@ -69,7 +69,7 @@ export default function Loyality() {
   };
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-lime-50">
       <div className="relative mb-7">
         <img
           src={cardimg1}
@@ -177,7 +177,7 @@ export default function Loyality() {
 
       <motion.div
         ref={customerLoyaltyRef}
-        className="text-center py-10 bg-white"
+        className="text-center py-10 bg-lime-50"
         variants={staggerChildren}
         initial="hidden"
         animate={isCustomerLoyaltyInView ? 'visible' : 'hidden'}
@@ -189,11 +189,11 @@ export default function Loyality() {
           Customer Loyalty Programs
         </motion.h2>
 
-        <div className="flex flex-wrap justify-center mt-8 gap-6">
+        <div className="flex flex-wrap  bg-lime-50 justify-center mt-8 gap-6">
           {[cardimg3, cardimg4, cardimg5].map((img, index) => (
             <motion.div
               key={index}
-              className="bg-gray-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300"
+              className="bg-lime-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300"
               variants={fadeInUp}
             >
               <img
@@ -222,7 +222,7 @@ export default function Loyality() {
 
       <motion.div
         ref={benefitsRef}
-        className="text-center py-12 bg-gray-50"
+        className="text-center py-12 bg-lime-50"
         variants={staggerChildren}
         initial="hidden"
         animate={isBenefitsInView ? 'visible' : 'hidden'}
