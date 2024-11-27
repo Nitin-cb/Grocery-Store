@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Modal } from 'antd';
-import HTMLFlipBook from 'react-pageflip';
+import React, { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 
 import pdf1 from '/assets/BACK TO SCHOOL __AL MADINA SUPERMARKET GURFA_compressed.pdf';
@@ -36,10 +34,6 @@ Pages.displayName = 'Pages';
 
 function PromotionPage() {
   const [numPages, setNumPages] = useState(0);
-  // const [currentPdf, setCurrentPdf] = useState(pdf1);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [pageWidth, setPageWidth] = useState(400);
-  // const [isMobile, setIsMobile] = useState(false);
 
   const pdfFiles = [
     { name: 'Back To School AL Madina Supermarket Gurfa', file: pdf1 },

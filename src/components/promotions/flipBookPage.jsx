@@ -12,7 +12,6 @@ import pdf5 from '/assets/AL MADINA BRANCH.pdf';
 import pdf6 from '/assets/AL MADINA BDIYA.pdf';
 import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
 
-// PDF mapping
 const pdfFiles = {
   'back-to-school': {
     name: 'Back To School AL Madina Supermarket Gurfa',
@@ -28,26 +27,6 @@ const pdfFiles = {
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
-const PdfPage = React.forwardRef(
-  ({ file, number, onLoadSuccess, pageWidth }, ref) => {
-    return (
-      <div ref={ref} className="relative bg-white shadow-lg rounded-md">
-        <Document file={file} onLoadSuccess={onLoadSuccess}>
-          <Page
-            pageNumber={number}
-            width={pageWidth}
-            renderAnnotationLayer={false}
-            renderTextLayer={false}
-          />
-        </Document>
-        <p className="text-sm text-gray-500 text-center mt-2">Page {number}</p>
-      </div>
-    );
-  }
-);
-
-PdfPage.displayName = 'PdfPage';
-
 function PdfFlipBookView() {
   const [numPages, setNumPages] = useState(0);
   const [pageWidth, setPageWidth] = useState(400);
@@ -55,11 +34,9 @@ function PdfFlipBookView() {
   const { pdfId } = useParams();
   const navigate = useNavigate();
 
-  // Get the current PDF based on route parameter
   const currentPdfFile = pdfFiles[pdfId]?.file;
 
   useEffect(() => {
-    // Redirect if invalid PDF ID
     if (!currentPdfFile) {
       navigate('/promotions');
       return;
@@ -69,12 +46,7 @@ function PdfFlipBookView() {
       const width = window.innerWidth;
       const isMobileView = width < 768;
       setIsMobile(isMobileView);
-
-      const calculatedPageWidth = isMobileView
-        ? width * 0.9
-        : Math.min(width * 0.5, 400);
-
-      setPageWidth(calculatedPageWidth);
+      setPageWidth(isMobileView ? width * 0.9 : Math.min(width * 0.5, 400));
     };
 
     handleResize();
@@ -82,18 +54,17 @@ function PdfFlipBookView() {
     return () => window.removeEventListener('resize', handleResize);
   }, [currentPdfFile, navigate]);
 
-  function onDocumentLoadSuccess({ numPages }) {
+  const onDocumentLoadSuccess = ({ numPages }) => {
     setNumPages(numPages);
-  }
+  };
 
-  // Calculate FlipBook height based on width to maintain aspect ratio
   const getFlipBookHeight = () => {
     const height = pageWidth * 1.5;
     return Math.min(height, window.innerHeight * 0.9);
   };
 
   return (
-    <div className=" bg-gray-100  flex flex-col items-center justify-center p-4">
+    <div className="bg-gray-100 flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-4xl">
         <button
           onClick={() => navigate('/promotions')}
@@ -101,15 +72,12 @@ function PdfFlipBookView() {
         >
           Back to Promotions
         </button>
-
         <div
-          className="w-full flex justify-center h-screen items-center"
+          className="w-full flex justify-center items-center"
           style={{
             height: isMobile ? '65vh' : '100vh',
             padding: isMobile ? '5px' : '10px',
             backgroundColor: '#f3f4f6',
-            overflow: 'hidden',
-            // paddingTop: isMobile ? '8px' : '30px',
           }}
         >
           {numPages > 0 && currentPdfFile ? (
@@ -131,13 +99,19 @@ function PdfFlipBookView() {
               }}
             >
               {[...Array(numPages).keys()].map((pNum) => (
-                <PdfPage
-                  key={pNum}
-                  file={currentPdfFile}
-                  number={pNum + 1}
-                  onLoadSuccess={onDocumentLoadSuccess}
-                  pageWidth={pageWidth}
-                />
+                <div key={pNum} className="flex justify-center items-center">
+                  <Document
+                    file={currentPdfFile}
+                    onLoadSuccess={onDocumentLoadSuccess}
+                  >
+                    <Page
+                      pageNumber={pNum + 1}
+                      width={pageWidth}
+                      renderAnnotationLayer={false}
+                      renderTextLayer={false}
+                    />
+                  </Document>
+                </div>
               ))}
             </HTMLFlipBook>
           ) : (
