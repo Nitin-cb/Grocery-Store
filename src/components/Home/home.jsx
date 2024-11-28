@@ -44,12 +44,20 @@ const carouselItems = {
       alt: 'Mobile Slide A',
     },
     {
-      image: '/images/homePage/carousel/Header_A_mobile copy.jpg',
+      image: '/images/homePage/carousel/Header_B_mobile.jpg',
       alt: 'Mobile Slide B',
     },
     {
-      image: '/images/homePage/carousel/Header_A_mobile.jpg',
+      image: '/images/homePage/carousel/Header_C_mobile.jpg',
       alt: 'Mobile Slide C',
+    },
+    {
+      image: '/images/homePage/carousel/Header_D_mobile.jpg',
+      alt: 'Mobile Slide D',
+    },
+    {
+      image: '/images/homePage/carousel/Header_E_mobile.jpg',
+      alt: 'Mobile Slide E',
     },
   ],
   tablet: [
@@ -64,6 +72,14 @@ const carouselItems = {
     {
       image: '/images/homePage/carousel/Header_C_tablet.jpg',
       alt: 'Tablet Slide C',
+    },
+    {
+      image: '/images/homePage/carousel/Header_D_tablet.jpg',
+      alt: 'Tablet Slide D',
+    },
+    {
+      image: '/images/homePage/carousel/Header_E_tablet.jpg',
+      alt: 'Tablet Slide E',
     },
   ],
   desktop: [
