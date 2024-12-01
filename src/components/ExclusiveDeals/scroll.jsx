@@ -55,7 +55,7 @@ export default function DealsScroll() {
   }, [controls]);
 
   return (
-    <div className="w-full overflow-hidden bg-slate-100 py-12">
+    <div className="w-full overflow-hidden bg-transparent py-12">
       <motion.div
         ref={scrollRef}
         className="flex"

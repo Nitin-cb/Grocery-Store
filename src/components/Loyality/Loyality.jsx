@@ -1,6 +1,7 @@
 import React from 'react';
 import app from '/images/loyalityCard/App .jpg';
 import { motion, useInView } from 'framer-motion';
+import backgroundImage from '/images/homebg/loyality.jpg';
 
 const LoyalitySection = () => {
   const imgRef = React.useRef(null);
@@ -40,7 +41,15 @@ const LoyalitySection = () => {
     },
   };
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between  text-white">
+    <div
+      className="flex flex-col md:flex-row items-center justify-between  text-white"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <motion.img
         ref={imgRef}
         className="w-full md:w-1/2"
