@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import backgroundImage from '/images/homePage/carousel/QR.png';
 
 const carouselVariants = {
   enter: (direction) => ({
@@ -40,60 +41,68 @@ const carouselVariants = {
 const carouselItems = {
   mobile: [
     {
-      image: '/images/homePage/carousel/Header_A_mobile.jpg',
+      image: '/images/homePage/carousel/mobile/Header_A_mobile.jpg',
       alt: 'Mobile Slide A',
     },
     {
-      image: '/images/homePage/carousel/Header_B_mobile.jpg',
+      image: '/images/homePage/carousel/mobile/Header_B_mobile.jpg',
       alt: 'Mobile Slide B',
     },
     {
-      image: '/images/homePage/carousel/Header_C_mobile.jpg',
+      image: '/images/homePage/carousel/mobile/Header_C_mobile.jpg',
       alt: 'Mobile Slide C',
     },
     {
-      image: '/images/homePage/carousel/Header_D_mobile.jpg',
+      image: '/images/homePage/carousel/mobile/Header_D_mobile.jpg',
       alt: 'Mobile Slide D',
     },
     {
-      image: '/images/homePage/carousel/Header_E_mobile.jpg',
+      image: '/images/homePage/carousel/mobile/Header_E_mobile.jpg',
       alt: 'Mobile Slide E',
     },
   ],
   tablet: [
     {
-      image: '/images/homePage/carousel/Header_A_tablet.jpg',
+      image: '/images/homePage/carousel/tablet/Header_A_tablet.jpg',
       alt: 'Tablet Slide A',
     },
     {
-      image: '/images/homePage/carousel/Header_B_tablet.jpg',
+      image: '/images/homePage/carousel/tablet/Header_B_tablet.jpg',
       alt: 'Tablet Slide B',
     },
     {
-      image: '/images/homePage/carousel/Header_C_tablet.jpg',
+      image: '/images/homePage/carousel/tablet/Header_C_tablet.jpg',
       alt: 'Tablet Slide C',
     },
     {
-      image: '/images/homePage/carousel/Header_D_tablet.jpg',
+      image: '/images/homePage/carousel/tablet/Header_D_tablet.jpg',
       alt: 'Tablet Slide D',
     },
     {
-      image: '/images/homePage/carousel/Header_E_tablet.jpg',
+      image: '/images/homePage/carousel/tablet/Header_E_tablet.jpg',
       alt: 'Tablet Slide E',
     },
   ],
   desktop: [
     {
-      image: '/images/homePage/carousel/Header_A_desktop.jpg',
+      image: '/images/homePage/carousel/desktop/Header_A_desktop.jpg',
       alt: 'Desktop Slide A',
     },
     {
-      image: '/images/homePage/carousel/Header_B_desktop.jpg',
+      image: '/images/homePage/carousel/desktop/Header_B_desktop.jpg',
       alt: 'Desktop Slide B',
     },
     {
-      image: '/images/homePage/carousel/Header_C_desktop.jpg',
+      image: '/images/homePage/carousel/desktop/Header_C_desktop.jpg',
       alt: 'Desktop Slide C',
+    },
+    {
+      image: '/images/homePage/carousel/desktop/Header_D_desktop.jpg',
+      alt: 'Desktop Slide D',
+    },
+    {
+      image: '/images/homePage/carousel/desktop/Header_E_desktop.jpg',
+      alt: 'Desktop Slide E',
     },
   ],
 };
@@ -150,6 +159,13 @@ export default function GroceryCarousel() {
 
   return (
     <div className="relative w-full h-[90vh] bg-gray-100 overflow-hidden">
+      <div className="absolute z-30  right-0 bottom-0 mr-8 mb-8">
+        <img
+          src={backgroundImage}
+          className="sm:w-full sm:h-full w-16 h-28"
+          alt=""
+        />
+      </div>
       <div
         className="relative w-full h-full"
         onMouseEnter={() => setIsHovered(true)}
