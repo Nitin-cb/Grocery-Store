@@ -4,7 +4,7 @@ import img1 from '/images/insights/Affordable Pricing.jpeg';
 import img2 from '/images/insights/wideproducts.jpg';
 import img3 from '/images/insights/exclusiveoffer.jpg';
 import img4 from '/images/insights/customersupport.jpg';
-import backgroundImage from '/images/homebg/insight.jpg';
+import backgroundImage from '/images/homebg/insight1.jpg';
 
 const Insight = () => {
   const containerVariants = {

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion'; // Import Framer Motion
 import video from '/images/exclusivedeals/MS.mp4';
 import DealsScroll from './scroll';
-import backgroundImage from '/images/homebg/exclusive.jpg';
+import backgroundImage from '/images/homebg/exclusive1.jpg';
 
 const ExclusiveDeals = () => {
   const containerVariants = {

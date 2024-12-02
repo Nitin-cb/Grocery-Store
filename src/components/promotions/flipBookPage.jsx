@@ -11,6 +11,7 @@ import pdf4 from '/assets/AL MADINA SUPERMARKET GURFA.pdf';
 import pdf5 from '/assets/AL MADINA BRANCH.pdf';
 import pdf6 from '/assets/AL MADINA BDIYA.pdf';
 import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
+import backgroundImage from '/images/homebg/flipbook.jpg';
 
 const pdfFiles = {
   'back-to-school': {
@@ -64,7 +65,15 @@ function PdfFlipBookView() {
   };
 
   return (
-    <div className="bg-gray-100 flex flex-col items-center justify-center p-4">
+    <div
+      className="bg-gray-100 flex flex-col items-center justify-center p-4"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="w-full max-w-4xl">
         <button
           onClick={() => navigate('/promotions')}

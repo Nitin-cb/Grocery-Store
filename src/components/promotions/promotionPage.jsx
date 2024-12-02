@@ -9,6 +9,7 @@ import pdf5 from '/assets/AL MADINA BRANCH.pdf';
 import pdf6 from '/assets/AL MADINA BDIYA.pdf';
 import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
 import { useNavigate } from 'react-router';
+import backgroundImage from '/images/homebg/promotionpage.jpg';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
@@ -55,7 +56,15 @@ function PromotionPage() {
   };
 
   return (
-    <div className="flex flex-col items-center bg-gray-100 min-h-screen">
+    <div
+      className="flex flex-col items-center bg-gray-100 min-h-screen"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="text-center p-4">
         <p className="text-gray-500 text-sm">
           Click on a card to discover our latest promotions!

@@ -10,7 +10,7 @@ import img7 from '/images/homePage/features/7.jpg';
 import img8 from '/images/homePage/features/8.jpg';
 import img9 from '/images/homePage/features/9.jpg';
 import img10 from '/images/homePage/features/10.jpg';
-import backgroundImage from '/images/homebg/feature.jpg';
+import backgroundImage from '/images/homebg/feature1.jpg';
 
 export default function Features() {
   const images = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import app from '/images/loyalityCard/App .jpg';
 import { motion, useInView } from 'framer-motion';
-import backgroundImage from '/images/homebg/loyality.jpg';
+import backgroundImage from '/images/homebg/loyality2.jpg';
 
 const LoyalitySection = () => {
   const imgRef = React.useRef(null);
@@ -42,7 +42,7 @@ const LoyalitySection = () => {
   };
   return (
     <div
-      className="flex flex-col md:flex-row items-center justify-between  text-white"
+      className="flex h-full flex-col md:flex-row items-center justify-between  text-white"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
@@ -62,7 +62,7 @@ const LoyalitySection = () => {
 
       <motion.div
         ref={textRef}
-        className="w-full md:w-1/2 text-black flex flex-col items-center mt-2 p-6 md:p-6 md:mx-12 lg:mx-2"
+        className="w-full  md:w-1/2 text-black flex flex-col items-center mt-2 p-6 md:p-6 md:mx-12 lg:mx-2 mb-10"
         variants={fadeInUp}
         initial="hidden"
         animate={isTextInView ? 'visible' : 'hidden'}
