@@ -110,41 +110,6 @@ export default function Loyality() {
         </motion.div>
       </div>
 
-      {/* <div className="flex flex-col md:flex-row items-center justify-between mt-12 text-white">
-        <motion.img
-          ref={imgRef}
-          className="w-full md:w-1/2"
-          src={app}
-          alt="App Screenshot"
-          variants={fadeInScale}
-          initial="hidden"
-          animate={isImgInView ? 'visible' : 'hidden'}
-        />
-
-        <motion.div
-          ref={textRef}
-          className="w-full md:w-1/2 text-black flex flex-col items-center mt-11 p-6 md:p-10 md:mx-12 lg:mx-24"
-          variants={fadeInUp}
-          initial="hidden"
-          animate={isTextInView ? 'visible' : 'hidden'}
-        >
-          <p className="text-center sm:text-lg text-xl">
-            "This app is used for viewing total Points, Nearest Outlets, with
-            Location and Contact details, and Promotional Flyers".
-          </p>
-          <p className="text-center mt-6 sm:text-lg text-xl font-bold">
-            You can redeem your points at any of our Outlets
-          </p>
-          <motion.button
-            className="mt-6 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"
-            whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
-            whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-          >
-            Join the Loyalty Program
-          </motion.button>
-        </motion.div>
-      </div> */}
-
       <motion.div
         className="mt-12"
         ref={bannerRef}

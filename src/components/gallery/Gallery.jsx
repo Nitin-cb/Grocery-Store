@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import ParallaxScroll from "./ParallaxScroll";
-import Spinner from "../../lib/Spinner";
+import { useState, useEffect } from 'react';
+import ParallaxScroll from './ParallaxScroll';
+import Spinner from '../../lib/Spinner';
+import backgroundImage from '/images/homebg/gallery.jpg';
 
 const images = [
   '/images/Gallery/3Y1A4873.JPG',
@@ -14,7 +15,7 @@ const images = [
   '/images/Gallery/3Y1A5054.JPG',
   '/images/Gallery/3Y1A5059.JPG',
   '/images/Gallery/3Y1A5064.JPG',
-  '/images/Gallery/3Y1A5072.JPG'
+  '/images/Gallery/3Y1A5072.JPG',
 ];
 
 export default function GalleryPage() {
@@ -36,7 +37,15 @@ export default function GalleryPage() {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gray-50">
+    <div
+      className="min-h-screen w-full bg-gray-50"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       {loading ? (
         <Spinner /> // Show loading spinner
       ) : (
