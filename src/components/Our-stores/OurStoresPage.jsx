@@ -182,7 +182,7 @@ const OurStores = () => {
                   <img
                     src={store.imageUrl}
                     alt={store.branchName}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center	"
                   />
                 </div>
 
