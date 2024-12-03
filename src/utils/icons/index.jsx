@@ -213,3 +213,51 @@ export const MailIcon = () => {
     </svg>
   );
 };
+
+export const BackArrowIcon = () => {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={48} // Increased size
+      height={48} // Increased size
+    >
+      {/* <circle cx="24" cy="24" r="20" fill="#6A5ACD" /> */}
+      <path
+        d="M32 24H14M14 24L22 16M14 24L22 32"
+        stroke="white"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export const DownloadIcon = () => {
+  return (
+    <svg
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      width={48} // Increased size
+      height={48} // Increased size
+    >
+      <path
+        d="M24 17V31M24 31L19 26M24 31L29 26"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16 33H32"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};

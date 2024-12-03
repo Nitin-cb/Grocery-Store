@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page, pdfjs } from 'react-pdf';
-
+import { BackArrowIcon, DownloadIcon } from '../../utils/icons';
 // Import your PDFs
 import pdf1 from '/assets/BACK TO SCHOOL __AL MADINA SUPERMARKET GURFA_compressed.pdf';
 import pdf2 from '/assets/MEGASALEALMADINA TWIN TOWER.pdf';
@@ -36,7 +36,7 @@ function PdfFlipBookView() {
   const navigate = useNavigate();
 
   const currentPdfFile = pdfFiles[pdfId]?.file;
-
+  const currentPdfName = pdfFiles[pdfId]?.name;
   useEffect(() => {
     if (!currentPdfFile) {
       navigate('/promotions');
@@ -64,6 +64,18 @@ function PdfFlipBookView() {
     return Math.min(height, window.innerHeight * 0.9);
   };
 
+  const handleDownload = () => {
+    if (currentPdfFile) {
+      // Create a temporary anchor element to trigger download
+      const link = document.createElement('a');
+      link.href = currentPdfFile;
+      link.download = `${currentPdfName || 'document'}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <div
       className="bg-gray-100 flex flex-col items-center justify-center p-4"
@@ -74,13 +86,23 @@ function PdfFlipBookView() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="w-full max-w-4xl">
+      <div className="w-full max-w-4xl flex justify-between">
         <button
           onClick={() => navigate('/promotions')}
-          className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="mb-4 flex px-4 py-2 items-center bg-blue-500 text-white rounded hover:bg-blue-600"
         >
-          Back to Promotions
+          <BackArrowIcon /> Back to Promotions
         </button>
+
+        <button
+          onClick={handleDownload}
+          className="mb-4 px-4 py-2 flex items-center bg-green-500 text-white rounded hover:bg-green-600"
+        >
+          Download PDF <DownloadIcon />
+        </button>
+      </div>
+
+      <div className="w-full max-w-4xl">
         <div
           className="w-full flex justify-center items-center"
           style={{

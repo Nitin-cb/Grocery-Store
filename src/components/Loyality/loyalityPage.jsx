@@ -12,6 +12,7 @@ import b4 from '/images/loyalityCard/b4.png';
 // import app from '/images/loyalityCard/App .jpg';
 import banner from '/images/loyalityCard/AhlanBaner.jpg';
 import React from 'react';
+import { BackArrowIcon, DownloadIcon } from '../../utils/icons';
 
 export default function Loyality() {
   // Refs and visibility tracking for each section
