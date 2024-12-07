@@ -83,7 +83,6 @@ export default function Loyality() {
           className="block lg:hidden w-full"
         />
       </div>
-
       <div className="h-full flex items-center justify-center">
         <motion.div
           className="text-center max-w-6xl px-6"
@@ -110,7 +109,6 @@ export default function Loyality() {
           </p>
         </motion.div>
       </div>
-
       <motion.div
         className="mt-12"
         ref={bannerRef}
@@ -120,7 +118,6 @@ export default function Loyality() {
       >
         <img src={banner} alt="Banner" />
       </motion.div>
-
       <motion.div
         ref={loyaltyCardRef}
         className="text-center py-10 flex items-center flex-wrap justify-evenly"
@@ -140,7 +137,7 @@ export default function Loyality() {
           />
         </motion.div>
       </motion.div>
-
+      {/* Customer Loyalty */}
       <motion.div
         ref={customerLoyaltyRef}
         className="text-center py-10 bg-lime-50"
@@ -155,17 +152,26 @@ export default function Loyality() {
           Customer Loyalty Programs
         </motion.h2>
 
-        <div className="flex flex-wrap  bg-lime-50 justify-center mt-8 gap-6">
+        <div className="flex flex-wrap bg-lime-50 justify-center mt-8 gap-6">
           {[cardimg3, cardimg4, cardimg5].map((img, index) => (
             <motion.div
               key={index}
-              className="bg-lime-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm transform hover:scale-105 transition duration-300"
+              className="bg-lime-100 shadow-lg rounded-lg overflow-hidden w-full sm:w-1/3 max-w-sm"
               variants={fadeInUp}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)',
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 200,
+                damping: 10,
+              }}
             >
               <img
                 src={img}
                 alt={['Buy More', 'Earn More', 'Redeem'][index]}
-                className="w-full  object-contain"
+                className="w-full object-contain"
               />
               <div className="p-6">
                 <h3 className="font-bold text-xl text-gray-800">
@@ -186,6 +192,7 @@ export default function Loyality() {
         </div>
       </motion.div>
 
+      {/* Benefits */}
       <motion.div
         ref={benefitsRef}
         className="text-center py-12 bg-lime-50"
@@ -215,7 +222,21 @@ export default function Loyality() {
             },
             { src: b4, alt: 'Rewards', text: 'More points, more rewards' },
           ].map((benefit, index) => (
-            <motion.div key={index} className="text-center" variants={fadeInUp}>
+            <motion.div
+              key={index}
+              className="text-center"
+              variants={fadeInUp}
+              whileHover={{
+                scale: 1.1,
+                rotate: 2,
+                boxShadow: '0px 8px 15px rgba(0, 0, 0, 0.15)',
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 150,
+                damping: 8,
+              }}
+            >
               <img
                 src={benefit.src}
                 alt={benefit.alt}

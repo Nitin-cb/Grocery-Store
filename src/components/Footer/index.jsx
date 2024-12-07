@@ -9,6 +9,7 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from '../../utils/icons';
+import mail from '/images/image.png';
 
 const Footer = () => {
   return (
@@ -131,9 +132,9 @@ const Footer = () => {
             href="mailto:info@almadinauae.ae"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-400 transition-colors duration-200"
+            className="w-6   hover:text-gray-400 transition-colors duration-200"
           >
-            <MailIcon />
+            <img src={mail} alt="" />
           </a>
         </div>
       </div>

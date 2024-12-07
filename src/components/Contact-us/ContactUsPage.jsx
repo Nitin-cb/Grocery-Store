@@ -85,16 +85,17 @@ function ContactUsPage() {
         </div>
       </motion.div>
 
-      <div
-        className="relative bg-cover bg-center pt-7"
-        style={{
-          backgroundImage: `url(${bgimg1})`, // Replace bgimg1 with the actual image variable
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
+      <div className="relative  pt-7">
         {/* Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black bg-opacity-0"></div>
+        <div
+          className="absolute inset-0 bg-black bg-opacity-0"
+          style={{
+            backgroundImage: `url(${bgimg1})`, // Replace bgimg1 with the actual image variable
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            // backgroundRepeat: 'no-repeat',
+          }}
+        ></div>
 
         {/* Content */}
         <div className="relative">
@@ -120,7 +121,7 @@ function ContactUsPage() {
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="w-full pl-20 pt-5 md:w-1/2 md:mb-0"
+              className="w-full  pl-20 pt-5 md:w-1/2 md:mb-72"
             >
               <div className="flex items-center mb-2">
                 <MailIcon />

@@ -80,11 +80,11 @@ export default function ProductScroll() {
                 alt={product.name}
                 className="w-full h-60 object-cover"
               />
-              <div className="p-4">
+              {/* <div className="p-4">
                 <h3 className="text-lg text-center capitalize font-semibold text-gray-600 truncate">
                   {product.name}
                 </h3>
-              </div>
+              </div> */}
             </div>
           </div>
         ))}

@@ -18,7 +18,7 @@ export default function AboutUsPage() {
     visible: { opacity: 1 },
   };
   return (
-    <div className="bg-white">
+    <div className="bg-emerald-50">
       {/* Hero Section */}
       <motion.div
         className="relative h-[500px] bg-cover bg-center flex items-center justify-center "

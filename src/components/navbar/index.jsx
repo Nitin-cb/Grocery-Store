@@ -42,7 +42,7 @@ export default function Navbar() {
           </div>
 
           {/* Social Icons for Desktop */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex  items-center space-x-4">
             <SocialIcon
               href="https://www.instagram.com/almadina.ae?igsh=cTJ1ZDN0M3Y0YXFn"
               aria-label="Instagram"

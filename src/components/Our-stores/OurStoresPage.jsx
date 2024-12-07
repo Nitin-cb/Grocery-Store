@@ -241,14 +241,13 @@ const OurStores = () => {
         <h1 className="text-4xl font-extrabold text-center text-gray-800 my-12">
           Our <span className="text-green-600">Products</span>
         </h1>
-        <ProductScroll />
-
-        <div className="text-center mt-12 py-4">
-          <p className="text-lg text-gray-600">
-            Find the store nearest to you and enjoy our wide range of products
-            and services!
-          </p>
-        </div>
+      </div>
+      <ProductScroll />
+      <div className="text-center mt-12 py-4">
+        <p className="text-lg text-gray-600">
+          Find the store nearest to you and enjoy our wide range of products and
+          services!
+        </p>
       </div>
     </section>
   );
