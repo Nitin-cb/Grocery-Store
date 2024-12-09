@@ -15,8 +15,11 @@ export default function CareersPage() {
   const uploadResume = async (file) => {
     try {
       const storageRef = ref(storage, `resumes/${file.name}`);
+      console.log(storageRef);
+
       await uploadBytes(storageRef, file); // Upload the file to Firebase Storage
       const downloadUrl = await getDownloadURL(storageRef); // Get the file URL
+      console.log(downloadUrl);
       return downloadUrl; // Return the download URL
     } catch (error) {
       console.error('Error uploading resume:', error);
@@ -39,7 +42,7 @@ export default function CareersPage() {
           name: e.target.name.value,
           email: e.target.email.value,
           position: e.target.position.value,
-          Phone: e.target.phone.value,
+          Phone: e.target.Phone.value,
           resumeLink: resumeDownloadUrl, // Send link instead of file
         };
 
