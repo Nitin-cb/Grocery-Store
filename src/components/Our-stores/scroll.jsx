@@ -5,25 +5,48 @@ import { motion, useAnimation, useMotionValue } from 'framer-motion';
 const products = [
   {
     id: 1,
-    name: 'Chana dal',
-    image: '/images/Our Stores/own products/chana dal.jpg',
+    name: 'Basin Powder',
+    image: '/images/Our Stores/own products/Basin Powder.jpg',
   },
-  // { id: 2, name: "Fresh Juice", image: "/images/Our Stores/own products/Fresh Juice.jpg" },
+  {
+    id: 2,
+    name: 'Black Chick Peas',
+    image: '/images/Our Stores/own products/Black Chick Peas.jpg',
+  },
   {
     id: 3,
-    name: 'Masoor Dal',
-    image: '/images/Our Stores/own products/Masoor Dal.jpg',
+    name: 'Chana Dal',
+    image: '/images/Our Stores/own products/Chana Dal.jpg',
   },
-  { id: 4, name: 'Mokup', image: '/images/Our Stores/own products/mokup.jpg' },
   {
     id: 5,
-    name: 'Toor Dal',
-    image: '/images/Our Stores/own products/toor dal.jpg',
+    name: 'Green Pease',
+    image: '/images/Our Stores/own products/Green Pease.jpg',
   },
   {
     id: 6,
-    name: 'White Chickpeas',
-    image: '/images/Our Stores/own products/white chickpeas.jpg',
+    name: 'Masoor Dal',
+    image: '/images/Our Stores/own products/Masoor Dal.jpg',
+  },
+  {
+    id: 7,
+    name: 'Moong Dal',
+    image: '/images/Our Stores/own products/Moong Dal.jpg',
+  },
+  {
+    id: 8,
+    name: 'moong Whole',
+    image: '/images/Our Stores/own products/moong Whole.jpg',
+  },
+  {
+    id: 9,
+    name: 'Toor Dal',
+    image: '/images/Our Stores/own products/Toor Dal.jpg',
+  },
+  {
+    id: 10,
+    name: 'White Chick Peas',
+    image: '/images/Our Stores/own products/White Chick Peas.jpg',
   },
 ];
 
@@ -78,7 +101,7 @@ export default function ProductScroll() {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-60 object-cover"
+                className="w-full h-full object-cover"
               />
               {/* <div className="p-4">
                 <h3 className="text-lg text-center capitalize font-semibold text-gray-600 truncate">
