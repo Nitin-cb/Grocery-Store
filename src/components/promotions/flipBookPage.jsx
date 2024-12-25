@@ -11,123 +11,101 @@ import pdf4 from '/assets/AL MADINA SUPERMARKET GURFA.pdf';
 import pdf5 from '/assets/AL MADINA BRANCH.pdf';
 import pdf6 from '/assets/AL MADINA BDIYA.pdf';
 import pdf7 from '/assets/AL MADINA  DIBBA.pdf';
-import backgroundImage from '/images/homebg/flipbook.jpg';
 
 const pdfFiles = {
-  'back-to-school': {
-    name: 'Back To School AL Madina Supermarket Gurfa',
-    file: pdf1,
-  },
-  'mega-sale': { name: 'Mega Sale AL Madina Twin Tower', file: pdf2 },
-  'express-supermarket': { name: 'Express AL Madina Supermarket', file: pdf3 },
-  'al-madina-gurfa': { name: 'AL Madina Supermarket Gurfa', file: pdf4 },
-  'al-madina-branch': { name: 'AL Madina Branch', file: pdf5 },
-  'al-madina-bdiya': { name: 'AL Madina Bdiya', file: pdf6 },
-  'al-madina-dibba': { name: 'AL Madina Dibba', file: pdf7 },
+  'back-to-school': pdf1,
+  'mega-sale': pdf2,
+  'express-supermarket': pdf3,
+  'al-madina-gurfa': pdf4,
+  'al-madina-branch': pdf5,
+  'al-madina-bdiya': pdf6,
+  'al-madina-dibba': pdf7,
 };
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+pdfjs.GlobalWorkerOptions.workerSrc = //unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs;
+  function PdfFlipBookView() {
+    const [numPages, setNumPages] = useState(0);
+    const [pageWidth, setPageWidth] = useState(400);
+    const { pdfId } = useParams();
+    const navigate = useNavigate();
+    const currentPdfFile = pdfFiles[pdfId];
 
-function PdfFlipBookView() {
-  const [numPages, setNumPages] = useState(0);
-  const [pageWidth, setPageWidth] = useState(400);
-  const [isMobile, setIsMobile] = useState(false);
-  const { pdfId } = useParams();
-  const navigate = useNavigate();
+    useEffect(() => {
+      if (!currentPdfFile) {
+        navigate('/promotions');
+        return;
+      }
 
-  const currentPdfFile = pdfFiles[pdfId]?.file;
-  const currentPdfName = pdfFiles[pdfId]?.name;
-  useEffect(() => {
-    if (!currentPdfFile) {
-      navigate('/promotions');
-      return;
-    }
+      const handleResize = () => {
+        const width = window.innerWidth;
+        if (width < 768) {
+          setPageWidth(Math.min(width * 0.9, 400)); // Adjust for mobile/tablet
+        }
+        // else if(width < 999) {
+        //   setPageWidth(Math.min(width * 0.8, 450)); // Adjust for mobile/tablet
+        // }
+        else {
+          setPageWidth(Math.min(width * 0.5, 500)); // Adjust for larger screens
+        }
+      };
 
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const isMobileView = width < 768;
-      setIsMobile(isMobileView);
-      setPageWidth(isMobileView ? width * 0.9 : Math.min(width * 0.5, 400));
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, [currentPdfFile, navigate]);
+
+    const onDocumentLoadSuccess = ({ numPages }) => {
+      setNumPages(numPages);
     };
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, [currentPdfFile, navigate]);
+    const handleDownload = () => {
+      if (currentPdfFile) {
+        const link = document.createElement('a');
+        link.href = currentPdfFile;
+        link.download = `${pdfId}.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    };
 
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages);
-  };
+    return (
+      <div
+        className="relative w-full h-screen"
+        style={{ background: 'transparent' }}
+      >
+        {/* Navigation Buttons */}
+        <div className="absolute top-4 left-4 z-50">
+          <button
+            onClick={() => navigate('/promotions')}
+            className="flex px-2 py-1 items-center bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            <BackArrowIcon />
+          </button>
+        </div>
+        <div className="absolute top-4 right-4 z-50">
+          <button
+            onClick={handleDownload}
+            className="px-2 py-1 flex items-center bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            <DownloadIcon />
+          </button>
+        </div>
 
-  const getFlipBookHeight = () => {
-    const height = pageWidth * 1.5;
-    return Math.min(height, window.innerHeight * 0.9);
-  };
-
-  const handleDownload = () => {
-    if (currentPdfFile) {
-      // Create a temporary anchor element to trigger download
-      const link = document.createElement('a');
-      link.href = currentPdfFile;
-      link.download = `${currentPdfName || 'document'}.pdf`;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  };
-
-  return (
-    <div
-      className="bg-gray-100 flex flex-col items-center justify-center p-4"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover', // Adjust to 'contain' if you want the full image visible
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-      }}
-    >
-      <div className="w-full max-w-4xl flex justify-between">
-        <button
-          onClick={() => navigate('/promotions')}
-          className="mb-4 flex px-4 py-2 items-center bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          <BackArrowIcon /> Back to Promotions
-        </button>
-
-        <button
-          onClick={handleDownload}
-          className="mb-4 px-4 py-2 flex items-center bg-green-500 text-white rounded hover:bg-green-600"
-        >
-          Download PDF <DownloadIcon />
-        </button>
-      </div>
-
-      <div className="w-full max-w-4xl">
-        <div
-          className="w-full flex justify-center items-center"
-          style={{
-            height: isMobile ? '65vh' : '100vh',
-            padding: isMobile ? '5px' : '10px',
-            backgroundColor: '#f3f4f6',
-          }}
-        >
+        {/* FlipBook */}
+        <div className="w-full h-full flex justify-center items-center">
           {numPages > 0 && currentPdfFile ? (
             <HTMLFlipBook
               width={pageWidth}
-              height={getFlipBookHeight()}
+              height={window.innerHeight * 0.9} // Adjust height for full-screen fit
               size="stretch"
-              minWidth={isMobile ? pageWidth : 300}
-              maxWidth={isMobile ? pageWidth : 400}
+              minWidth={300}
+              maxWidth={500}
               minHeight={400}
-              maxHeight={800}
+              maxHeight={900}
               showCover={true}
               flippingTime={1000}
-              className="shadow-xl rounded-md"
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              className=" rounded-md"
             >
               {[...Array(numPages).keys()].map((pNum) => (
                 <div key={pNum} className="flex justify-center items-center">
@@ -162,8 +140,7 @@ function PdfFlipBookView() {
           )}
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  };
 
 export default PdfFlipBookView;
