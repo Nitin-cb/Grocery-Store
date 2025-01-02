@@ -11,15 +11,13 @@ export default function CareersPage() {
   const form = useRef();
   const [resumeUrl, setResumeUrl] = useState(null); // State to hold resume URL
   const [uploading, setUploading] = useState(false); // Track upload status
+  const [submissionSuccess, setSubmissionSuccess] = useState(false); // Track form submission status
 
   const uploadResume = async (file) => {
     try {
       const storageRef = ref(storage, `resumes/${file.name}`);
-      console.log(storageRef);
-
       await uploadBytes(storageRef, file); // Upload the file to Firebase Storage
       const downloadUrl = await getDownloadURL(storageRef); // Get the file URL
-      console.log(downloadUrl);
       return downloadUrl; // Return the download URL
     } catch (error) {
       console.error('Error uploading resume:', error);
@@ -42,7 +40,7 @@ export default function CareersPage() {
           name: e.target.name.value,
           email: e.target.email.value,
           position: e.target.position.value,
-          Phone: e.target.Phone.value,
+          Phone: e.target.phone.value,
           resumeLink: resumeDownloadUrl, // Send link instead of file
         };
 
@@ -55,9 +53,7 @@ export default function CareersPage() {
           )
           .then((result) => {
             console.log('Email sent successfully:', result.text);
-            alert('Your application has been submitted!');
-
-            // Clear the form after successful submission
+            setSubmissionSuccess(true); // Show thank-you message
             form.current.reset(); // Reset the form fields
           })
           .catch((error) => {
@@ -85,7 +81,7 @@ export default function CareersPage() {
         ></div>
 
         {/* Content Section */}
-        <div className="relative  p-4   backdrop-blur-sm">
+        <div className="relative p-4 backdrop-blur-sm">
           <h1 className="text-4xl mb-4 font-bold">Careers</h1>
           <p className="text-lg">
             We are looking for like-minded talents to join our growing family.
@@ -96,7 +92,6 @@ export default function CareersPage() {
 
         {/* Why Join Us Section */}
         <div className="flex flex-col items-center justify-center px-8 py-16 md:flex-row md:px-20 relative">
-          {/* Image Section */}
           <div className="w-full md:w-1/2">
             <img
               src={joinimg}
@@ -105,17 +100,13 @@ export default function CareersPage() {
             />
           </div>
 
-          {/* Text Section */}
           <div className="w-full mt-8 md:w-1/2 md:mt-0 md:ml-10 text-center">
             <h2 className="text-3xl font-semibold italic text-gray-800">
               Why Join Us?
             </h2>
             <p className="mt-4 text-lg italic text-gray-600 leading-relaxed">
               We’re a team that feels like a growing family, sharing strong
-              values of teamwork, learning, and growth. We are in the process of
-              expanding Al Madina Group across the UAE. If you’d like to be part
-              of that, then please get in touch. We’re always open to meet new
-              people and have light-hearted conversations.
+              values of teamwork, learning, and growth.
             </p>
           </div>
         </div>
@@ -125,78 +116,83 @@ export default function CareersPage() {
       <div
         className="relative bg-white py-12"
         style={{
-          backgroundImage: `url(${bgimg2})`, // Replace bgimg2 with the image variable or URL
+          backgroundImage: `url(${bgimg2})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-white bg-opacity-0"></div>
-
-        {/* Content */}
         <div className="relative max-w-4xl mx-auto px-8">
           <h3 className="text-2xl font-bold text-gray-800 mb-6">
             Grow With Us:-
           </h3>
           <p className="text-gray-600 mb-8">
-            You’ll receive all the training, development, and support you need
-            to succeed in our dynamic environment – with great benefits and
-            opportunities to progress.
+            You’ll receive all the training, development, and support you need.
           </p>
 
-          {/* Form */}
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            <input
-              type="text"
-              placeholder="Name"
-              name="name"
-              className="w-full p-3 border border-gray-300 rounded-md"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              className="w-full p-3 border border-gray-300 rounded-md"
-            />
-            <input
-              type="text"
-              placeholder="Phone Number"
-              name="phone"
-              className="w-full p-3 border border-gray-300 rounded-md"
-            />
-            <input
-              type="text"
-              name="position"
-              placeholder="Applying for Position"
-              className="w-full p-3 border border-gray-300 rounded-md"
-            />
-
-            <div className="md:col-span-2">
-              <label className="block text-gray-700 mb-2">
-                Attach Resume *
-              </label>
+          {/* Thank You Message */}
+          {submissionSuccess ? (
+            <div className="text-center bg-green-100 p-4 rounded-lg">
+              <h4 className="text-xl font-semibold text-green-800">
+                Thank you for your submission!
+              </h4>
+              <p className="text-green-700">
+                We have received your application and will get back to you
+                shortly.
+              </p>
+            </div>
+          ) : (
+            // Form
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
               <input
-                type="file"
+                type="text"
+                placeholder="Name"
+                name="name"
                 className="w-full p-3 border border-gray-300 rounded-md"
-                name="resume"
-                accept="application/pdf"
               />
-            </div>
-
-            <div className="md:col-span-2 flex justify-center">
-              <button
-                type="submit"
-                disabled={uploading}
-                className="px-6 py-3 bg-red-500 text-white rounded-md shadow-md hover:bg-red-600"
-              >
-                {uploading ? 'Uploading...' : 'Submit Application'}
-              </button>
-            </div>
-          </form>
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                className="w-full p-3 border border-gray-300 rounded-md"
+              />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                name="phone"
+                className="w-full p-3 border border-gray-300 rounded-md"
+              />
+              <input
+                type="text"
+                name="position"
+                placeholder="Applying for Position"
+                className="w-full p-3 border border-gray-300 rounded-md"
+              />
+              <div className="md:col-span-2">
+                <label className="block text-gray-700 mb-2">
+                  Attach Resume *
+                </label>
+                <input
+                  type="file"
+                  className="w-full p-3 border border-gray-300 rounded-md"
+                  name="resume"
+                  accept="application/pdf"
+                />
+              </div>
+              <div className="md:col-span-2 flex justify-center">
+                <button
+                  type="submit"
+                  disabled={uploading}
+                  className="px-6 py-3 bg-red-500 text-white rounded-md shadow-md hover:bg-red-600"
+                >
+                  {uploading ? 'Uploading...' : 'Submit Application'}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </div>

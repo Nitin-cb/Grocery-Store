@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import AboutPage from '../components/About/about';
 import ContactUs from '../components/Contact-us/contactUs';
@@ -9,6 +9,7 @@ import Promotions from '../components/promotions/promotion';
 import Insight from '../components/Insight/Insight';
 import ExclusiveDeals from '../components/ExclusiveDeals/ExclusiveDeals';
 import LoyalitySection from '../components/Loyality/Loyality';
+import arrow from '/images/up-arrow1.png';
 // Shared animation variants
 export const sharedAnimationVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -74,6 +75,40 @@ const AnimatedSection = ({ children, delay = 0 }) => {
   );
 };
 
+// Scroll-to-Top Button Component
+const ScrollToTopButton = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1200) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    isVisible && (
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-4 right-4 p-3 pt-6 pb-6 bg-green-500 z-50 text-white rounded-full shadow-lg hover:bg-green-600 transition-all"
+        aria-label="Scroll to Top"
+      >
+        <img src={arrow} className="w-6 h-" />
+      </button>
+    )
+  );
+};
+
 export function Home() {
   return (
     <>
@@ -115,6 +150,7 @@ export function Home() {
           <ContactUs />
         </AnimatedSection>
       </div>
+      <ScrollToTopButton />
     </>
   );
 }
