@@ -189,9 +189,9 @@ export const MailIcon = () => {
       version="1.1"
       id="Capa_1"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="-199.08 -199.08 872.16 872.16"
-      xml:space="preserve"
+      xmlSpace="preserve"
     >
       <g id="SVGRepo_iconCarrier">
         <g>

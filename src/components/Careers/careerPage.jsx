@@ -1,7 +1,4 @@
 import React, { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../../firebaseConfig';
 import storeimg from '/images/careers/Banner for Careers pages.jpg';
 import joinimg from '/images/careers/Why Join Us.jpg';
 import bgimg from '/images/careers/career1.jpeg';
@@ -9,60 +6,34 @@ import bgimg2 from '/images/careers/career2.jpg';
 
 export default function CareersPage() {
   const form = useRef();
-  const [resumeUrl, setResumeUrl] = useState(null); // State to hold resume URL
   const [uploading, setUploading] = useState(false); // Track upload status
   const [submissionSuccess, setSubmissionSuccess] = useState(false); // Track form submission status
-
-  const uploadResume = async (file) => {
-    try {
-      const storageRef = ref(storage, `resumes/${file.name}`);
-      await uploadBytes(storageRef, file); // Upload the file to Firebase Storage
-      const downloadUrl = await getDownloadURL(storageRef); // Get the file URL
-      return downloadUrl; // Return the download URL
-    } catch (error) {
-      console.error('Error uploading resume:', error);
-      return null;
-    }
-  };
 
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    const file = e.target.resume.files[0];
-    if (file) {
-      setUploading(true);
-      const resumeDownloadUrl = await uploadResume(file); // Upload file to Firebase, get URL
-      setUploading(false);
-      setResumeUrl(resumeDownloadUrl);
+    const formData = new FormData();
+    formData.append('name', e.target.name.value);
+    formData.append('email', e.target.email.value);
+    formData.append('phone', e.target.phone.value);
+    formData.append('position', e.target.position.value);
+    formData.append('resume', e.target.resume.files[0]);
 
-      if (resumeDownloadUrl) {
-        const emailParams = {
-          name: e.target.name.value,
-          email: e.target.email.value,
-          position: e.target.position.value,
-          Phone: e.target.phone.value,
-          resumeLink: resumeDownloadUrl, // Send link instead of file
-        };
+    try {
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        body: formData,
+      });
 
-        emailjs
-          .send(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            emailParams,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-          )
-          .then((result) => {
-            console.log('Email sent successfully:', result.text);
-            setSubmissionSuccess(true); // Show thank-you message
-            form.current.reset(); // Reset the form fields
-          })
-          .catch((error) => {
-            console.error('Error sending email:', error.text);
-            alert('Failed to send application. Please try again.');
-          });
+      if (response.ok) {
+        setSubmissionSuccess(true);
+        form.current.reset();
       } else {
-        alert('Failed to upload resume. Please try again.');
+        throw new Error('Failed to send application.');
       }
+    } catch (error) {
+      console.error(error);
+      alert('Failed to submit application. Please try again.');
     }
   };
 
@@ -146,6 +117,7 @@ export default function CareersPage() {
               ref={form}
               onSubmit={sendEmail}
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
+              encType="multipart/form-data"
             >
               <input
                 type="text"

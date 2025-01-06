@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import bannerimg from '/images/ContactUs/Banner for Contact Us Page.jpg';
 import middleimg from '/images/ContactUs/Middle section.jpg';
@@ -16,6 +17,7 @@ function ContactUsPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  // const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -34,20 +36,30 @@ function ContactUsPage() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newErrors = validateForm();
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-    } else {
-      setSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        store: '',
-        message: '',
-      });
-      setErrors({});
+    try {
+      const newErrors = validateForm();
+      if (Object.keys(newErrors).length > 0) {
+        setErrors(newErrors);
+      } else {
+        setSubmitted(true);
+        const currentDate = new Date().toISOString().split('T')[0];
+        const response = await axios.post(
+          'https://sheetdb.io/api/v1/vzbvu3lmc4spz',
+          {
+            data: {
+              Date: currentDate, // Add the submission date
+              Name: formData.name,
+              Email: formData.email,
+              Store: formData.store,
+              Message: formData.message,
+            },
+          }
+        );
+      }
+    } catch (error) {
+      console.error('Error submitting data to SheetDB:', error);
     }
   };
 
@@ -230,7 +242,6 @@ function ContactUsPage() {
                   <p className="text-red-600 text-sm">{errors.name}</p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="email"
@@ -250,7 +261,6 @@ function ContactUsPage() {
                   <p className="text-red-600 text-sm">{errors.email}</p>
                 )}
               </div>
-
               <div>
                 <label
                   htmlFor="store"
@@ -267,7 +277,6 @@ function ContactUsPage() {
                   className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                 />
               </div>
-
               <div>
                 <label
                   htmlFor="message"
@@ -287,7 +296,6 @@ function ContactUsPage() {
                   <p className="text-red-600 text-sm">{errors.message}</p>
                 )}
               </div>
-
               <div>
                 <button
                   type="submit"
@@ -298,9 +306,11 @@ function ContactUsPage() {
               </div>
             </form>
           ) : (
-            <p className="text-green-600 text-lg font-semibold">
-              Thank you for your message. We will get back to you soon!
-            </p>
+            <div className="text-center">
+              <h3 className="text-lg font-medium text-green-800">
+                Thank you for contacting us! We'll get back to you soon.
+              </h3>
+            </div>
           )}
         </div>
       </motion.div>
