@@ -45,18 +45,15 @@ function ContactUsPage() {
       } else {
         setSubmitted(true);
         const currentDate = new Date().toISOString().split('T')[0];
-        const response = await axios.post(
-          'https://sheetdb.io/api/v1/vzbvu3lmc4spz',
-          {
-            data: {
-              Date: currentDate, // Add the submission date
-              Name: formData.name,
-              Email: formData.email,
-              Store: formData.store,
-              Message: formData.message,
-            },
-          }
-        );
+        const response = await axios.post(import.meta.env.VITE_SHEETDBIO, {
+          data: {
+            Date: currentDate, // Add the submission date
+            Name: formData.name,
+            Email: formData.email,
+            Store: formData.store,
+            Message: formData.message,
+          },
+        });
       }
     } catch (error) {
       console.error('Error submitting data to SheetDB:', error);
