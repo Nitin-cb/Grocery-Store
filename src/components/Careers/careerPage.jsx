@@ -20,7 +20,7 @@ export default function CareersPage() {
     formData.append('resume', e.target.resume.files[0]);
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://grocery-store-backend-alpha.vercel.app/send-email', {
         method: 'POST',
         body: formData,
       });
